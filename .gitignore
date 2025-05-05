@@ -13,10 +13,8 @@
 /.idea/workspace.xml
 /build
 /captures
-/local.properties
-Gemfile
-Gemfile.lock
-fastlane/fastlane.json
 keystore.jks
 keystore.properties
 local.properties
+fastlane/fastlane.json
+fastlane/report.xml
