@@ -18,3 +18,4 @@ keystore.properties
 local.properties
 fastlane/fastlane.json
 fastlane/report.xml
+.kotlin/
