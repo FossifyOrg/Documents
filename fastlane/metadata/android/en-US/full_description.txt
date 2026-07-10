@@ -1,0 +1,36 @@
+Fossify Documents is a private, offline document reader and organizer built for simplicity. Open PDF, DOCX, text, Markdown, CSV, TSV, and HTML files, and keep important documents within easy reach without ads, tracking, or internet access.<br><br>
+
+<b>📄 READ DOCUMENTS WITH EASE</b><br>
+• Open PDF, DOCX, plain text, Markdown, CSV, TSV, and HTML documents.<br>
+• Navigate PDF pages, zoom in or out, and use a distraction-free full-screen viewer.<br>
+• Open password-protected PDFs.<br>
+• Read DOCX files in a clean, mobile-friendly layout.<br>
+• Browse CSV and TSV files in a dedicated table viewer.<br>
+• View HTML documents safely and completely offline.<br>
+• Preview formatted Markdown with headings, lists, tables, links, code, and more.<br>
+• Print PDFs or open documents in another compatible app.<br><br>
+
+<b>✍️ CREATE AND EDIT</b><br>
+• Create new text and Markdown files anywhere supported by Android.<br>
+• Edit existing text and Markdown documents.<br>
+• Edit CSV and TSV files as plain text while keeping the table viewer for reading.<br>
+• Use convenient Markdown formatting controls for headings, bold text, italics, quotes, lists, and code.<br>
+• Keep track of word and character counts while editing.<br><br>
+
+<b>📁 KEEP EVERYTHING ORGANIZED</b><br>
+• Add folders and browse their supported documents directly in the app.<br>
+• Quickly return to recently opened documents.<br>
+• Mark important documents as favorites.<br>
+• Search, filter, and sort by name, date, or file size.<br>
+• Switch between comfortable list and grid layouts.<br><br>
+
+<b>🔒 PRIVATE BY DESIGN</b><br>
+Fossify Documents works completely offline and has no internet permission. Your documents remain on your device and in the storage locations you choose. There are no ads, analytics, or tracking.<br><br>
+
+<b>🎨 MADE FOR YOU</b><br>
+Customize the app with Fossify themes, colors, icons, and fonts. Light and dark themes are fully supported, giving you a document experience that feels at home on your device.<br><br>
+
+<b>Simple. Private. Yours.</b><br><br>
+
+Explore more Fossify apps: https://www.fossify.org<br>
+Join the Fossify community: https://github.com/FossifyOrg

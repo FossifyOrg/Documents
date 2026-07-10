@@ -1,0 +1,88 @@
+[versions]
+kotlin = "2.3.10"
+#Detekt
+detekt = "1.23.8"
+detektCompose = "0.4.28"
+#Fossify
+commons = "6.1.6"
+androidPdfViewer = "3.2.16"
+javaMammoth = "1.12.1"
+commonmark = "0.29.0"
+jsoup = "1.22.2"
+commonsCsv = "1.14.1"
+#Compose
+composeActivity = "1.11.0"
+compose = "1.9.4"
+composeMaterial3 = "1.4.0"
+composeMaterialIcons = "1.7.8"
+#Androidx
+androidx-lifecycle = "2.10.0"
+junit = "4.13.2"
+#Gradle
+gradlePlugins-agp = "9.3.1"
+app-build-compileSDKVersion = "36"
+app-build-targetSDK = "36"
+app-build-minimumSDK = "26"
+app-build-javaVersion = "VERSION_17"
+app-build-kotlinJVMTarget = "17"
+
+[libraries]
+compose-detekt = { module = "io.nlopez.compose.rules:detekt", version.ref = "detektCompose" }
+#Fossify
+fossify-commons = { module = "org.fossify:commons", version.ref = "commons" }
+android-pdf-viewer = { module = "com.github.Infomaniak:android-pdfview", version.ref = "androidPdfViewer" }
+java-mammoth = { module = "org.fossify:java-mammoth", version.ref = "javaMammoth" }
+commonmark = { module = "org.commonmark:commonmark", version.ref = "commonmark" }
+commonmark-autolink = { module = "org.commonmark:commonmark-ext-autolink", version.ref = "commonmark" }
+commonmark-strikethrough = { module = "org.commonmark:commonmark-ext-gfm-strikethrough", version.ref = "commonmark" }
+commonmark-tables = { module = "org.commonmark:commonmark-ext-gfm-tables", version.ref = "commonmark" }
+commonmark-task-lists = { module = "org.commonmark:commonmark-ext-task-list-items", version.ref = "commonmark" }
+jsoup = { module = "org.jsoup:jsoup", version.ref = "jsoup" }
+commons-csv = { module = "org.apache.commons:commons-csv", version.ref = "commonsCsv" }
+#Android X lifecycle
+androidx-lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidx-lifecycle" }
+androidx-lifecycle-viewModel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle" }
+androidx-lifecycle-viewModel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "androidx-lifecycle" }
+androidx-lifecycle-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
+#Compose
+compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
+compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "composeMaterial3" }
+compose-material-icons = { module = "androidx.compose.material:material-icons-extended", version.ref = "composeMaterialIcons" }
+compose-animation = { module = "androidx.compose.animation:animation", version.ref = "compose" }
+compose-activity = { module = "androidx.activity:activity-compose", version.ref = "composeActivity" }
+compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
+compose-runtime = { module = "androidx.compose.runtime:runtime", version.ref = "compose" }
+compose-uiTooling-debug = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
+compose-uiTooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
+junit = { module = "junit:junit", version.ref = "junit" }
+[bundles]
+compose = [
+    "compose-activity",
+    "compose-animation",
+    "compose-foundation",
+    "compose-material-icons",
+    "compose-material3",
+    "compose-runtime",
+    "compose-ui",
+    "compose-uiTooling-preview",
+]
+compose-preview = [
+    "compose-uiTooling-debug",
+]
+lifecycle = [
+    "androidx-lifecycle-compose",
+    "androidx-lifecycle-runtime",
+    "androidx-lifecycle-viewModel",
+    "androidx-lifecycle-viewModel-compose",
+]
+markdown = [
+    "commonmark",
+    "commonmark-autolink",
+    "commonmark-strikethrough",
+    "commonmark-tables",
+    "commonmark-task-lists",
+]
+[plugins]
+android = { id = "com.android.application", version.ref = "gradlePlugins-agp" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
