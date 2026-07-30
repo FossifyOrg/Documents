@@ -17,7 +17,8 @@ class DocumentsRepository(
     context: Context,
 ) {
     private val appContext = context.applicationContext
-    private val store = DocumentsStore(appContext.config)
+    private val config = appContext.config
+    private val store = DocumentsStore(config)
     private val scanner = DocumentProviderScanner(appContext)
     private val permissions = DocumentUriPermissions(appContext)
 
@@ -70,12 +71,13 @@ class DocumentsRepository(
 
     fun isDocumentWritable(uri: Uri): Boolean = permissions.isWritable(uri)
 
-    fun removeItemsWithoutPersistentAccess() {
+    fun cleanUpStoredItems() {
+        val refreshLocations = !config.wereDocumentLocationsRefreshed
         store.updateDocuments { documents ->
             documents
                 .filter { permissions.hasPersistentReadAccess(it.uri.toUri()) }
                 .map { document ->
-                    if (document.location in LEGACY_PROVIDER_LOCATIONS) {
+                    if (refreshLocations) {
                         scanner.readDocument(document.uri.toUri(), document)
                     } else {
                         document
@@ -85,6 +87,7 @@ class DocumentsRepository(
         store.updateFolders { folders ->
             folders.filter { permissions.hasPersistentReadAccess(it.uri.toUri()) }
         }
+        config.wereDocumentLocationsRefreshed = true
     }
 
     fun updateLastPage(uri: Uri, page: Int) {
@@ -184,13 +187,6 @@ class DocumentsRepository(
         val previous = store.getFolders().firstOrNull { it.uri == uri }
         emit(scanner.readFolderContent(uri.toUri(), previous))
     }.flowOn(Dispatchers.IO)
-
-    private companion object {
-        val LEGACY_PROVIDER_LOCATIONS = setOf(
-            "Downloads documents",
-            "Externalstorage documents",
-        )
-    }
 
 }
 

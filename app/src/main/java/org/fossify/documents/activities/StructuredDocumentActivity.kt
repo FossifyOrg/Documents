@@ -1,5 +1,3 @@
-@file:Suppress("SwallowedException")
-
 package org.fossify.documents.activities
 
 import android.content.ActivityNotFoundException
@@ -106,7 +104,7 @@ class StructuredDocumentActivity : BaseComposeActivity() {
     private fun launchExternalIntent(intent: Intent) {
         try {
             startActivity(intent)
-        } catch (error: ActivityNotFoundException) {
+        } catch (_: ActivityNotFoundException) {
             toast(org.fossify.commons.R.string.no_app_found)
         } catch (error: SecurityException) {
             showErrorToast(error)

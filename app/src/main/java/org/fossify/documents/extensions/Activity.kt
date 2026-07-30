@@ -1,4 +1,4 @@
-@file:Suppress("LongParameterList", "SwallowedException")
+@file:Suppress("LongParameterList")
 
 package org.fossify.documents.extensions
 

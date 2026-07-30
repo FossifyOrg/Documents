@@ -1,5 +1,3 @@
-@file:Suppress("SwallowedException")
-
 package org.fossify.documents.activities
 
 import android.content.ActivityNotFoundException
@@ -197,7 +195,7 @@ class MainActivity : BaseComposeActivity() {
 
                 DocumentKind.OTHER -> toast(R.string.unsupported_document_type)
             }
-        } catch (error: SecurityException) {
+        } catch (_: SecurityException) {
             toast(R.string.document_no_longer_available)
         }
     }
@@ -292,7 +290,7 @@ class MainActivity : BaseComposeActivity() {
 private fun MainActivity.launchExternalIntent(intent: Intent) {
     try {
         startActivity(intent)
-    } catch (error: ActivityNotFoundException) {
+    } catch (_: ActivityNotFoundException) {
         toast(org.fossify.commons.R.string.no_app_found)
     } catch (error: SecurityException) {
         showErrorToast(error)

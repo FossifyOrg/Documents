@@ -1,4 +1,4 @@
-@file:Suppress("LongMethod", "SwallowedException")
+@file:Suppress("LongMethod")
 
 package org.fossify.documents.activities
 
@@ -147,7 +147,7 @@ class TextDocumentActivity : BaseComposeActivity() {
             startActivity(
                 Intent.createChooser(intent, getString(org.fossify.commons.R.string.open_with)),
             )
-        } catch (error: ActivityNotFoundException) {
+        } catch (_: ActivityNotFoundException) {
             toast(org.fossify.commons.R.string.no_app_found)
         } catch (error: SecurityException) {
             showErrorToast(error)

@@ -52,7 +52,7 @@ class DocumentsViewModel(
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.removeItemsWithoutPersistentAccess()
+            repository.cleanUpStoredItems()
         }
     }
 

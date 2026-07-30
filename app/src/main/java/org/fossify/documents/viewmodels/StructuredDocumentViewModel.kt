@@ -1,5 +1,3 @@
-@file:Suppress("SwallowedException", "TooGenericExceptionCaught")
-
 package org.fossify.documents.viewmodels
 
 import android.app.Application
@@ -31,6 +29,7 @@ internal class StructuredDocumentViewModel(
     private var loadedUri: Uri? = null
     private val app: Application get() = getApplication()
 
+    @Suppress("TooGenericExceptionCaught")
     fun load(uri: Uri, kind: DocumentKind, force: Boolean = false) {
         if (!force && uri == loadedUri) {
             return
@@ -54,15 +53,15 @@ internal class StructuredDocumentViewModel(
                         error = null,
                     )
                 }
-            } catch (error: OutOfMemoryError) {
+            } catch (_: OutOfMemoryError) {
                 showOpenError(app.getString(R.string.document_too_large_to_view))
-            } catch (error: DocumentTooLargeException) {
+            } catch (_: DocumentTooLargeException) {
                 showOpenError(app.getString(R.string.document_too_large_to_view))
-            } catch (error: IOException) {
+            } catch (_: IOException) {
                 showOpenError()
-            } catch (error: SecurityException) {
+            } catch (_: SecurityException) {
                 showOpenError(app.getString(R.string.document_no_longer_available))
-            } catch (error: RuntimeException) {
+            } catch (_: RuntimeException) {
                 showOpenError()
             }
         }

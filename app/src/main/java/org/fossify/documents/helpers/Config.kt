@@ -13,6 +13,7 @@ class Config(context: Context) : BaseConfig(context) {
         private const val EDITOR_TEXT_ZOOM = "editor_text_zoom"
         private const val REMEMBER_PDF_PAGE = "remember_pdf_page"
         private const val SHOW_FILE_LOCATIONS = "show_file_locations"
+        private const val WERE_DOCUMENT_LOCATIONS_REFRESHED = "were_document_locations_refreshed"
     }
 
     var documentsJson: String
@@ -52,4 +53,10 @@ class Config(context: Context) : BaseConfig(context) {
         }
 
     val showFileLocationsFlow = ::showFileLocations.asFlowNonNull()
+
+    var wereDocumentLocationsRefreshed: Boolean
+        get() = prefs.getBoolean(WERE_DOCUMENT_LOCATIONS_REFRESHED, false)
+        set(value) = prefs.edit {
+            putBoolean(WERE_DOCUMENT_LOCATIONS_REFRESHED, value)
+        }
 }

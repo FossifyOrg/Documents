@@ -1,5 +1,3 @@
-@file:Suppress("SwallowedException")
-
 package org.fossify.documents.activities
 
 import android.content.ActivityNotFoundException
@@ -89,7 +87,7 @@ class PDFViewerActivity : BaseComposeActivity() {
             startActivity(
                 Intent.createChooser(intent, getString(org.fossify.commons.R.string.open_with)),
             )
-        } catch (error: ActivityNotFoundException) {
+        } catch (_: ActivityNotFoundException) {
             toast(org.fossify.commons.R.string.no_app_found)
         } catch (error: SecurityException) {
             showErrorToast(error)
