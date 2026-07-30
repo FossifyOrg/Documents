@@ -33,4 +33,6 @@ Customize the app with Fossify themes, colors, icons, and fonts. Light and dark 
 <b>Simple. Private. Yours.</b><br><br>
 
 Explore more Fossify apps: https://www.fossify.org<br>
-Join the Fossify community: https://github.com/FossifyOrg
+Open-Source Code: https://www.github.com/FossifyOrg<br>
+Join the community on Reddit: https://www.reddit.com/r/Fossify<br>
+Connect on Telegram: https://t.me/Fossify

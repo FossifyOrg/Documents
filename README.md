@@ -1,6 +1,6 @@
 # Fossify Documents
 
-<img alt="Logo" src="graphics/icon.svg" width="120" />
+<img alt="Logo" src="graphics/icon.webp" width="120" />
 
 Fossify Documents is a private, offline document reader and organizer for Android.
 
@@ -13,5 +13,13 @@ and marked as favorites.
 The app contains no ads or unnecessary permissions and integrates with Fossify's
 shared themes, custom fonts, and appearance settings.
 
-- Explore more Fossify apps: https://www.fossify.org<br>
-- Join the community: https://github.com/FossifyOrg
+➡️ Explore more Fossify apps: https://www.fossify.org<br>
+➡️ Open-Source Code: https://www.github.com/FossifyOrg<br>
+➡️ Join the community on Reddit: https://www.reddit.com/r/Fossify<br>
+➡️ Connect on Telegram: https://t.me/Fossify
+
+<div align="center">
+<img alt="Documents home screen" src="fastlane/metadata/android/en-US/images/phoneScreenshots/1_en-US.png" width="30%">
+<img alt="Folder browser" src="fastlane/metadata/android/en-US/images/phoneScreenshots/3_en-US.png" width="30%">
+<img alt="Markdown document" src="fastlane/metadata/android/en-US/images/phoneScreenshots/4_en-US.png" width="30%">
+</div>
