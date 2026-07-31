@@ -1,5 +1,5 @@
 [versions]
-kotlin = "2.3.10"
+kotlin = "2.4.10"
 #Detekt
 detekt = "1.23.8"
 detektCompose = "0.4.28"
