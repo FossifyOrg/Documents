@@ -19,3 +19,6 @@ local.properties
 fastlane/fastlane.json
 fastlane/report.xml
 .kotlin/
+/graphics/mockups/
+/app/build/
+/graphics/release-demo/

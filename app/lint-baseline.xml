@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 9.2.1" type="baseline" client="gradle" dependencies="false" name="AGP (9.2.1)" variant="all" version="9.2.1">
+
+    <issue
+        id="NotificationPermission"
+        message="When targeting Android 13 or higher, posting a permission requires holding the `POST_NOTIFICATIONS` permission (usage from org.fossify.commons.asynctasks.CopyMoveTask)">
+        <location
+            file="src/main/AndroidManifest.xml"/>
+    </issue>
+
+    <issue
+        id="OldTargetApi"
+        message="Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the `android.os.Build.VERSION_CODES` javadoc for details."
+        errorLine1="app-build-targetSDK = &quot;36&quot;"
+        errorLine2="                      ~~~~">
+        <location
+            file="$HOME/Projects/Fossify/FossifyOrg/Documents/gradle/libs.versions.toml"
+            line="24"
+            column="23"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        message="Attribute `enableOnBackInvokedCallback` is only used in API level 33 and higher (current min is 26)"
+        errorLine1="            android:enableOnBackInvokedCallback=&quot;true&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="20"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        message="Attribute `enableOnBackInvokedCallback` is only used in API level 33 and higher (current min is 26)"
+        errorLine1="            android:enableOnBackInvokedCallback=&quot;true&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="26"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="CustomSplashScreen"
+        message="The application should not provide its own launch screen"
+        errorLine1="class SplashActivity : BaseSplashActivity() {"
+        errorLine2="      ~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/org/fossify/documents/activities/SplashActivity.kt"
+            line="6"
+            column="7"/>
+    </issue>
+
+    <issue
+        id="AndroidGradlePluginVersion"
+        message="A newer version of Gradle than 9.6.0 is available: 9.6.1"
+        errorLine1="distributionUrl=https\://services.gradle.org/distributions/gradle-9.6.0-bin.zip"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="$HOME/Projects/Fossify/FossifyOrg/Documents/gradle/wrapper/gradle-wrapper.properties"
+            line="3"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="AndroidGradlePluginVersion"
+        message="A newer version of com.android.application than 9.2.1 is available: 9.3.1"
+        errorLine1="gradlePlugins-agp = &quot;9.2.1&quot;"
+        errorLine2="                    ~~~~~~~">
+        <location
+            file="$HOME/Projects/Fossify/FossifyOrg/Documents/gradle/libs.versions.toml"
+            line="22"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.activity:activity-compose than 1.11.0 is available: 1.13.0"
+        errorLine1="composeActivity = &quot;1.11.0&quot;"
+        errorLine2="                  ~~~~~~~~">
+        <location
+            file="$HOME/Projects/Fossify/FossifyOrg/Documents/gradle/libs.versions.toml"
+            line="14"
+            column="19"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.compose.animation:animation than 1.9.4 is available: 1.11.4"
+        errorLine1="compose = &quot;1.9.4&quot;"
+        errorLine2="          ~~~~~~~">
+        <location
+            file="$HOME/Projects/Fossify/FossifyOrg/Documents/gradle/libs.versions.toml"
+            line="15"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.compose.runtime:runtime than 1.9.4 is available: 1.11.4"
+        errorLine1="compose = &quot;1.9.4&quot;"
+        errorLine2="          ~~~~~~~">
+        <location
+            file="$HOME/Projects/Fossify/FossifyOrg/Documents/gradle/libs.versions.toml"
+            line="15"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.compose.ui:ui than 1.9.4 is available: 1.11.4"
+        errorLine1="compose = &quot;1.9.4&quot;"
+        errorLine2="          ~~~~~~~">
+        <location
+            file="$HOME/Projects/Fossify/FossifyOrg/Documents/gradle/libs.versions.toml"
+            line="15"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.compose.ui:ui-tooling than 1.9.4 is available: 1.11.4"
+        errorLine1="compose = &quot;1.9.4&quot;"
+        errorLine2="          ~~~~~~~">
+        <location
+            file="$HOME/Projects/Fossify/FossifyOrg/Documents/gradle/libs.versions.toml"
+            line="15"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.compose.ui:ui-tooling-preview than 1.9.4 is available: 1.11.4"
+        errorLine1="compose = &quot;1.9.4&quot;"
+        errorLine2="          ~~~~~~~">
+        <location
+            file="$HOME/Projects/Fossify/FossifyOrg/Documents/gradle/libs.versions.toml"
+            line="15"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="Upgrade `androidx.compose.foundation` for keyboard and mouse support"
+        errorLine1="compose = &quot;1.9.4&quot;"
+        errorLine2="          ~~~~~~~">
+        <location
+            file="$HOME/Projects/Fossify/FossifyOrg/Documents/gradle/libs.versions.toml"
+            line="15"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.lifecycle:lifecycle-runtime-compose than 2.10.0 is available: 2.11.0"
+        errorLine1="androidx-lifecycle = &quot;2.10.0&quot;"
+        errorLine2="                     ~~~~~~~~">
+        <location
+            file="$HOME/Projects/Fossify/FossifyOrg/Documents/gradle/libs.versions.toml"
+            line="19"
+            column="22"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.lifecycle:lifecycle-runtime-ktx than 2.10.0 is available: 2.11.0"
+        errorLine1="androidx-lifecycle = &quot;2.10.0&quot;"
+        errorLine2="                     ~~~~~~~~">
+        <location
+            file="$HOME/Projects/Fossify/FossifyOrg/Documents/gradle/libs.versions.toml"
+            line="19"
+            column="22"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.lifecycle:lifecycle-viewmodel-compose than 2.10.0 is available: 2.11.0"
+        errorLine1="androidx-lifecycle = &quot;2.10.0&quot;"
+        errorLine2="                     ~~~~~~~~">
+        <location
+            file="$HOME/Projects/Fossify/FossifyOrg/Documents/gradle/libs.versions.toml"
+            line="19"
+            column="22"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.lifecycle:lifecycle-viewmodel-ktx than 2.10.0 is available: 2.11.0"
+        errorLine1="androidx-lifecycle = &quot;2.10.0&quot;"
+        errorLine2="                     ~~~~~~~~">
+        <location
+            file="$HOME/Projects/Fossify/FossifyOrg/Documents/gradle/libs.versions.toml"
+            line="19"
+            column="22"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of `app-build-compileSDKVersion` than 36 is available: 37"
+        errorLine1="app-build-compileSDKVersion = &quot;36&quot;"
+        errorLine2="                              ~~~~">
+        <location
+            file="$HOME/Projects/Fossify/FossifyOrg/Documents/gradle/libs.versions.toml"
+            line="23"
+            column="31"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        message="A newer version of org.jetbrains.kotlin.plugin.compose than 2.3.10 is available: 2.4.10"
+        errorLine1="kotlin = &quot;2.3.10&quot;"
+        errorLine2="         ~~~~~~~~">
+        <location
+            file="$HOME/Projects/Fossify/FossifyOrg/Documents/gradle/libs.versions.toml"
+            line="2"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        message="A newer version of io.nlopez.compose.rules:detekt than 0.4.28 is available: 0.6.3"
+        errorLine1="detektCompose = &quot;0.4.28&quot;"
+        errorLine2="                ~~~~~~~~">
+        <location
+            file="$HOME/Projects/Fossify/FossifyOrg/Documents/gradle/libs.versions.toml"
+            line="5"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        message="A newer version of org.jsoup:jsoup than 1.22.2 is available: 1.23.1"
+        errorLine1="jsoup = &quot;1.22.2&quot;"
+        errorLine2="        ~~~~~~~~">
+        <location
+            file="$HOME/Projects/Fossify/FossifyOrg/Documents/gradle/libs.versions.toml"
+            line="11"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        message="This folder configuration (`v26`) is unnecessary; `minSdkVersion` is 26. Merge all the resources in this folder into `mipmap-anydpi`.">
+        <location
+            file="src/main/res/mipmap-anydpi-v26"/>
+    </issue>
+
+</issues>
