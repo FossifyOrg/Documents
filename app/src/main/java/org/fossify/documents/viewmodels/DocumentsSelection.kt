@@ -4,8 +4,8 @@ import org.fossify.documents.models.DocumentEntry
 import org.fossify.documents.models.DocumentFolder
 
 internal const val HOME_RECENT_LIMIT = 4
-internal const val HOME_FOLDER_LIMIT = 3
-internal const val HOME_FAVORITES_LIMIT = 3
+internal const val HOME_FOLDER_LIMIT = 4
+internal const val HOME_FAVORITES_LIMIT = 4
 
 internal const val HOME_RECENT_SELECTION_PREFIX = "recent_"
 internal const val HOME_FAVORITE_SELECTION_PREFIX = "favorite_"
