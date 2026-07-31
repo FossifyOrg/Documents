@@ -1,0 +1,8 @@
+Added:
+
+• Initial release
+
+Changed:
+
+• Updated translations
+
