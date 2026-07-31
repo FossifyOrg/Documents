@@ -49,12 +49,13 @@ import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.TextLayoutResult
+import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import kotlinx.coroutines.flow.drop
 import org.fossify.commons.compose.lists.SimpleScaffold
 import org.fossify.commons.compose.lists.simpleTopAppBarColors
 import org.fossify.commons.compose.lists.topAppBarInsets
@@ -62,7 +63,6 @@ import org.fossify.commons.compose.lists.topAppBarPaddings
 import org.fossify.commons.compose.theme.SimpleTheme
 import org.fossify.documents.R
 import org.fossify.documents.viewmodels.TextDocumentUiState
-import kotlinx.coroutines.flow.drop
 import kotlin.math.roundToInt
 
 @Composable
@@ -358,15 +358,20 @@ private fun ColumnScope.LoadedTextDocumentContent(
         StatusStrip(text = it, isError = false)
     }
     if (uiState.isReadOnly) {
-        StatusStrip(text = stringResource(id = R.string.read_only), isError = false)
+        StatusStrip(
+            text = uiState.readOnlyReason ?: stringResource(id = R.string.read_only),
+            isError = false,
+        )
     }
     uiState.error?.let {
         StatusStrip(text = it, isError = true)
     }
 
-    Box(modifier = Modifier
-        .fillMaxWidth()
-        .weight(1f)) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .weight(1f)
+    ) {
         if (uiState.previewEnabled && uiState.isMarkdown) {
             MarkdownPreview(
                 markdown = uiState.text,

@@ -13,6 +13,8 @@ import kotlinx.coroutines.withContext
 import org.fossify.commons.extensions.getFilenameFromUri
 import org.fossify.documents.R
 import org.fossify.documents.data.DocumentsRepository
+import org.fossify.documents.data.TextDocumentCodec
+import org.fossify.documents.data.TextDocumentEncoding
 import org.fossify.documents.models.DocumentKind
 import java.io.IOException
 
@@ -25,6 +27,8 @@ class TextDocumentViewModel(
     val uiState: StateFlow<TextDocumentUiState> = _uiState
 
     private var loadedUri: Uri? = null
+    private var documentEncoding: TextDocumentEncoding? = null
+
     @Volatile
     private var originalText: String = ""
     private val app: Application get() = getApplication()
@@ -44,17 +48,21 @@ class TextDocumentViewModel(
 
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val text = resolver.openInputStream(uri)?.bufferedReader()?.use { reader ->
-                    reader.readText()
+                val decoded = resolver.openInputStream(uri)?.use { input ->
+                    TextDocumentCodec.decode(input.readBytes())
                 } ?: throw IOException("Could not open this document.")
-                val isReadOnly = !repository.isDocumentWritable(uri)
-                originalText = text
+                val unsupportedEncoding = decoded.encoding == null
+                val isReadOnly = unsupportedEncoding || !repository.isDocumentWritable(uri)
+                documentEncoding = decoded.encoding
+                originalText = decoded.text
                 _uiState.update {
                     it.copy(
-                        text = text,
+                        text = decoded.text,
                         isLoading = false,
                         isLoaded = true,
                         isReadOnly = isReadOnly,
+                        readOnlyReason = app.getString(R.string.unsupported_text_encoding)
+                            .takeIf { unsupportedEncoding },
                         isDirty = false,
                         error = null,
                     )
@@ -92,6 +100,7 @@ class TextDocumentViewModel(
 
     fun save(onSaved: (() -> Unit)? = null) {
         val uri = loadedUri ?: return
+        val encoding = documentEncoding ?: return
         val currentState = _uiState.value
         if (currentState.isReadOnly || currentState.isSaving || !currentState.isLoaded) {
             return
@@ -102,8 +111,9 @@ class TextDocumentViewModel(
 
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                resolver.openOutputStream(uri, "wt")?.bufferedWriter().use { writer ->
-                    writer?.write(text) ?: error("Could not open this document for writing.")
+                resolver.openOutputStream(uri, "wt").use { output ->
+                    output?.write(TextDocumentCodec.encode(text, encoding))
+                        ?: error("Could not open this document for writing.")
                 }
                 repository.refreshDocumentMetadata(uri)
                 originalText = text
@@ -157,6 +167,7 @@ data class TextDocumentUiState(
     val isLoaded: Boolean = false,
     val isSaving: Boolean = false,
     val isReadOnly: Boolean = false,
+    val readOnlyReason: String? = null,
     val isDirty: Boolean = false,
     val previewEnabled: Boolean = false,
     val message: String? = null,

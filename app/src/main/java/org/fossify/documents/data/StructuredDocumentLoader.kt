@@ -11,7 +11,7 @@ import java.util.zip.ZipInputStream
 internal class StructuredDocumentLoader(
     private val resolver: ContentResolver,
 ) {
-    fun load(uri: Uri, kind: DocumentKind, fileName: String): StructuredDocumentContent {
+    fun load(uri: Uri, kind: DocumentKind, fileName: String): StructuredDocumentLoadResult {
         return when (kind) {
             DocumentKind.DOCX -> loadDocx(uri)
             DocumentKind.CSV -> loadCsv(uri, fileName)
@@ -20,30 +20,37 @@ internal class StructuredDocumentLoader(
         }
     }
 
-    private fun loadDocx(uri: Uri): StructuredDocumentContent.Web {
+    private fun loadDocx(uri: Uri): StructuredDocumentLoadResult {
         openInput(uri).use(::validateDocxXml)
         val html = openInput(uri).use { input ->
             DocumentConverter().convertToHtml(input).value
         }
-        return StructuredDocumentContent.Web(
-            html = HtmlDocumentSanitizer.sanitize(html, isFragment = true),
+        return StructuredDocumentLoadResult(
+            content = StructuredDocumentContent.Web(
+                html = HtmlDocumentSanitizer.sanitize(html, isFragment = true),
+            ),
         )
     }
 
-    private fun loadCsv(uri: Uri, fileName: String): StructuredDocumentContent.Table {
-        val text = readText(uri)
-        return CsvDocumentParser.parse(text, fileName)
-    }
-
-    private fun loadHtml(uri: Uri): StructuredDocumentContent.Web {
-        val text = readText(uri)
-        return StructuredDocumentContent.Web(
-            html = HtmlDocumentSanitizer.sanitize(text),
+    private fun loadCsv(uri: Uri, fileName: String): StructuredDocumentLoadResult {
+        val decoded = readText(uri)
+        return StructuredDocumentLoadResult(
+            content = CsvDocumentParser.parse(decoded.text, fileName),
+            canEditText = decoded.encoding != null,
         )
     }
 
-    private fun readText(uri: Uri): String {
-        return openInput(uri).bufferedReader().use { reader -> reader.readText() }
+    private fun loadHtml(uri: Uri): StructuredDocumentLoadResult {
+        val decoded = readText(uri)
+        return StructuredDocumentLoadResult(
+            content = StructuredDocumentContent.Web(
+                html = HtmlDocumentSanitizer.sanitize(decoded.text),
+            ),
+        )
+    }
+
+    private fun readText(uri: Uri): DecodedTextDocument {
+        return openInput(uri).use { input -> TextDocumentCodec.decode(input.readBytes()) }
     }
 
     private fun openInput(uri: Uri): InputStream {
@@ -51,6 +58,11 @@ internal class StructuredDocumentLoader(
     }
 
 }
+
+internal data class StructuredDocumentLoadResult(
+    val content: StructuredDocumentContent,
+    val canEditText: Boolean = false,
+)
 
 internal fun validateDocxXml(input: InputStream) {
     validateDocxXml(input, MAX_DOCX_ENTRIES, MAX_DOCX_UNCOMPRESSED_BYTES)

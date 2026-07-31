@@ -15,6 +15,7 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.fossify.documents.R
 import java.io.FileNotFoundException
 import java.io.FileOutputStream
 import java.io.IOException
@@ -52,6 +53,15 @@ class PdfDocumentAdapter(
         cancellationSignal: CancellationSignal,
         writeResultCallback: WriteResultCallback
     ) {
+        if (cancellationSignal.isCanceled) {
+            writeResultCallback.onWriteCancelled()
+            return
+        }
+        if (pages.size != 1 || pages.single() != PageRange.ALL_PAGES) {
+            writeResultCallback.onWriteFailed(context.getString(R.string.pdf_print_whole_document_only))
+            return
+        }
+
         writeScope.launch {
             val result = try {
                 writePdf(parcelFileDescriptor, cancellationSignal)

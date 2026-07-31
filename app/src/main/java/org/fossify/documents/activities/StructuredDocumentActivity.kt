@@ -21,6 +21,7 @@ import org.fossify.commons.extensions.getMimeTypeFromUri
 import org.fossify.commons.extensions.showErrorToast
 import org.fossify.commons.extensions.toast
 import org.fossify.documents.data.DocumentsRepository
+import org.fossify.documents.data.isAllowedExternalDocumentLink
 import org.fossify.documents.models.DocumentKind
 import org.fossify.documents.ui.screens.StructuredDocumentScreen
 import org.fossify.documents.ui.theme.DocumentsAppThemeSurface
@@ -95,7 +96,7 @@ class StructuredDocumentActivity : BaseComposeActivity() {
     }
 
     private fun openLink(uri: Uri) {
-        if (uri.scheme !in externalLinkSchemes) {
+        if (!isAllowedExternalDocumentLink(uri.toString())) {
             return
         }
         launchExternalIntent(Intent(Intent.ACTION_VIEW, uri))
@@ -117,7 +118,6 @@ class StructuredDocumentActivity : BaseComposeActivity() {
         private const val EXTRA_DOCUMENT_KIND = "extra_document_kind"
         private const val EXTRA_DOCUMENT_PREPARED = "extra_document_prepared"
         private val supportedKinds = setOf(DocumentKind.DOCX, DocumentKind.CSV, DocumentKind.HTML)
-        private val externalLinkSchemes = setOf("http", "https", "mailto", "tel")
 
         fun newIntent(
             context: Context,

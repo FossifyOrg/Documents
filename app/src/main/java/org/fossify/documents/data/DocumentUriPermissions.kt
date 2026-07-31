@@ -2,7 +2,9 @@ package org.fossify.documents.data
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Process
 import android.provider.DocumentsContract
 import java.io.File
 
@@ -64,21 +66,55 @@ internal class DocumentUriPermissions(
             return File(uri.path.orEmpty()).canWrite()
         }
 
+        val hasWritePermission = appContext.checkUriPermission(
+            uri,
+            Process.myPid(),
+            Process.myUid(),
+            Intent.FLAG_GRANT_WRITE_URI_PERMISSION,
+        ) == PackageManager.PERMISSION_GRANTED
+        if (!hasWritePermission) {
+            return false
+        }
+
+        return queryDocumentSupportsWrite(uri) ?: true
+    }
+
+    private fun queryDocumentSupportsWrite(uri: Uri): Boolean? {
+        if (!DocumentsContract.isDocumentUri(appContext, uri)) {
+            return null
+        }
+
         return runCatching {
-            appContext.contentResolver.openFileDescriptor(uri, "rw")?.use { true } ?: false
-        }.getOrDefault(false)
+            appContext.contentResolver.query(
+                uri,
+                arrayOf(DocumentsContract.Document.COLUMN_FLAGS),
+                null,
+                null,
+                null,
+            )?.use { cursor ->
+                if (!cursor.moveToFirst()) {
+                    return@use null
+                }
+
+                val flagsIndex = cursor.getColumnIndex(DocumentsContract.Document.COLUMN_FLAGS)
+                if (flagsIndex < 0) {
+                    null
+                } else {
+                    cursor.getInt(flagsIndex) and DocumentsContract.Document.FLAG_SUPPORTS_WRITE != 0
+                }
+            }
+        }.getOrNull()
     }
 }
 
 private fun Uri.covers(target: Uri): Boolean {
     val treeDocumentId = runCatching { DocumentsContract.getTreeDocumentId(this) }.getOrNull()
-    val targetDocumentId = runCatching { DocumentsContract.getDocumentId(target) }.getOrNull()
+    val targetTreeDocumentId = runCatching { DocumentsContract.getTreeDocumentId(target) }.getOrNull()
     val coversTreeDocument = authority == target.authority &&
             DocumentsContract.isTreeUri(this) &&
             DocumentsContract.isTreeUri(target) &&
             treeDocumentId != null &&
-            targetDocumentId != null &&
-            (targetDocumentId == treeDocumentId || targetDocumentId.startsWith("$treeDocumentId/"))
+            targetTreeDocumentId == treeDocumentId
 
     return this == target || coversTreeDocument
 }

@@ -44,11 +44,13 @@ internal class StructuredDocumentViewModel(
 
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val content = loader.load(uri, kind, title)
+                val result = loader.load(uri, kind, title)
                 _uiState.update {
                     it.copy(
-                        content = content,
-                        canEdit = kind == DocumentKind.CSV && repository.isDocumentWritable(uri),
+                        content = result.content,
+                        canEdit = kind == DocumentKind.CSV &&
+                                result.canEditText &&
+                                repository.isDocumentWritable(uri),
                         isLoading = false,
                         error = null,
                     )

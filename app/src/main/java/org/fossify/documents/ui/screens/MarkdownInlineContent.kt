@@ -1,10 +1,15 @@
 package org.fossify.documents.ui.screens
 
+import android.content.ActivityNotFoundException
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.compositeOver
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.LinkAnnotation
+import androidx.compose.ui.text.LinkInteractionListener
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.buildAnnotatedString
@@ -26,12 +31,15 @@ import org.commonmark.node.Node
 import org.commonmark.node.SoftLineBreak
 import org.commonmark.node.StrongEmphasis
 import org.fossify.commons.compose.theme.SimpleTheme
+import org.fossify.commons.extensions.toast
+import org.fossify.documents.data.isAllowedExternalDocumentLink
 import org.commonmark.node.Text as MarkdownText
 
 @Composable
 internal fun Node.inlineContent(): AnnotatedString {
     val linkColor = SimpleTheme.colorScheme.primary
     val codeBackground = markdownNeutralSurfaceColor(alpha = 0.08f)
+    val linkListener = rememberMarkdownLinkListener()
 
     return buildAnnotatedString {
         fun appendNode(node: Node) {
@@ -56,19 +64,7 @@ internal fun Node.inlineContent(): AnnotatedString {
                     node.children().forEach(::appendNode)
                 }
 
-                is Link -> withLink(
-                    LinkAnnotation.Url(
-                        url = node.destination,
-                        styles = TextLinkStyles(
-                            style = SpanStyle(
-                                color = linkColor,
-                                textDecoration = TextDecoration.Underline,
-                            )
-                        ),
-                    )
-                ) {
-                    node.children().forEach(::appendNode)
-                }
+                is Link -> appendLink(node, linkColor, linkListener, ::appendNode)
 
                 is Image -> withStyle(SpanStyle(fontStyle = FontStyle.Italic)) {
                     node.children().forEach(::appendNode)
@@ -83,6 +79,52 @@ internal fun Node.inlineContent(): AnnotatedString {
         }
 
         children().forEach(::appendNode)
+    }
+}
+
+@Composable
+private fun rememberMarkdownLinkListener(): LinkInteractionListener {
+    val context = LocalContext.current
+    val uriHandler = LocalUriHandler.current
+    return remember(context, uriHandler) {
+        LinkInteractionListener { annotation ->
+            val url = (annotation as? LinkAnnotation.Url)?.url ?: return@LinkInteractionListener
+            try {
+                uriHandler.openUri(url)
+            } catch (_: ActivityNotFoundException) {
+                context.toast(org.fossify.commons.R.string.no_app_found)
+            } catch (_: IllegalArgumentException) {
+                context.toast(org.fossify.commons.R.string.no_app_found)
+            } catch (_: SecurityException) {
+                context.toast(org.fossify.commons.R.string.no_app_found)
+            }
+        }
+    }
+}
+
+private fun AnnotatedString.Builder.appendLink(
+    node: Link,
+    linkColor: Color,
+    linkListener: LinkInteractionListener,
+    appendNode: (Node) -> Unit,
+) {
+    if (isAllowedExternalDocumentLink(node.destination)) {
+        withLink(
+            LinkAnnotation.Url(
+                url = node.destination,
+                styles = TextLinkStyles(
+                    style = SpanStyle(
+                        color = linkColor,
+                        textDecoration = TextDecoration.Underline,
+                    )
+                ),
+                linkInteractionListener = linkListener,
+            )
+        ) {
+            node.children().forEach(appendNode)
+        }
+    } else {
+        node.children().forEach(appendNode)
     }
 }
 

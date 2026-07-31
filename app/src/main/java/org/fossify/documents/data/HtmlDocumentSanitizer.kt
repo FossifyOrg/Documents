@@ -4,8 +4,6 @@ import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 
 internal object HtmlDocumentSanitizer {
-    private val allowedLinkSchemes = setOf("http", "https", "mailto", "tel")
-
     fun sanitize(source: String, isFragment: Boolean = false): String {
         val document = if (isFragment) {
             Jsoup.parseBodyFragment(source)
@@ -50,7 +48,6 @@ internal object HtmlDocumentSanitizer {
             return true
         }
 
-        val scheme = href.substringBefore(':', missingDelimiterValue = "").lowercase()
-        return scheme in allowedLinkSchemes
+        return isAllowedExternalDocumentLink(href)
     }
 }

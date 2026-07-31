@@ -57,6 +57,7 @@
     <string name="open_document_empty_hint">Open a document or folder to get started.</string>
     <string name="next_page">Next page</string>
     <string name="page_count_value">%1$d / %2$d</string>
+    <string name="pdf_print_whole_document_only">Only the entire PDF can be printed.</string>
     <string name="previous_page">Previous page</string>
     <string name="previous_match">Previous match</string>
     <string name="preview">Preview</string>
@@ -83,6 +84,7 @@
     <string name="sort_size_ascending">Size (Small to Large)</string>
     <string name="sort_size_descending">Size (Large to Small)</string>
     <string name="unsupported_document_type">This document type is not supported yet.</string>
+    <string name="unsupported_text_encoding">Read-only because this text encoding is not supported.</string>
     <string name="untitled_markdown_file">Untitled.md</string>
     <string name="untitled_text_file">Untitled.txt</string>
     <string name="view_all">View all</string>
