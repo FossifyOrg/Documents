@@ -2,7 +2,7 @@
 kotlin = "2.3.10"
 #Detekt
 detekt = "1.23.8"
-detektCompose = "0.4.28"
+detektCompose = "0.6.3"
 #Fossify
 commons = "6.2.0"
 androidPdfViewer = "3.2.16"
