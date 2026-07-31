@@ -50,7 +50,7 @@ class TextDocumentViewModel(
             try {
                 val decoded = resolver.openInputStream(uri)?.use { input ->
                     TextDocumentCodec.decode(input.readBytes())
-                } ?: throw IOException("Could not open this document.")
+                } ?: throw IOException()
                 val unsupportedEncoding = decoded.encoding == null
                 val isReadOnly = unsupportedEncoding || !repository.isDocumentWritable(uri)
                 documentEncoding = decoded.encoding
@@ -112,7 +112,7 @@ class TextDocumentViewModel(
             try {
                 resolver.openOutputStream(uri, "wt").use { output ->
                     output?.write(TextDocumentCodec.encode(text, encoding))
-                        ?: error("Could not open this document for writing.")
+                        ?: throw IOException()
                 }
                 repository.refreshDocumentMetadata(uri)
                 originalText = text

@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Environment
 import android.provider.DocumentsContract
 import org.fossify.commons.extensions.getRealPathFromURI
+import org.fossify.documents.R
 import java.io.File
 
 internal class DocumentLocationResolver(
@@ -18,7 +19,7 @@ internal class DocumentLocationResolver(
             File(realPath).parent.orEmpty()
         } else {
             resolveExternalStorage(uri, includeDocumentName = false) ?: when (uri.authority) {
-                DOWNLOADS_AUTHORITY -> "Downloads"
+                DOWNLOADS_AUTHORITY -> appContext.getString(R.string.downloads)
                 else -> providerLabel(uri)
             }
         }
@@ -32,7 +33,8 @@ internal class DocumentLocationResolver(
         val documentUri = DocumentsContract.buildDocumentUriUsingTree(treeUri, documentId)
         return resolveExternalStorage(documentUri, includeDocumentName = true)
             ?: resolveDocumentPath(documentUri)
-            ?: "Downloads".takeIf { documentUri.authority == DOWNLOADS_AUTHORITY }
+            ?: appContext.getString(R.string.downloads)
+                .takeIf { documentUri.authority == DOWNLOADS_AUTHORITY }
             ?: providerLabel(documentUri).takeIf { it.isNotBlank() }
             ?: fallbackName
     }
