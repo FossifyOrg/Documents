@@ -11,7 +11,9 @@ import androidx.core.net.toUri
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.fossify.commons.activities.BaseComposeActivity
+import org.fossify.commons.compose.extensions.appLaunchedCompose
 import org.fossify.commons.compose.extensions.enableEdgeToEdgeSimple
+import org.fossify.commons.extensions.checkAppIconColor
 import org.fossify.commons.extensions.getFilenameFromUri
 import org.fossify.commons.extensions.getMimeTypeFromUri
 import org.fossify.commons.extensions.hideKeyboard
@@ -79,6 +81,12 @@ class MainActivity : BaseComposeActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        appLaunchedCompose(
+            appId = BuildConfig.APPLICATION_ID,
+            showUpgradeDialog = {},
+            showDonateDialog = {},
+        )
+        checkAppIconColor()
         enableEdgeToEdgeSimple()
         setContent {
             DocumentsAppThemeSurface {
