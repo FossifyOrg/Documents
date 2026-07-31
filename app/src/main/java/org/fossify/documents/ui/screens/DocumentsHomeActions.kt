@@ -150,7 +150,7 @@ internal fun DocumentsEmptyState(
 }
 
 @Composable
-private fun EmptyActionButton(
+internal fun EmptyActionButton(
     text: String,
     onClick: () -> Unit,
 ) {

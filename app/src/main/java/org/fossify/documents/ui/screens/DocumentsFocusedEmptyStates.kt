@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Description
+import androidx.compose.material.icons.filled.Folder
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -52,5 +53,23 @@ internal fun EmptyRecentState() {
         icon = Icons.Filled.Description,
         title = stringResource(id = R.string.no_recent_documents),
         message = stringResource(id = R.string.no_recent_documents_hint),
+    )
+}
+
+@Composable
+internal fun FolderErrorState(
+    message: String,
+    onRetry: () -> Unit,
+) {
+    DocumentsEmptyState(
+        icon = Icons.Filled.Folder,
+        title = stringResource(id = R.string.folder_unavailable),
+        message = message,
+        actions = {
+            EmptyActionButton(
+                text = stringResource(id = R.string.retry),
+                onClick = onRetry,
+            )
+        },
     )
 }

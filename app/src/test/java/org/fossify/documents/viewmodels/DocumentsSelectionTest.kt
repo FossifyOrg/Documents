@@ -4,7 +4,6 @@ import org.fossify.documents.models.DocumentEntry
 import org.fossify.documents.models.DocumentFolder
 import org.fossify.documents.models.DocumentKind
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
@@ -20,12 +19,17 @@ class DocumentsSelectionTest {
         )
 
         val selected = state.documentsForSelectAll(
-            mapOf("recent_${favoriteDocument.uri}" to favoriteDocument)
+            mapOf(
+                favoriteDocument.uri to SelectedDocument(
+                    favoriteDocument,
+                    HOME_RECENT_SELECTION_PREFIX,
+                )
+            )
         )
 
         assertEquals(HOME_RECENT_LIMIT, selected.size)
-        assertTrue(selected.keys.all { it.startsWith("recent_") })
-        assertFalse(selected.containsKey("favorite_${favoriteDocument.uri}"))
+        assertEquals(recentDocuments.take(HOME_RECENT_LIMIT).map { it.uri }, selected.keys.toList())
+        assertTrue(selected.values.all { it.selectionPrefix == HOME_RECENT_SELECTION_PREFIX })
     }
 
     @Test
@@ -37,11 +41,16 @@ class DocumentsSelectionTest {
         )
 
         val selected = state.documentsForSelectAll(
-            mapOf("document_RECENT_${visibleDocuments.first().uri}" to visibleDocuments.first())
+            mapOf(
+                visibleDocuments.first().uri to SelectedDocument(
+                    visibleDocuments.first(),
+                    "document_RECENT_",
+                )
+            )
         )
 
         assertEquals(
-            visibleDocuments.map { "document_RECENT_${it.uri}" }.toSet(),
+            visibleDocuments.map { it.uri }.toSet(),
             selected.keys,
         )
     }

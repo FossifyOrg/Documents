@@ -132,6 +132,7 @@ class MainActivity : BaseComposeActivity() {
         onShowFolders = { viewModel.showSection(DocumentsHomeSection.FOLDERS) },
         onShowFavorites = { viewModel.showSection(DocumentsHomeSection.FAVORITES) },
         onBreadcrumbClick = viewModel::navigateToBreadcrumb,
+        onRetryFolder = viewModel::refreshVisibleFolder,
         onFolderClick = { viewModel.showSection(DocumentsHomeSection.FOLDER, it) },
         onDocumentClick = { document ->
             viewModel.prepareDocument(document.uri.toUri()) { canRead ->

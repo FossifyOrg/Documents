@@ -37,6 +37,50 @@ class DocumentsRepositoryTest {
         assertFalse(result.removed.single().isFavorite)
     }
 
+    @Test
+    fun addingFavoriteDoesNotMakeDocumentRecent() {
+        val folderDocument = document(uri = "folder", lastOpened = 0L)
+
+        val result = updateFavoriteEntries(
+            existing = emptyList(),
+            selected = listOf(folderDocument),
+            favorite = true,
+        )
+
+        assertTrue(result.removed.isEmpty())
+        assertEquals(0L, result.retained.single().lastOpened)
+        assertTrue(result.retained.single().isFavorite)
+    }
+
+    @Test
+    fun removingFavoriteDropsDocumentWithNoRecentHistory() {
+        val favorite = document(uri = "favorite", lastOpened = 0L, isFavorite = true)
+
+        val result = updateFavoriteEntries(
+            existing = listOf(favorite),
+            selected = listOf(favorite),
+            favorite = false,
+        )
+
+        assertTrue(result.retained.isEmpty())
+        assertEquals(listOf(favorite), result.removed)
+    }
+
+    @Test
+    fun removingFavoriteKeepsRecentDocument() {
+        val favorite = document(uri = "favorite", lastOpened = 100L, isFavorite = true)
+
+        val result = updateFavoriteEntries(
+            existing = listOf(favorite),
+            selected = listOf(favorite),
+            favorite = false,
+        )
+
+        assertTrue(result.removed.isEmpty())
+        assertFalse(result.retained.single().isFavorite)
+        assertEquals(100L, result.retained.single().lastOpened)
+    }
+
     private fun document(
         uri: String,
         lastOpened: Long,

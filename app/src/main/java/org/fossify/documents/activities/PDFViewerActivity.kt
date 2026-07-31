@@ -12,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.launch
 import org.fossify.commons.activities.BaseComposeActivity
 import org.fossify.commons.compose.extensions.enableEdgeToEdgeSimple
@@ -26,6 +27,8 @@ import org.fossify.documents.ui.screens.PdfDocumentScreen
 import org.fossify.documents.ui.theme.DocumentsAppThemeSurface
 
 class PDFViewerActivity : BaseComposeActivity() {
+    private val pageUpdates = Channel<Int>(Channel.CONFLATED)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val uri = intent.data
@@ -40,6 +43,12 @@ class PDFViewerActivity : BaseComposeActivity() {
         val title = existingDocument?.name?.ifBlank { null }
             ?: getFilenameFromUri(uri).ifBlank { getString(R.string.document) }
 
+        lifecycleScope.launch(Dispatchers.IO) {
+            for (page in pageUpdates) {
+                repository.updateLastPage(uri, page)
+            }
+        }
+
         enableEdgeToEdgeSimple()
         setContent {
             DocumentsAppThemeSurface {
@@ -49,9 +58,7 @@ class PDFViewerActivity : BaseComposeActivity() {
                     startPage = startPage,
                     onBack = ::finish,
                     onPageChange = { page, _ ->
-                        lifecycleScope.launch(Dispatchers.IO) {
-                            repository.updateLastPage(uri, page)
-                        }
+                        pageUpdates.trySend(page)
                     },
                     onLoad = {
                         lifecycleScope.launch(Dispatchers.IO) {

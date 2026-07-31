@@ -11,6 +11,7 @@ import org.fossify.commons.extensions.getMimeTypeFromUri
 import org.fossify.documents.models.DocumentEntry
 import org.fossify.documents.models.DocumentFolder
 import org.fossify.documents.models.DocumentKind
+import java.io.IOException
 
 internal class DocumentProviderScanner(
     context: Context,
@@ -29,7 +30,7 @@ internal class DocumentProviderScanner(
 
         return DocumentEntry(
             uri = uri.toString(),
-            name = Uri.decode(name),
+            name = name,
             mimeType = mimeType,
             kind = kind,
             location = locationResolver.resolveDocument(uri).ifBlank { previous?.location.orEmpty() },
@@ -59,16 +60,7 @@ internal class DocumentProviderScanner(
             ?: previous?.name
             ?: fallbackFolderName(uri)
         val parentDocumentId = uri.getDocumentIdForChildren()
-            ?: return DocumentFolderContent(
-                folder = DocumentFolder(
-                    uri = uri.toString(),
-                    name = folderName,
-                    itemCount = 0,
-                    lastOpened = previous?.lastOpened ?: 0L,
-                ),
-                childFolders = emptyList(),
-                documents = emptyList(),
-            )
+            ?: throw IOException("Could not access this folder.")
 
         val children = queryFolderChildren(
             treeUri = uri,
@@ -101,32 +93,28 @@ internal class DocumentProviderScanner(
             DocumentsContract.Document.COLUMN_LAST_MODIFIED,
         )
 
-        return runCatching {
-            appContext.contentResolver.query(childrenUri, projection, null, null, null)?.use { cursor ->
-                val folders = mutableListOf<DocumentFolder>()
-                val documents = mutableListOf<DocumentEntry>()
-                while (cursor.moveToNext()) {
-                    val mimeType = cursor.getStringOrNull(DocumentsContract.Document.COLUMN_MIME_TYPE).orEmpty()
-                    val documentId = cursor.getStringOrNull(DocumentsContract.Document.COLUMN_DOCUMENT_ID)
-                        ?: continue
-                    if (mimeType == DocumentsContract.Document.MIME_TYPE_DIR) {
-                        folders += DocumentFolder(
-                            uri = DocumentsContract.buildDocumentUriUsingTree(treeUri, documentId).toString(),
-                            name = Uri.decode(
-                                cursor.getStringOrNull(DocumentsContract.Document.COLUMN_DISPLAY_NAME).orEmpty()
-                            ),
-                        )
-                    } else {
-                        cursor.toFolderDocument(treeUri, folderLocation)?.let(documents::add)
-                    }
+        return appContext.contentResolver.query(childrenUri, projection, null, null, null)?.use { cursor ->
+            val folders = mutableListOf<DocumentFolder>()
+            val documents = mutableListOf<DocumentEntry>()
+            while (cursor.moveToNext()) {
+                val mimeType = cursor.getStringOrNull(DocumentsContract.Document.COLUMN_MIME_TYPE).orEmpty()
+                val documentId = cursor.getStringOrNull(DocumentsContract.Document.COLUMN_DOCUMENT_ID)
+                    ?: continue
+                if (mimeType == DocumentsContract.Document.MIME_TYPE_DIR) {
+                    folders += DocumentFolder(
+                        uri = DocumentsContract.buildDocumentUriUsingTree(treeUri, documentId).toString(),
+                        name = cursor.getStringOrNull(DocumentsContract.Document.COLUMN_DISPLAY_NAME).orEmpty(),
+                    )
+                } else {
+                    cursor.toFolderDocument(treeUri, folderLocation)?.let(documents::add)
                 }
+            }
 
-                FolderChildren(
-                    folders = folders.sortedBy { it.name.lowercase() },
-                    documents = documents.sortedBy { it.name.lowercase() },
-                )
-            } ?: FolderChildren()
-        }.getOrDefault(FolderChildren())
+            FolderChildren(
+                folders = folders.sortedBy { it.name.lowercase() },
+                documents = documents.sortedBy { it.name.lowercase() },
+            )
+        } ?: throw IOException("Could not access this folder.")
     }
 
     fun refreshFolderCount(folder: DocumentFolder): DocumentFolder {
@@ -149,7 +137,7 @@ internal class DocumentProviderScanner(
             ?.let { documentId ->
                 DocumentEntry(
                     uri = DocumentsContract.buildDocumentUriUsingTree(treeUri, documentId).toString(),
-                    name = Uri.decode(name),
+                    name = name,
                     mimeType = mimeType,
                     kind = kind,
                     location = folderLocation,

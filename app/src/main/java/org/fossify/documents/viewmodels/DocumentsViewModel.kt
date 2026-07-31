@@ -23,6 +23,7 @@ import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.fossify.documents.R
 import org.fossify.documents.data.DocumentFolderContent
 import org.fossify.documents.data.DocumentsRepository
 import org.fossify.documents.models.DocumentEntry
@@ -47,7 +48,7 @@ class DocumentsViewModel(
     private val folderPath = MutableStateFlow<List<DocumentFolder>>(emptyList())
     private val folderRefresh = MutableStateFlow(0L)
     private var folderOriginSection = DocumentsHomeSection.HOME
-    private val selectedDocuments = MutableStateFlow<Map<String, DocumentEntry>>(emptyMap())
+    private val selectedDocuments = MutableStateFlow<Map<String, SelectedDocument>>(emptyMap())
     private val selectedFolders = MutableStateFlow<Map<String, DocumentFolder>>(emptyMap())
 
     init {
@@ -91,7 +92,7 @@ class DocumentsViewModel(
     ) { documents, folders ->
         DocumentsSelectionInputs(
             documentKeys = documents.keys,
-            documents = documents.values.toList(),
+            documents = documents.values.map(SelectedDocument::document),
             folders = folders.values.toList(),
         )
     }
@@ -131,7 +132,12 @@ class DocumentsViewModel(
                     emit(FolderContentState(uri = uri, isLoading = true))
                 }
                 .catch {
-                    emit(FolderContentState(uri = uri))
+                    emit(
+                        FolderContentState(
+                            uri = uri,
+                            error = application.getString(R.string.could_not_open_folder),
+                        )
+                    )
                 }
         }
     }
@@ -218,6 +224,7 @@ class DocumentsViewModel(
             selectedFolders = inputs.selectedFolders,
             availableFilters = availableFilters,
             isFolderLoading = folderState.isLoading && folderState.uri == requestedFolderUri,
+            folderError = folderState.error.takeIf { folderState.uri == requestedFolderUri },
         )
     }.stateIn(
         scope = viewModelScope,
@@ -347,10 +354,16 @@ class DocumentsViewModel(
     fun toggleDocumentSelection(selectionKey: String, document: DocumentEntry) {
         selectedFolders.value = emptyMap()
         selectedDocuments.value = selectedDocuments.value.toMutableMap().apply {
-            if (containsKey(selectionKey)) {
-                remove(selectionKey)
+            if (containsKey(document.uri)) {
+                remove(document.uri)
             } else {
-                put(selectionKey, document)
+                put(
+                    document.uri,
+                    SelectedDocument(
+                        document = document,
+                        selectionPrefix = selectionKey.removeSuffix(document.uri),
+                    ),
+                )
             }
         }
     }
@@ -386,7 +399,7 @@ class DocumentsViewModel(
     }
 
     fun toggleSelectedFavorites() {
-        val documents = selectedDocuments.value.values.distinctBy { it.uri }
+        val documents = selectedDocuments.value.values.map(SelectedDocument::document)
         if (documents.isEmpty()) {
             return
         }
@@ -399,7 +412,7 @@ class DocumentsViewModel(
     }
 
     fun removeSelectedItems() {
-        val documentUris = selectedDocuments.value.values.map { it.uri }.distinct()
+        val documentUris = selectedDocuments.value.keys.toList()
         val folderUris = selectedFolders.value.keys.toList()
         clearSelection()
         viewModelScope.launch(Dispatchers.IO) {
@@ -509,6 +522,7 @@ private data class FolderContentState(
     val uri: String? = null,
     val content: DocumentFolderContent? = null,
     val isLoading: Boolean = false,
+    val error: String? = null,
 )
 
 private data class FolderContentRequest(
@@ -536,6 +550,7 @@ data class DocumentsUiState(
     val selectedFolders: List<DocumentFolder> = emptyList(),
     val availableFilters: Set<DocumentFilter> = emptySet(),
     val isFolderLoading: Boolean = false,
+    val folderError: String? = null,
 ) {
     val selectionCount: Int
         get() = selectedDocumentKeys.size + selectedFolders.size

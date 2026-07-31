@@ -7,6 +7,7 @@
     <string name="clear_search">Clear search</string>
     <string name="clear_selection">Clear selection</string>
     <string name="could_not_open_document">Could not open this document.</string>
+    <string name="could_not_open_folder">Check that this folder is available, then try again.</string>
     <string name="could_not_save_document">Could not save this document.</string>
     <string name="document">Document</string>
     <string name="document_too_large">This document is too large to open as text.</string>
@@ -30,6 +31,7 @@
     <string name="filter_csv">CSV</string>
     <string name="filter_html">HTML</string>
     <string name="folders">Folders</string>
+    <string name="folder_unavailable">Folder unavailable</string>
     <string name="format_bold">Bold</string>
     <string name="format_bullet_list">Bullet list</string>
     <string name="format_code">Code</string>
@@ -67,6 +69,7 @@
     <string name="read_only">Read-only</string>
     <string name="remember_pdf_page">Remember PDF page</string>
     <string name="remove_from_documents">Remove from Documents</string>
+    <string name="retry">Retry</string>
     <string name="share_documents">Share documents</string>
     <string name="some_documents_no_longer_available">Some selected documents are no longer available.</string>
     <string name="saved">Saved</string>

@@ -24,6 +24,7 @@ internal data class DocumentsMainActions(
     val onShowFolders: () -> Unit,
     val onShowFavorites: () -> Unit,
     val onBreadcrumbClick: (Int) -> Unit,
+    val onRetryFolder: () -> Unit,
     val onFolderClick: (DocumentFolder) -> Unit,
     val onDocumentClick: (DocumentEntry) -> Unit,
     val onToggleDocumentSelection: (selectionKey: String, document: DocumentEntry) -> Unit,

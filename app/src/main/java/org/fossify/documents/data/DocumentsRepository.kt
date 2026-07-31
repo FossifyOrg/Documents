@@ -73,9 +73,11 @@ class DocumentsRepository(
 
     fun cleanUpStoredItems() {
         val refreshLocations = !config.wereDocumentLocationsRefreshed
+        var removedDocuments = emptyList<DocumentEntry>()
         store.updateDocuments { documents ->
-            documents
+            val retained = documents
                 .filter { permissions.hasPersistentReadAccess(it.uri.toUri()) }
+                .filter { it.lastOpened > 0L || it.isFavorite }
                 .map { document ->
                     if (refreshLocations) {
                         scanner.readDocument(document.uri.toUri(), document)
@@ -83,7 +85,11 @@ class DocumentsRepository(
                         document
                     }
                 }
+            val retainedUris = retained.mapTo(hashSetOf(), DocumentEntry::uri)
+            removedDocuments = documents.filterNot { it.uri in retainedUris }
+            retained
         }
+        removedDocuments.forEach { permissions.release(it.uri.toUri()) }
         store.updateFolders { folders ->
             folders.filter { permissions.hasPersistentReadAccess(it.uri.toUri()) }
         }
@@ -119,28 +125,17 @@ class DocumentsRepository(
     }
 
     fun setFavorites(documents: Collection<DocumentEntry>, favorite: Boolean) {
-        val selectedByUri = documents.associateBy(DocumentEntry::uri)
-        if (selectedByUri.isEmpty()) {
+        if (documents.isEmpty()) {
             return
         }
 
-        val openedAt = System.currentTimeMillis()
+        var removed = emptyList<DocumentEntry>()
         store.updateDocuments { existing ->
-            val existingUris = existing.mapTo(hashSetOf(), DocumentEntry::uri)
-            val updatedExisting = existing.map { entry ->
-                if (entry.uri in selectedByUri) entry.copy(isFavorite = favorite) else entry
-            }
-            val added = selectedByUri.values
-                .filterNot { it.uri in existingUris }
-                .map { document ->
-                    document.copy(
-                        isFavorite = favorite,
-                        lastOpened = openedAt,
-                    )
-                }
-
-            added + updatedExisting
+            updateFavoriteEntries(existing, documents, favorite).also { result ->
+                removed = result.removed
+            }.retained
         }
+        removed.forEach { permissions.release(it.uri.toUri()) }
     }
 
     fun clearRecentDocuments() {
@@ -200,6 +195,42 @@ internal data class ClearRecentResult(
     val retained: List<DocumentEntry>,
     val removed: List<DocumentEntry>,
 )
+
+internal data class FavoriteUpdateResult(
+    val retained: List<DocumentEntry>,
+    val removed: List<DocumentEntry>,
+)
+
+internal fun updateFavoriteEntries(
+    existing: List<DocumentEntry>,
+    selected: Collection<DocumentEntry>,
+    favorite: Boolean,
+): FavoriteUpdateResult {
+    val selectedByUri = selected.associateBy(DocumentEntry::uri)
+    val existingUris = existing.mapTo(hashSetOf(), DocumentEntry::uri)
+    val removed = mutableListOf<DocumentEntry>()
+    val retained = buildList {
+        existing.forEach { entry ->
+            if (entry.uri !in selectedByUri) {
+                add(entry)
+            } else if (favorite || entry.lastOpened > 0L) {
+                add(entry.copy(isFavorite = favorite))
+            } else {
+                removed += entry
+            }
+        }
+
+        if (favorite) {
+            selectedByUri.values
+                .filterNot { it.uri in existingUris }
+                .forEach { document ->
+                    add(document.copy(isFavorite = true, lastOpened = 0L))
+                }
+        }
+    }
+
+    return FavoriteUpdateResult(retained = retained, removed = removed)
+}
 
 internal fun clearRecentEntries(documents: List<DocumentEntry>): ClearRecentResult {
     val (favorites, others) = documents.partition { it.isFavorite }

@@ -179,6 +179,13 @@ private fun LazyListScope.focusedDocuments(
             uiState.visibleFolders.isNotEmpty()
 
     when {
+        uiState.folderError != null -> item(key = "folder_error") {
+            FolderErrorState(
+                message = uiState.folderError,
+                onRetry = actions.onRetryFolder,
+            )
+        }
+
         uiState.isFolderLoading -> item(key = "folder_loading") {
             DocumentsLoadingState()
         }
@@ -229,7 +236,7 @@ private fun LazyListScope.documentRows(
         DocumentRow(
             document = document,
             showLocation = showLocation,
-            selected = selectionKey in uiState.selectedDocumentKeys,
+            selected = document.uri in uiState.selectedDocumentKeys,
             modifier = Modifier.animateItem(),
             actions = DocumentRowActions(
                 onClick = {
@@ -267,7 +274,7 @@ private fun LazyListScope.documentGridRows(
                 DocumentGridCard(
                     document = document,
                     showLocation = showLocation,
-                    selected = selectionKey in uiState.selectedDocumentKeys,
+                    selected = document.uri in uiState.selectedDocumentKeys,
                     actions = DocumentRowActions(
                         onClick = {
                             if (uiState.hasSelection) {
