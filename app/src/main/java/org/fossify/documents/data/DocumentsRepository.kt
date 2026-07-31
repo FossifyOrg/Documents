@@ -17,8 +17,7 @@ class DocumentsRepository(
     context: Context,
 ) {
     private val appContext = context.applicationContext
-    private val config = appContext.config
-    private val store = DocumentsStore(config)
+    private val store = DocumentsStore(appContext.config)
     private val scanner = DocumentProviderScanner(appContext)
     private val permissions = DocumentUriPermissions(appContext)
 
@@ -72,19 +71,11 @@ class DocumentsRepository(
     fun isDocumentWritable(uri: Uri): Boolean = permissions.isWritable(uri)
 
     fun cleanUpStoredItems() {
-        val refreshLocations = !config.wereDocumentLocationsRefreshed
         var removedDocuments = emptyList<DocumentEntry>()
         store.updateDocuments { documents ->
             val retained = documents
                 .filter { permissions.hasPersistentReadAccess(it.uri.toUri()) }
                 .filter { it.lastOpened > 0L || it.isFavorite }
-                .map { document ->
-                    if (refreshLocations) {
-                        scanner.readDocument(document.uri.toUri(), document)
-                    } else {
-                        document
-                    }
-                }
             val retainedUris = retained.mapTo(hashSetOf(), DocumentEntry::uri)
             removedDocuments = documents.filterNot { it.uri in retainedUris }
             retained
@@ -93,7 +84,6 @@ class DocumentsRepository(
         store.updateFolders { folders ->
             folders.filter { permissions.hasPersistentReadAccess(it.uri.toUri()) }
         }
-        config.wereDocumentLocationsRefreshed = true
     }
 
     fun updateLastPage(uri: Uri, page: Int) {

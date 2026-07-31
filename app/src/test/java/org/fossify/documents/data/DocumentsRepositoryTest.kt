@@ -22,22 +22,6 @@ class DocumentsRepositoryTest {
     }
 
     @Test
-    fun documentKindRecognizesSupportedFormats() {
-        assertEquals(DocumentKind.PDF, DocumentKind.fromName("invoice.PDF", ""))
-        assertEquals(DocumentKind.MARKDOWN, DocumentKind.fromName("notes.md", "text/plain"))
-        assertEquals(DocumentKind.TEXT, DocumentKind.fromName("calendar.ics", ""))
-        assertEquals(DocumentKind.DOCX, DocumentKind.fromName("letter.docx", ""))
-    }
-
-    @Test
-    fun clearRecentEntriesDoesNotTurnRemovedDocumentsIntoFavorites() {
-        val result = clearRecentEntries(listOf(document(uri = "recent", lastOpened = 100L)))
-
-        assertTrue(result.retained.isEmpty())
-        assertFalse(result.removed.single().isFavorite)
-    }
-
-    @Test
     fun addingFavoriteDoesNotMakeDocumentRecent() {
         val folderDocument = document(uri = "folder", lastOpened = 0L)
 

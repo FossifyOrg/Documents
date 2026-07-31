@@ -19,7 +19,6 @@ data class DocumentFolder(
         private const val KEY_URI = "uri"
         private const val KEY_NAME = "name"
         private const val KEY_ITEM_COUNT = "item_count"
-        private const val KEY_DOCUMENT_COUNT = "document_count"
         private const val KEY_LAST_OPENED = "last_opened"
 
         fun fromJson(json: JSONObject): DocumentFolder? {
@@ -27,10 +26,10 @@ data class DocumentFolder(
             return DocumentFolder(
                 uri = uri,
                 name = json.optString(KEY_NAME, uri.substringAfterLast('/')),
-                itemCount = when {
-                    json.has(KEY_ITEM_COUNT) && !json.isNull(KEY_ITEM_COUNT) -> json.optInt(KEY_ITEM_COUNT)
-                    json.has(KEY_DOCUMENT_COUNT) && !json.isNull(KEY_DOCUMENT_COUNT) -> json.optInt(KEY_DOCUMENT_COUNT)
-                    else -> null
+                itemCount = if (json.has(KEY_ITEM_COUNT) && !json.isNull(KEY_ITEM_COUNT)) {
+                    json.optInt(KEY_ITEM_COUNT)
+                } else {
+                    null
                 },
                 lastOpened = json.optLong(KEY_LAST_OPENED, 0L),
             )

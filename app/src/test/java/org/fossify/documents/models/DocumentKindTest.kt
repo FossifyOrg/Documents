@@ -9,6 +9,7 @@ class DocumentKindTest {
         assertEquals(DocumentKind.PDF, DocumentKind.fromName("report.PDF", ""))
         assertEquals(DocumentKind.DOCX, DocumentKind.fromName("report.docx", "application/zip"))
         assertEquals(DocumentKind.TEXT, DocumentKind.fromName("notes.txt", ""))
+        assertEquals(DocumentKind.TEXT, DocumentKind.fromName("calendar.ics", ""))
         assertEquals(DocumentKind.MARKDOWN, DocumentKind.fromName("guide.md", "text/plain"))
         assertEquals(DocumentKind.CSV, DocumentKind.fromName("people.csv", "text/plain"))
         assertEquals(DocumentKind.CSV, DocumentKind.fromName("people.tsv", "text/plain"))

@@ -18,7 +18,6 @@ data class DocumentEntry(
         put(KEY_URI, uri)
         put(KEY_NAME, name)
         put(KEY_MIME_TYPE, mimeType)
-        put(KEY_KIND, kind.name)
         put(KEY_LOCATION, location)
         put(KEY_SIZE, size)
         put(KEY_LAST_MODIFIED, lastModified)
@@ -31,7 +30,6 @@ data class DocumentEntry(
         private const val KEY_URI = "uri"
         private const val KEY_NAME = "name"
         private const val KEY_MIME_TYPE = "mime_type"
-        private const val KEY_KIND = "kind"
         private const val KEY_LOCATION = "location"
         private const val KEY_SIZE = "size"
         private const val KEY_LAST_MODIFIED = "last_modified"
