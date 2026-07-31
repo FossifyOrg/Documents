@@ -4,7 +4,7 @@ kotlin = "2.3.10"
 detekt = "1.23.8"
 detektCompose = "0.4.28"
 #Fossify
-commons = "6.1.6"
+commons = "6.2.0"
 androidPdfViewer = "3.2.16"
 javaMammoth = "1.12.1"
 commonmark = "0.29.0"

@@ -19,6 +19,11 @@ import org.fossify.commons.extensions.getMimeTypeFromUri
 import org.fossify.commons.extensions.hideKeyboard
 import org.fossify.commons.extensions.showErrorToast
 import org.fossify.commons.extensions.toast
+import org.fossify.commons.helpers.LICENSE_COMMONMARK
+import org.fossify.commons.helpers.LICENSE_COMMONS_CSV
+import org.fossify.commons.helpers.LICENSE_JSOUP
+import org.fossify.commons.helpers.LICENSE_MAMMOTH
+import org.fossify.commons.helpers.LICENSE_PDF_VIEWER
 import org.fossify.commons.models.FAQItem
 import org.fossify.documents.BuildConfig
 import org.fossify.documents.R
@@ -268,6 +273,12 @@ class MainActivity : BaseComposeActivity() {
     }
 
     private fun launchAbout() {
+        val licenses =
+            LICENSE_PDF_VIEWER or
+                LICENSE_MAMMOTH or
+                LICENSE_COMMONMARK or
+                LICENSE_JSOUP or
+                LICENSE_COMMONS_CSV
         val faqItems = ArrayList<FAQItem>()
         if (!resources.getBoolean(org.fossify.commons.R.bool.hide_google_relations)) {
             faqItems.add(
@@ -286,7 +297,7 @@ class MainActivity : BaseComposeActivity() {
 
         startAboutActivity(
             appNameId = R.string.app_name,
-            licenseMask = 0,
+            licenseMask = licenses,
             versionName = BuildConfig.VERSION_NAME,
             packageName = packageName,
             repositoryName = "Documents",
