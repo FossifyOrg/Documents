@@ -87,7 +87,6 @@ class TextDocumentViewModel(
             it.copy(
                 text = value,
                 isDirty = value != originalText,
-                message = null,
             )
         }
     }
@@ -107,7 +106,7 @@ class TextDocumentViewModel(
         }
 
         val text = currentState.text
-        _uiState.update { it.copy(isSaving = true, message = null, error = null) }
+        _uiState.update { it.copy(isSaving = true, error = null) }
 
         viewModelScope.launch(Dispatchers.IO) {
             try {
@@ -122,7 +121,6 @@ class TextDocumentViewModel(
                     it.copy(
                         isSaving = false,
                         isDirty = hasNewerChanges,
-                        message = app.getString(R.string.saved).takeUnless { hasNewerChanges },
                     )
                 }
                 withContext(Dispatchers.Main) {
@@ -170,7 +168,6 @@ data class TextDocumentUiState(
     val readOnlyReason: String? = null,
     val isDirty: Boolean = false,
     val previewEnabled: Boolean = false,
-    val message: String? = null,
     val error: String? = null,
 ) {
     val isMarkdown: Boolean get() = kind == DocumentKind.MARKDOWN

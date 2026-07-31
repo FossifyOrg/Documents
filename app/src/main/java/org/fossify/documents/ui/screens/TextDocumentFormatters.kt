@@ -9,9 +9,9 @@ import org.fossify.documents.viewmodels.TextDocumentUiState
 @Composable
 internal fun TextDocumentUiState.statusLabel(): String {
     return when {
+        isReadOnly -> stringResource(id = R.string.read_only)
         isSaving -> stringResource(id = org.fossify.commons.R.string.saving)
         isDirty -> stringResource(id = R.string.unsaved_changes)
-        message != null -> message
         else -> stringResource(id = R.string.saved)
     }
 }

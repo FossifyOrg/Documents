@@ -17,8 +17,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Folder
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.PhoneAndroid
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -189,7 +189,7 @@ private fun BreadcrumbRoot(
 ) {
     Icon(
         imageVector = if (uiState.homeSection == DocumentsHomeSection.FOLDERS) {
-            Icons.Filled.PhoneAndroid
+            Icons.Filled.Folder
         } else {
             Icons.Filled.Home
         },
@@ -198,7 +198,7 @@ private fun BreadcrumbRoot(
         modifier = Modifier.size(22.dp),
     )
     BreadcrumbText(
-        text = stringResource(id = org.fossify.commons.R.string.internal_storage),
+        text = stringResource(id = R.string.folders),
         selected = uiState.homeSection == DocumentsHomeSection.FOLDERS,
         onClick = if (uiState.homeSection == DocumentsHomeSection.FOLDER) actions.onShowFolders else null,
     )

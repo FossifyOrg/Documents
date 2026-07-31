@@ -354,9 +354,6 @@ private fun ColumnScope.LoadedTextDocumentContent(
         )
     }
 
-    uiState.message?.let {
-        StatusStrip(text = it, isError = false)
-    }
     if (uiState.isReadOnly) {
         StatusStrip(
             text = uiState.readOnlyReason ?: stringResource(id = R.string.read_only),
