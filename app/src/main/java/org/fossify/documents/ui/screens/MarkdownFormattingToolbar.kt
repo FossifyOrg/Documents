@@ -14,6 +14,8 @@ import androidx.compose.material.icons.automirrored.filled.FormatListBulleted
 import androidx.compose.material.icons.filled.Code
 import androidx.compose.material.icons.filled.FormatBold
 import androidx.compose.material.icons.filled.FormatItalic
+import androidx.compose.material.icons.filled.FormatListNumbered
+import androidx.compose.material.icons.filled.FormatListNumberedRtl
 import androidx.compose.material.icons.filled.FormatQuote
 import androidx.compose.material.icons.filled.Title
 import androidx.compose.material3.Icon
@@ -22,7 +24,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import org.fossify.commons.compose.theme.SimpleTheme
 import org.fossify.documents.R
@@ -33,6 +37,11 @@ internal fun MarkdownFormattingToolbar(
     modifier: Modifier = Modifier,
 ) {
     val scrollState = rememberScrollState()
+    val numberedListIcon = if (LocalLayoutDirection.current == LayoutDirection.Rtl) {
+        Icons.Filled.FormatListNumberedRtl
+    } else {
+        Icons.Filled.FormatListNumbered
+    }
 
     Row(
         modifier = modifier
@@ -61,6 +70,11 @@ internal fun MarkdownFormattingToolbar(
             icon = Icons.AutoMirrored.Filled.FormatListBulleted,
             contentDescription = stringResource(id = R.string.format_bullet_list),
             onClick = { onAction(MarkdownEditAction.Bullet) },
+        )
+        MarkdownToolButton(
+            icon = numberedListIcon,
+            contentDescription = stringResource(id = R.string.format_numbered_list),
+            onClick = { onAction(MarkdownEditAction.NumberedList) },
         )
         MarkdownToolButton(
             icon = Icons.Filled.FormatQuote,

@@ -11,19 +11,18 @@ internal enum class MarkdownEditAction {
     Bold,
     Italic,
     Bullet,
+    NumberedList,
     Quote,
     Code,
 }
 
 internal fun TextFieldValue.applyMarkdownAction(action: MarkdownEditAction): TextFieldValue {
     return when (action) {
-        MarkdownEditAction.Heading -> prefixSelectedLines("# ") { line ->
-            line.replace(headingPrefixRegex, "")
-        }
-
+        MarkdownEditAction.Heading -> toggleHeading()
         MarkdownEditAction.Bold -> wrapSelection("**", "**", "bold")
         MarkdownEditAction.Italic -> wrapSelection("_", "_", "italic")
         MarkdownEditAction.Bullet -> prefixSelectedLines("- ")
+        MarkdownEditAction.NumberedList -> toggleNumberedList()
         MarkdownEditAction.Quote -> prefixSelectedLines("> ")
         MarkdownEditAction.Code -> codeSelection()
     }
@@ -48,6 +47,30 @@ private fun TextFieldValue.wrapSelection(
 ): TextFieldValue {
     val range = selection.normalizedBounds()
     val selectedText = text.substring(range.start, range.end)
+    val selectionCanContainMarkers = selectedText.length >= prefix.length + suffix.length
+    val selectionStartsWithPrefix = selectedText.startsWith(prefix)
+    val selectionEndsWithSuffix = selectedText.endsWith(suffix)
+    if (selectionCanContainMarkers && selectionStartsWithPrefix && selectionEndsWithSuffix) {
+        val replacement = selectedText
+            .removePrefix(prefix)
+            .removeSuffix(suffix)
+        return TextFieldValue(
+            text = text.replaceRange(range.start, range.end, replacement),
+            selection = TextRange(range.start, range.start + replacement.length),
+        )
+    }
+
+    val outerStart = range.start - prefix.length
+    val outerEnd = range.end + suffix.length
+    val hasOuterPrefix = outerStart >= 0 && text.regionMatches(outerStart, prefix, 0, prefix.length)
+    val hasOuterSuffix = outerEnd <= text.length && text.regionMatches(range.end, suffix, 0, suffix.length)
+    if (hasOuterPrefix && hasOuterSuffix) {
+        return TextFieldValue(
+            text = text.replaceRange(outerStart, outerEnd, selectedText),
+            selection = TextRange(outerStart, outerStart + selectedText.length),
+        )
+    }
+
     val content = selectedText.ifEmpty { placeholder }
     val replacement = prefix + content + suffix
     val newText = text.replaceRange(range.start, range.end, replacement)
@@ -64,6 +87,43 @@ private fun TextFieldValue.prefixSelectedLines(
     prefix: String,
     transformLine: (String) -> String = { it },
 ): TextFieldValue {
+    return transformSelectedLines { lines ->
+        lines.map { line ->
+            val transformed = transformLine(line)
+            if (transformed.startsWith(prefix)) {
+                transformed.removePrefix(prefix)
+            } else {
+                prefix + transformed
+            }
+        }
+    }
+}
+
+private fun TextFieldValue.toggleHeading(): TextFieldValue {
+    return transformSelectedLines { lines ->
+        lines.map { line ->
+            if (line.startsWith("# ")) {
+                line.removePrefix("# ")
+            } else {
+                "# " + line.replace(headingPrefixRegex, "")
+            }
+        }
+    }
+}
+
+private fun TextFieldValue.toggleNumberedList(): TextFieldValue {
+    return transformSelectedLines { lines ->
+        val removeNumbers = lines.all(numberedListPrefixRegex::containsMatchIn)
+        lines.mapIndexed { index, line ->
+            val content = line.replace(numberedListPrefixRegex, "")
+            if (removeNumbers) content else "${index + 1}. $content"
+        }
+    }
+}
+
+private fun TextFieldValue.transformSelectedLines(
+    transform: (List<String>) -> List<String>,
+): TextFieldValue {
     val range = selection.normalizedBounds()
     val lineStart = if (range.start == 0) {
         0
@@ -76,16 +136,7 @@ private fun TextFieldValue.prefixSelectedLines(
         if (index == -1) text.length else index
     }
     val selectedLines = text.substring(lineStart, lineEnd)
-    val replacement = selectedLines
-        .split('\n')
-        .joinToString("\n") { line ->
-            val transformed = transformLine(line)
-            if (transformed.startsWith(prefix)) {
-                transformed.removePrefix(prefix)
-            } else {
-                prefix + transformed
-            }
-        }
+    val replacement = transform(selectedLines.split('\n')).joinToString("\n")
     val newText = text.replaceRange(lineStart, lineEnd, replacement)
     val delta = replacement.length - selectedLines.length
 
@@ -118,3 +169,4 @@ private data class SelectionBounds(
 )
 
 private val headingPrefixRegex = Regex("^#{1,6}\\s*")
+private val numberedListPrefixRegex = Regex("^\\d+[.)]\\s+")

@@ -37,6 +37,7 @@
     <string name="format_code">Code</string>
     <string name="format_heading">Heading</string>
     <string name="format_italic">Italic</string>
+    <string name="format_numbered_list">Numbered list</string>
     <string name="format_quote">Quote</string>
     <plurals name="folder_item_count">
         <item quantity="one">%1$d item</item>
