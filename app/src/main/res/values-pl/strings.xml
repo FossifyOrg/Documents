@@ -37,4 +37,21 @@
     <string name="filter_html">HTML</string>
     <string name="folders">Foldery</string>
     <string name="folder_unavailable">Folder niedostępny</string>
+    <string name="format_bold">Pogrubienie</string>
+    <string name="format_bullet_list">Lista punktowana</string>
+    <string name="format_code">Kod</string>
+    <string name="format_heading">Nagłówek</string>
+    <string name="format_italic">Kursywa</string>
+    <string name="format_numbered_list">Lista numerowana</string>
+    <string name="format_quote">Cytat</string>
+    <plurals name="folder_item_count">
+        <item quantity="one">%1$d element</item>
+        <item quantity="few">%1$d elementy</item>
+        <item quantity="many">%1$d elementów</item>
+        <item quantity="other">%1$d elementów</item>
+    </plurals>
+    <string name="find_in_document">Znajdź w dokumencie</string>
+    <string name="import_document">Importuj</string>
+    <string name="last_opened_value">Otwarto %1$s</string>
+    <string name="no_documents_found">Nie znaleziono dokumentów</string>
 </resources>
