@@ -11,4 +11,13 @@
     <string name="could_not_save_document">Nie udało się zapisać tego dokumentu.</string>
     <string name="document">Dokument</string>
     <string name="document_too_large">Ten dokument jest za duży, aby otworzyć go jako test.</string>
+    <string name="document_too_large_to_view">Ten dokument jest za duży, aby go wyświetlić.</string>
+    <string name="document_no_longer_available">Ten dokument nie jest już dostępny. Otwórz go ponownie, aby przywrócić dostęp.</string>
+    <string name="document_text_stats">%1$s, %2$s</string>
+    <plurals name="document_text_chars">
+        <item quantity="one">%1$d znak</item>
+        <item quantity="few">%1$d znaki</item>
+        <item quantity="many">%1$d znaków</item>
+        <item quantity="other">%1$d znaków</item>
+    </plurals>
 </resources>
