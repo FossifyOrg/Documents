@@ -1,0 +1,1 @@
+PDF, DOCX, metin, Markdown, CSV ve HTML dosyalarını gizli ve çevrimdışı okuyun.
