@@ -79,4 +79,31 @@
     <string name="remove_from_documents">Usuń z Dokumentów</string>
     <string name="retry">Ponów</string>
     <string name="share_documents">Udostępnij dokumenty</string>
+    <string name="some_documents_no_longer_available">Niektóre wybrane dokumenty nie są już dostępne</string>
+    <string name="saved">Zapisano</string>
+    <string name="search_match_count">%1$d / %2$d</string>
+    <string name="search_text_in_document">Szukaj tekstu w dokumencie</string>
+    <string name="search_documents">Szukaj dokumentów</string>
+    <plurals name="selected_count">
+        <item quantity="one">%1$d wybrany</item>
+        <item quantity="few">%1$d wybrane</item>
+        <item quantity="many">%1$d wybranych</item>
+        <item quantity="other">%1$d wybranych</item>
+    </plurals>
+    <string name="show_file_locations">Pokazuj położenie plików</string>
+    <string name="sort_name_ascending">Nazwa (A-Z)</string>
+    <string name="sort_name_descending">Nazwa (Z-A)</string>
+    <string name="sort_recent">Ostatnie</string>
+    <string name="sort_size_ascending">Rozmiar (od małego do dużego)</string>
+    <string name="sort_size_descending">Rozmiar (od dużego do małego)</string>
+    <string name="unsupported_document_type">Ten typ dokumentu nie jest jeszcze obsługiwany</string>
+    <string name="unsupported_text_encoding">Tylko do odczytu, ponieważ to kodowanie tekstu nie jest obsługiwane.</string>
+    <string name="untitled_markdown_file">Bez_nazwy.md</string>
+    <string name="untitled_text_file">Bez_nazwy.txt</string>
+    <string name="view_all">Wyświetl wszystko</string>
+    <string name="unsaved_changes">Niezapisane zmiany</string>
+    <string name="next_match">Następny wynik</string>
+    <string name="reset_zoom">Zresetuj powiększenie</string>
+    <string name="zoom_in">Powiększ</string>
+    <string name="zoom_out">Pomniejsz</string>
 </resources>
