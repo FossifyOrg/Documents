@@ -59,4 +59,18 @@
     <string name="no_folders_found">Nie znaleziono folderów</string>
     <string name="no_results_found">Nie znaleziono wyników</string>
     <string name="no_recent_documents">Brak ostatnich dokumentów</string>
+    <string name="no_recent_documents_hint">Otwarte przez Ciebie dokumenty pojawią się tutaj.</string>
+    <string name="open_document">Otwórz dokument</string>
+    <string name="open_file">Otwórz plik</string>
+    <string name="open_folder">Otwórz folder</string>
+    <string name="open_folder_empty_hint">Otwórz folder, aby przejrzeć obsługiwane dokumenty.</string>
+    <string name="open_document_empty_hint">Otwórz dokument lub folder, aby rozpocząć.</string>
+    <string name="next_page">Następna strona</string>
+    <string name="page_count_value">%1$d / %2$d</string>
+    <string name="pdf_print_whole_document_only">Można wydrukować tylko cały plik PDF.</string>
+    <string name="previous_page">Poprzednia strona</string>
+    <string name="previous_match">Poprzedni wynik</string>
+    <string name="preview">Podgląd</string>
+    <string name="new_markdown_file">Nowy plik markdown</string>
+    <string name="new_text_file">Nowy plik tekstowy</string>
 </resources>
