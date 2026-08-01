@@ -11,7 +11,7 @@ commonmark = "0.29.0"
 jsoup = "1.22.2"
 commonsCsv = "1.14.1"
 #Compose
-composeActivity = "1.11.0"
+composeActivity = "1.13.0"
 compose = "1.9.4"
 composeMaterial3 = "1.4.0"
 composeMaterialIcons = "1.7.8"
