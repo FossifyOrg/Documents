@@ -1,3 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_launcher_name">Dokumenty</string>
+    <string name="adjust_search_or_filters">Spróbuj innego wyszukiwania lub filtra.</string>
+    <string name="all_documents">Wszystkie dokumenty</string>
+    <string name="clear_recent_documents">Wyczyść ostatnie</string>
+    <string name="clear_search">Wyczyść wyszukiwanie</string>
+    <string name="clear_selection">Wyczyść wybór</string>
+    <string name="could_not_open_document">Nie udało się otworzyć dokumentu.</string>
+    <string name="could_not_open_folder">Sprawdź, czy ten folder jest dostępny, a potem spróbuj ponownie.</string>
+    <string name="could_not_save_document">Nie udało się zapisać tego dokumentu.</string>
+    <string name="document">Dokument</string>
+    <string name="document_too_large">Ten dokument jest za duży, aby otworzyć go jako test.</string>
 </resources>
