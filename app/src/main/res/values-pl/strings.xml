@@ -58,4 +58,5 @@
     <string name="no_favorites_found">Nie znaleziono ulubionych</string>
     <string name="no_folders_found">Nie znaleziono folderów</string>
     <string name="no_results_found">Nie znaleziono wyników</string>
+    <string name="no_recent_documents">Brak ostatnich dokumentów</string>
 </resources>
