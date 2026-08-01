@@ -73,4 +73,10 @@
     <string name="preview">Podgląd</string>
     <string name="new_markdown_file">Nowy plik markdown</string>
     <string name="new_text_file">Nowy plik tekstowy</string>
+    <string name="recent">Ostatnie</string>
+    <string name="read_only">Tylko do odczytu</string>
+    <string name="remember_pdf_page">Pamiętaj stronę w plikach PDF</string>
+    <string name="remove_from_documents">Usuń z Dokumentów</string>
+    <string name="retry">Ponów</string>
+    <string name="share_documents">Udostępnij dokumenty</string>
 </resources>
