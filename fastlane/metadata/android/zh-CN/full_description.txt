@@ -1,0 +1,38 @@
+Fossify Documents 是一款专为简洁而设计的私密离线文档阅读器和管理工具。它支持打开 PDF、DOCX、文本、Markdown、CSV、TSV 和 HTML 文件，让您随时轻松访问重要文档，没有广告、追踪或互联网访问。<br><br>
+
+<b>📄 轻松阅读文档</b><br>
+• 打开 PDF、DOCX、纯文本、Markdown、CSV、TSV 和 HTML 文档。<br>
+• 浏览 PDF 页面，放大或缩小，并使用无干扰的全屏查看器。<br>
+• 打开受密码保护的 PDF 文件。<br>
+• 以简洁、适合移动设备的布局阅读 DOCX 文件。<br>
+• 在专用的表格查看器中浏览 CSV 和 TSV 文件。<br>
+• 安全且完全离线地查看 HTML 文档。<br>
+• 预览包含标题、列表、表格、链接、代码等格式的 Markdown 文档。<br>
+• 打印 PDF 或在其他兼容应用中打开文档。<br><br>
+
+<b>✍️ 创建和编辑</b><br>
+• 在 Android 支持的任何位置创建新的文本和 Markdown 文件。<br>
+• 编辑现有的文本和 Markdown 文档。<br>
+• 将 CSV 和 TSV 文件作为纯文本进行编辑，同时保留表格查看器以便阅读。<br>
+• 使用便捷的 Markdown 格式控制功能，设置标题、粗体、斜体、引用、列表和代码。<br>
+• 编辑时跟踪词数和字符数。<br><br>
+
+<b>📁 保持井然有序</b><br>
+• 添加文件夹，并在应用内直接浏览其中的支持文档。<br>
+• 快速返回最近打开的文档。<br>
+• 将重要文档标记为收藏。<br>
+• 按名称、日期或文件大小进行搜索、筛选和排序。<br>
+• 在舒适的列表和网格布局之间切换。<br><br>
+
+<b>🔒 注重隐私的设计</b><br>
+Fossify Documents 完全离线运行，无需互联网权限。您的文档将保留在您的设备上，并存储在您选择的位置。没有广告、分析或追踪。<br><br>
+
+<b>🎨 专为您打造</b><br>
+使用 Fossify 主题、颜色、图标和字体自定义应用。全面支持浅色和深色主题，为您带来与设备完美融合的文档体验。<br><br>
+
+<b>简洁。私密。专属。</b><br><br>
+
+探索更多 Fossify 应用：https://www.fossify.org<br>
+开源代码：https://www.github.com/FossifyOrg<br>
+加入 Reddit 上的社区：https://www.reddit.com/r/Fossify<br>
+在 Telegram 上联系我们：https://t.me/Fossify
