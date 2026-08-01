@@ -54,4 +54,8 @@
     <string name="import_document">Importuj</string>
     <string name="last_opened_value">Otwarto %1$s</string>
     <string name="no_documents_found">Nie znaleziono dokumentów</string>
+    <string name="no_favorites_empty_hint">Oznacz dokumenty gwiazdką, aby mieć je pod ręką.</string>
+    <string name="no_favorites_found">Nie znaleziono ulubionych</string>
+    <string name="no_folders_found">Nie znaleziono folderów</string>
+    <string name="no_results_found">Nie znaleziono wyników</string>
 </resources>
