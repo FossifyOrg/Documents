@@ -20,4 +20,21 @@
         <item quantity="many">%1$d znaków</item>
         <item quantity="other">%1$d znaków</item>
     </plurals>
+    <plurals name="document_text_words">
+        <item quantity="one">%1$d słowo</item>
+        <item quantity="few">%1$d słowa</item>
+        <item quantity="many">%1$d słów</item>
+        <item quantity="other">%1$d słów</item>
+    </plurals>
+    <string name="documents">Dokumenty</string>
+    <string name="downloads">Pobrane</string>
+    <string name="edit_as_text">Edytuj jako tekst</string>
+    <string name="empty_document">Pusty dokument</string>
+    <string name="filter_markdown">Markdown</string>
+    <string name="filter_pdf">PDF</string>
+    <string name="filter_docx">DOCX</string>
+    <string name="filter_csv">CSV</string>
+    <string name="filter_html">HTML</string>
+    <string name="folders">Foldery</string>
+    <string name="folder_unavailable">Folder niedostępny</string>
 </resources>
