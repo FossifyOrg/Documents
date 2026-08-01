@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Fixed
-- Removed unused upstream dependency artifact
+- Removed unused library
 
 ## [1.0.0] - 2026-07-31
 ### Added
