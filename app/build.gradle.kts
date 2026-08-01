@@ -123,6 +123,7 @@ android {
     }
 
     packaging {
+        jniLibs.excludes += "**/x86_64/libc++_shared.so" // unused upstream residue
         resources.excludes += "META-INF/versions/9/OSGI-INF/MANIFEST.MF"
     }
 }
