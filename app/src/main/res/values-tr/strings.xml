@@ -16,11 +16,11 @@
     <string name="document_text_stats">%1$s, %2$s</string>
     <plurals name="document_text_chars">
         <item quantity="one">%1$d karakter</item>
-        <item quantity="other">%1$d karakter</item>
+        <item quantity="other">%1$d karakterler</item>
     </plurals>
     <plurals name="document_text_words">
         <item quantity="one">%1$d kelime</item>
-        <item quantity="other">%1$d kelime</item>
+        <item quantity="other">%1$d kelimeler</item>
     </plurals>
     <string name="documents">Belgeler</string>
     <string name="downloads">İndirilenler</string>
@@ -41,7 +41,7 @@
     <string name="format_quote">Alıntı</string>
     <plurals name="folder_item_count">
         <item quantity="one">%1$d öğe</item>
-        <item quantity="other">%1$d öğe</item>
+        <item quantity="other">%1$d öğeler</item>
     </plurals>
     <string name="find_in_document">Belgede bul</string>
     <string name="import_document">İçe aktar</string>
