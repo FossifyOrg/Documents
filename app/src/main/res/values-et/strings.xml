@@ -1,3 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_launcher_name">Dokumendid</string>
+    <string name="adjust_search_or_filters">Proovi teistsugust otsingut või filtrit.</string>
+    <string name="all_documents">Kõik dokumendid</string>
+    <string name="clear_recent_documents">Kustuta hiljutised</string>
+    <string name="clear_search">Tühjenda otsing</string>
+    <string name="clear_selection">Eemalda valik</string>
+    <string name="could_not_open_document">Selle dokumendi avamine polnud võimalik.</string>
+    <string name="documents">Dokumendid</string>
+    <string name="downloads">Allalaadimised</string>
+    <string name="edit_as_text">Muuda tekstina</string>
+    <string name="empty_document">Tühi dokument</string>
+    <string name="filter_markdown">Markdown</string>
+    <string name="filter_pdf">PDF</string>
+    <string name="filter_docx">DOCX</string>
+    <string name="filter_csv">CSV</string>
+    <string name="filter_html">HTML</string>
+    <string name="folders">Kaustad</string>
+    <string name="folder_unavailable">Kaust pole saadaval</string>
 </resources>
