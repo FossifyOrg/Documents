@@ -1,0 +1,38 @@
+Fossify Documents ist ein privater Offline-Dokumentenleser und -Organizer, der ganz auf Einfachheit ausgelegt ist. Öffne PDF-, DOCX-, Text-, Markdown-, CSV-, TSV- und HTML-Dateien und halte wichtige Dokumente griffbereit – ganz ohne Werbung, Tracking oder Internetzugang.<br><br>
+
+<b>📄 DOKUMENTE MÜHELOS LESEN</b><br>
+• Öffne PDF-, DOCX-, Reintext-, Markdown-, CSV-, TSV- und HTML-Dokumente.<br>
+• Blättere durch PDF-Seiten, zoome hinein oder heraus und nutze eine ablenkungsfreie Vollbildansicht.<br>
+• Öffne passwortgeschützte PDFs.<br>
+• Lies DOCX-Dateien in einem übersichtlichen, mobilfreundlichen Layout.<br>
+• Durchsuche CSV- und TSV-Dateien in einer speziellen Tabellenansicht.<br>
+• Lass dir HTML-Dokumente sicher und vollständig offline anzeigen.<br>
+• Lass dir eine Vorschau von formatiertem Markdown mit Überschriften, Listen, Tabellen, Links, Code und mehr anzeigen.<br>
+• Drucke PDFs aus oder öffne Dokumente in einer anderen kompatiblen App.<br><br>
+
+<b>✍️ ERSTELLEN UND BEARBEITEN</b><br>
+• Erstelle neue Text- und Markdown-Dateien überall dort, wo Android unterstützt wird.<br>
+• Bearbeite vorhandene Text- und Markdown-Dokumente.<br>
+• Bearbeite CSV- und TSV-Dateien als Klartext, während du die Tabellenansicht zum Lesen nutzt.<br>
+• Nutze praktische Markdown-Formatierungsfunktionen für Überschriften, fettgedruckten Text, Kursivschrift, Zitate, Listen und Code.<br>
+• Behalte während dem Bearbeiten den Überblick über Wort- und Zeichenanzahl.<br><br>
+
+<b>📁 ALLES ORGANISIERT HALTEN</b><br>
+• Füge Ordner hinzu und durchsuche deren unterstützte Dokumente direkt in der App.<br>
+• Kehre schnell zu zuletzt geöffneten Dokumenten zurück.<br>
+• Markiere wichtige Dokumente als Favoriten.<br>
+• Suche, filtere und sortiere nach Name, Datum oder Dateigröße.<br>
+• Wechsele zwischen übersichtlichen Listen- und Rasteransichten.<br><br>
+
+<b>🔒 VON GRUND AUF PRIVAT</b><br>
+Fossify Documents funktioniert vollständig offline und benötigt keine Internetberechtigung. Deine Dokumente verbleiben auf deinem Gerät und an den von dir gewählten Speicherorten. Es gibt keine Werbung, keine Analysen und kein Tracking.<br><br>
+
+<b>🎨 AUF DICH ZUGESCHNITTEN</b><br>
+Passe die App mit Fossify-Farbschemas, Farben, Symbolen und Schriftarten an. Helle und dunkle Farbschemas werden vollständig unterstützt und sorgen für ein Dokumentenerlebnis, das sich auf deinem Gerät wie zu Hause anfühlt.<br><br>
+
+<b>Einfach. Privat. Ganz für dich.</b><br><br>
+
+Entdecke weitere Apps von Fossify: https://www.fossify.org
+Open-Source-Code: https://www.github.com/FossifyOrg
+Tritt der Community auf Reddit bei: https://www.reddit.com/r/Fossify
+Verbinde dich auf Telegram: https://t.me/Fossify
