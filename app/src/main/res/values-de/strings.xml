@@ -1,3 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    </resources>
+    <string name="all_documents">Alle Dokumente</string>
+    <string name="document_text_stats">%1$s, %2$s</string>
+    <string name="documents">Dokumente</string>
+    <string name="downloads">Downloads</string>
+    <string name="filter_markdown">Markdown</string>
+    <string name="filter_pdf">PDF</string>
+    <string name="filter_docx">DOCX</string>
+    <string name="filter_csv">CSV</string>
+    <string name="filter_html">HTML</string>
+    <string name="folders">Ordner</string>
+</resources>
