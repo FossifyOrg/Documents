@@ -1,0 +1,38 @@
+Fossify Dokumendid on privaatne võrguühenduseta dokumentide lugeja ja korraldaja, mis on loodud lihtsust silmas pidades. Ava PDF-, DOCX-, teksti-, Markdown-, CSV-, TSV- ja HTML-faile ning hoia olulised dokumendid alati käepärast – ilma reklaamide, jälgimise ja internetiühenduseta.<br><br>
+
+<b>📄 LOE DOKUMENTE LIHTSALT</b><br>
+• Ava PDF-, DOCX-, tavateksti-, Markdown-, CSV-, TSV- ja HTML-vormingus dokumente.<br>
+• Liigu PDF-faili lehekülgede vahel, suurenda või vähenda vaadet ning kasuta müravaba täisekraanvaadet.<br>
+• Ava salasõnaga kaitstud PDF-faile.<br>
+• Loe DOCX-faile puhtas ja mobiilisõbralikus vaates.<br>
+• Sirvi CSV- ja TSV-faile spetsiaalses tabelivaates.<br>
+• Vaata HTML-dokumente turvaliselt ja täielikult võrguühenduseta.<br>
+• Eelvaata vormindatud Markdowni koos pealkirjade, loendite, tabelite, linkide, koodi ja muuga.<br>
+• Prindi PDF-faile või ava dokument mõnes muus ühilduvas rakenduses.<br><br>
+
+<b>✍️ KOOSTA JA MUUDA</b><br>
+• Koosta uusi teksti- ja Markdown-faile kõikjal, kus Android seda toetab.<br>
+• Muuda olemasolevaid teksti- ja Markdown-vormingus dokumente.<br>
+• Muuda CSV- ja TSV-faile lihttekstina, säilitades lugemiseks tabelivaate.<br>
+• Kasuta mugavaid Markdowni vormindusnuppe pealkirjade, paksu teksti, kaldkirja, tsitaatide, loendite ja koodilõikude jaoks.<br>
+• Jälgi muutmise ajal sõnade ja märkide arvu.<br><br>
+
+<b>📁 HOIA KÕIK KORRAS</b><br>
+• Lisa kaustu ja sirvi neis leiduvaid toetatud dokumente otse rakenduses.<br>
+• Naase kiiresti hiljuti avatud dokumentide juurde.<br>
+• Märgi olulised dokumendid lemmikuteks.<br>
+• Otsi, filtreeri ja sorteeri nime, kuupäeva või faili suuruse järgi.<br>
+• Vaheta mugava loendi- ja ruudustikuvaate vahel.<br><br>
+
+<b>🔒 PRIVAATSUS ON ESIKOHAL</b><br>
+Fossify Dokumendid töötab täielikult võrguühenduseta ega vaja interneti kasutamise luba. Sinu dokumendid jäävad sinu seadmesse ja sinu valitud salvestuskohtadesse. Rakenduses pole reklaame, analüütikat ega jälgimist.<br><br>
+
+<b>🎨 LOODUD SINU JAOKS</b><br>
+Kohanda rakendust Fossify teemade, värvide, ikoonide ja kirjatüüpidega. Täielikult on toetatud nii hele kui ka tume kujudnus, et dokumentide lugemine tunduks sinu seadmes loomulik ja mugav.<br><br>
+
+<b>Lihtne. Privaatne. Sinu oma.</b><br><br>
+
+Kõik Fossify rakendused: https://www.fossify.org<br>
+Avatud lähtekood: https://www.github.com/FossifyOrg<br>
+Liitu kogukonnaga Redditis: https://www.reddit.com/r/Fossify<br>
+Suhtle Telegramis: https://t.me/Fossify<br>
