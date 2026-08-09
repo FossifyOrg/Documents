@@ -8,7 +8,7 @@ commons = "6.2.0"
 androidPdfViewer = "3.2.16"
 javaMammoth = "1.12.1"
 commonmark = "0.29.0"
-jsoup = "1.22.2"
+jsoup = "1.23.1"
 commonsCsv = "1.14.1"
 #Compose
 composeActivity = "1.13.0"
