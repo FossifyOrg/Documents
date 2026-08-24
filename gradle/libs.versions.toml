@@ -19,7 +19,7 @@ composeMaterialIcons = "1.7.8"
 androidx-lifecycle = "2.10.0"
 junit = "4.13.2"
 #Gradle
-gradlePlugins-agp = "9.3.1"
+gradlePlugins-agp = "9.3.2"
 app-build-compileSDKVersion = "36"
 app-build-targetSDK = "36"
 app-build-minimumSDK = "26"
