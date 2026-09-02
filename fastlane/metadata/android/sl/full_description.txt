@@ -1,0 +1,38 @@
+Fossify Documents je zasebni bralnik in organizator dokumentov brez povezave, zasnovan za preprostost. Odprite datoteke PDF, DOCX, besedilne datoteke, datoteke Markdown, CSV, TSV in HTML ter imejte pomembne dokumente pri roki brez oglasov, sledenja ali dostopa do interneta.<br><br>
+
+<b>📄 BRANJE DOKUMENTOV Z LAHKOTO</b><br>
+• Odprite dokumente PDF, DOCX, navadno besedilo, datoteke Markdown, CSV, TSV in HTML.<br>
+• Navigirajte po straneh PDF, povečujte ali pomanjšujte ter uporabljajte celozaslonski pregledovalnik brez motenj.<br>
+• Odprite datoteke PDF, zaščitene z geslom.<br>
+• Berite datoteke DOCX v čisti, mobilnim napravam prijazni postavitvi.<br>
+• Brskajte po datotekah CSV in TSV v namenskem pregledovalniku tabel.<br>
+• Varno in popolnoma brez povezave si oglejte dokumente HTML.<br>
+• Predogled oblikovanega programa Markdown z naslovi, seznami, tabelami, povezavami, kodo in še več.<br>
+• Natisnite datoteke PDF ali odprite dokumente v drugi združljivi aplikaciji.<br><br>
+
+<b>✍️ USTVARJANJE IN UREJANJE</b><br>
+• Ustvarite novo besedilo in Datoteke Markdown kjer koli, kjer Android podpira.<br>
+• Urejajte obstoječe besedilne in dokumente Markdown.<br>
+• Urejajte datoteke CSV in TSV kot navadno besedilo, hkrati pa ohranite pregledovalnik tabel za branje.<br>
+• Uporabite priročne kontrolnike za oblikovanje Markdown za naslove, krepko besedilo, poševno pisavo, citate, sezname in kodo.<br>
+• Med urejanjem spremljajte število besed in znakov.<br><br>
+
+<b>📁 ORGANIZIRAJTE VSE</b><br>
+• Dodajte mape in brskajte po podprtih dokumentih neposredno v aplikaciji.<br>
+• Hitro se vrnite na nedavno odprte dokumente.<br>
+• Označite pomembne dokumente kot priljubljene.<br>
+• Iščite, filtrirajte in razvrščajte po imenu, datumu ali velikosti datoteke.<br>
+• Preklapljajte med udobno postavitvijo seznama in mreže.<br><br>
+
+<b>🔒 ZASEBNO PO ZASNOVI</b><br>
+Fossify Documents deluje popolnoma brez povezave in nima dovoljenja za internet. Vaši dokumenti ostanejo v vaši napravi in na mestih za shranjevanje, ki jih izberete. Ni oglasov, analitike ali sledenja.<br><br>
+
+<b>🎨 NAREJENO ZA VAS</b><br>
+Prilagodite aplikacijo s temami, barvami, ikonami in pisavami Fossify. Svetle in temne teme so v celoti podprte, kar vam zagotavlja izkušnjo dela z dokumenti, ki se v vaši napravi počuti kot doma.<br><br>
+
+<b>Preprosto. Zasebno. Vaše.</b><br><br>
+
+Raziščite več aplikacij Fossify: https://www.fossify.org<br>
+Odprtokodna koda: https://www.github.com/FossifyOrg<br>
+Pridružite se skupnosti na Redditu: https://www.reddit.com/r/Fossify<br>
+Povežite se na Telegramu: https://t.me/Fossify
