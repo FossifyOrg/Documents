@@ -1,0 +1,1 @@
+隱密地離線讀取 PDF、DOCX、文字文件、Markdown、CSV 和 HTML 檔案。
