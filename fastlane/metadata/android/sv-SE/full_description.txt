@@ -1,0 +1,38 @@
+Fossify Documents är en privat dokumentläsare och -organiserare som fungerar offline och är byggd för enkelhet. Öppna PDF-, DOCX-, text-, Markdown-, CSV-, TSV- och HTML-filer och ha viktiga dokument nära till hands utan annonser, spårning eller internetåtkomst.<br><br>
+
+<b>📄 LÄS DOKUMENT ENKELT</b><br>
+• Öppna PDF-, DOCX-, vanliga text-, Markdown-, CSV-, TSV- och HTML-dokument.<br>
+• Navigera mellan PDF-sidor, zooma in eller ut och använd en helskärmsvisare utan störningar.<br>
+• Öppna lösenordsskyddade PDF-filer.<br>
+• Läs DOCX-filer i en ren, mobilanpassad layout.<br>
+• Bläddra i CSV- och TSV-filer i en särskild tabellvisare.<br>
+• Visa HTML-dokument säkert och helt offline.<br>
+• Förhandsgranska formaterad Markdown med rubriker, listor, tabeller, länkar, kod med mera.<br>
+• Skriv ut PDF-filer eller öppna dokument i en annan kompatibel app.<br><br>
+
+<b>✍️ SKAPA OCH REDIGERA</b><br>
+• Skapa nya text- och Markdown-filer var som helst där Android har stöd för det.<br>
+• Redigera befintliga text- och Markdown-dokument.<br>
+• Redigera CSV- och TSV-filer som vanlig text och behåll tabellvisaren för läsning.<br>
+• Använd praktiska Markdown-kontroller för rubriker, fetstil, kursiv text, citat, listor och kod.<br>
+• Håll koll på antal ord och tecken medan du redigerar.<br><br>
+
+<b>📁 HÅLL ALLT ORDNAT</b><br>
+• Lägg till mappar och bläddra direkt bland de dokument som stöds i dem.<br>
+• Gå snabbt tillbaka till nyligen öppnade dokument.<br>
+• Markera viktiga dokument som favoriter.<br>
+• Sök, filtrera och sortera efter namn, datum eller filstorlek.<br>
+• Växla mellan bekväma list- och rutnätslayouter.<br><br>
+
+<b>🔒 PRIVAT SOM STANDARD</b><br>
+Fossify Documents fungerar helt offline och saknar internetbehörighet. Dina dokument stannar på enheten och på de lagringsplatser du väljer. Det finns inga annonser, analyser eller spårning.<br><br>
+
+<b>🎨 GJORD FÖR DIG</b><br>
+Anpassa appen med Fossify-teman, färger, ikoner och teckensnitt. Ljust och mörkt tema stöds fullt ut, så att dokumentupplevelsen känns hemma på din enhet.<br><br>
+
+<b>Enkel. Privat. Din.</b><br><br>
+
+Utforska fler Fossify-appar: https://www.fossify.org<br>
+Öppen källkod: https://www.github.com/FossifyOrg<br>
+Gå med i gemenskapen på Reddit: https://www.reddit.com/r/Fossify<br>
+Följ oss på Telegram: https://t.me/Fossify
