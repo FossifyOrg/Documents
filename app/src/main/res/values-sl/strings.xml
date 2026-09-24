@@ -52,7 +52,7 @@
     </plurals>
     <string name="find_in_document">Najdi v dokumentu</string>
     <string name="import_document">Uvozi</string>
-    <string name="last_opened_value">Odpro %1$s</string>
+    <string name="last_opened_value">Odprto %1$s</string>
     <string name="no_documents_found">Ni najdenih dokumentov</string>
     <string name="no_favorites_empty_hint">Označite dokumente z zvezdico, da jih boste imeli vedno pri roki.</string>
     <string name="no_favorites_found">Ni najdenih priljubljenih</string>
@@ -65,11 +65,11 @@
     <string name="open_folder">Odpri mapo</string>
     <string name="open_folder_empty_hint">Odprite mapo za brskanje po podprtih dokumentih.</string>
     <string name="open_document_empty_hint">Za začetek odprite dokument ali mapo.</string>
-    <string name="next_page">Nasledna stran</string>
+    <string name="next_page">Naslednja stran</string>
     <string name="page_count_value">%1$d / %2$d</string>
     <string name="pdf_print_whole_document_only">Natisnete lahko samo celoten PDF.</string>
-    <string name="previous_page">Prejšna stran</string>
-    <string name="previous_match">Prejšni zadetek</string>
+    <string name="previous_page">Prejšnja stran</string>
+    <string name="previous_match">Prejšnji zadetek</string>
     <string name="preview">Predogled</string>
     <string name="new_markdown_file">Nova markdown datoteka</string>
     <string name="new_text_file">Nova besedilna datoteka</string>
