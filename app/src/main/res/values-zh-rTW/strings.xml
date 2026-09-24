@@ -4,7 +4,7 @@
     <string name="adjust_search_or_filters">請嘗試其他搜尋或篩選條件。</string>
     <string name="all_documents">所有文件</string>
     <string name="clear_recent_documents">清除最近使用</string>
-    <string name="clear_search">清除搜尋記錄</string>
+    <string name="clear_search">清除搜尋</string>
     <string name="clear_selection">清除選取範圍</string>
     <string name="could_not_open_document">無法開啟文件。</string>
     <string name="could_not_open_folder">請確認資料夾狀態，然後再試一次。</string>
