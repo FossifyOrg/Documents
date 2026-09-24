@@ -55,7 +55,7 @@
     <string name="no_recent_documents">இல்லை recent ஆவணங்கள்</string>
     <string name="no_recent_documents_hint">ஆவணங்கள் you திற will appear here.</string>
     <string name="open_document">திற ஆவணம்</string>
-    <string name="open_file">கோப்பை திற</string>
+    <string name="open_file">கோப்பைத் திற</string>
     <string name="open_folder">திற folder</string>
     <string name="open_folder_empty_hint">திற a folder பெறுநர் browse supported documents.</string>
     <string name="open_document_empty_hint">தொடங்குவதற்கு ஒரு ஆவணம் அல்லது கோப்புறையைத் திறக்கவும்.</string>
