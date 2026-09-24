@@ -11,7 +11,7 @@
     <string name="could_not_save_document">Vous ne pouvez pas sauvegarder ce document.</string>
     <string name="document">Document</string>
     <string name="document_too_large">Ce document est trop grand pour être ouvert comme texte.</string>
-    <string name="document_too_large_to_view">Ce document est trop large pour être affiché.</string>
+    <string name="document_too_large_to_view">Ce document est trop grand pour être affiché.</string>
     <string name="document_no_longer_available">Ce document n\'est plus disponible. Ouvrez-le à nouveau pour restaurer son accès.</string>
     <plurals name="document_text_words">
         <item quantity="one">%1$d mot</item>
@@ -46,7 +46,7 @@
     <string name="no_documents_found">Aucun document trouvé</string>
     <string name="no_favorites_empty_hint">Marquez comme favoris des documents pour les garder à proximité.</string>
     <string name="no_favorites_found">Pas de favoris trouvés</string>
-    <string name="no_folders_found">Pas de fichiers trouvés</string>
+    <string name="no_folders_found">Pas de dossiers trouvés</string>
     <string name="no_results_found">Pas de résultats trouvés</string>
     <string name="no_recent_documents">Pas de documents récents</string>
     <string name="no_recent_documents_hint">Les documents que vous ouvrirez apparaîtront ici.</string>
