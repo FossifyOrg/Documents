@@ -1,1 +1,1 @@
-Loe PDF, DOCX, teksti, Markdown, CSV ja HTML faile privaatselt+võrguühenduseta.
+Loe PDF, DOCX, teksti, Markdown, CSV ja HTML faile privaatselt, võrguühenduseta.
