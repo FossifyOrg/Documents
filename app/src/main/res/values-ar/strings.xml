@@ -93,12 +93,12 @@
     <plurals name="selected_count">
         <item quantity="zero">حُدّد %1$d</item>
         <item quantity="one">حُدّد واحد</item>
-        <item quantity="two">حُدّد اثنين</item>
+        <item quantity="two">حُدّد اثنان</item>
         <item quantity="few">حُدّد %1$d</item>
         <item quantity="many">حُدّد %1$d</item>
         <item quantity="other">حُدّد %1$d</item>
     </plurals>
-    <string name="show_file_locations">أظهِر اماكن الملفات</string>
+    <string name="show_file_locations">أظهِر أماكن الملفات</string>
     <string name="sort_name_ascending">الاسم (أ-ي)</string>
     <string name="sort_name_descending">الاسم (ي-أ)</string>
     <string name="sort_recent">الحديثة</string>
