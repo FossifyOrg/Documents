@@ -7,11 +7,11 @@ Fossify Documents je zasebni bralnik in organizator dokumentov brez povezave, za
 • Berite datoteke DOCX v čisti, mobilnim napravam prijazni postavitvi.<br>
 • Brskajte po datotekah CSV in TSV v namenskem pregledovalniku tabel.<br>
 • Varno in popolnoma brez povezave si oglejte dokumente HTML.<br>
-• Predogled oblikovanega programa Markdown z naslovi, seznami, tabelami, povezavami, kodo in še več.<br>
+• Predoglejte si oblikovan Markdown z naslovi, seznami, tabelami, povezavami, kodo in še več.<br>
 • Natisnite datoteke PDF ali odprite dokumente v drugi združljivi aplikaciji.<br><br>
 
 <b>✍️ USTVARJANJE IN UREJANJE</b><br>
-• Ustvarite novo besedilo in Datoteke Markdown kjer koli, kjer Android podpira.<br>
+• Ustvarite nove besedilne datoteke in datoteke Markdown kjer koli, kjer jih Android podpira.<br>
 • Urejajte obstoječe besedilne in dokumente Markdown.<br>
 • Urejajte datoteke CSV in TSV kot navadno besedilo, hkrati pa ohranite pregledovalnik tabel za branje.<br>
 • Uporabite priročne kontrolnike za oblikovanje Markdown za naslove, krepko besedilo, poševno pisavo, citate, sezname in kodo.<br>
