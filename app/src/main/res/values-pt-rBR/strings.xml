@@ -2,7 +2,7 @@
 <resources>
     <string name="app_launcher_name">Documentos</string>
     <string name="adjust_search_or_filters">Tente uma pesquisa ou filtro diferente.</string>
-    <string name="all_documents">Todos documentos</string>
+    <string name="all_documents">Todos os documentos</string>
     <string name="clear_recent_documents">Limpar recentes</string>
     <string name="clear_search">Limpar pesquisa</string>
     <string name="clear_selection">Limpar seleção</string>
@@ -37,7 +37,7 @@
     <string name="pdf_print_whole_document_only">Apenas o PDF inteiro pode ser impresso.</string>
     <string name="previous_page">Página anterior</string>
     <string name="preview">Visualização</string>
-    <string name="new_markdown_file">Novo arquivo de marcação</string>
+    <string name="new_markdown_file">Novo arquivo Markdown</string>
     <string name="new_text_file">Novo arquivo de texto</string>
     <string name="recent">Recente</string>
     <string name="read_only">Somente leitura</string>
@@ -78,7 +78,7 @@
         <item quantity="many">%1$d palavras</item>
         <item quantity="other">%1$d palavras</item>
     </plurals>
-    <string name="filter_markdown">Marcação</string>
+    <string name="filter_markdown">Markdown</string>
     <string name="format_heading">Título</string>
     <plurals name="folder_item_count">
         <item quantity="one">%1$d item</item>
