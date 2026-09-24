@@ -46,7 +46,7 @@
     </plurals>
     <string name="find_in_document">Otsi dokumendist</string>
     <string name="import_document">Impordi</string>
-    <string name="last_opened_value">„%1$s“ on avatud</string>
+    <string name="last_opened_value">Avatud %1$s</string>
     <string name="no_documents_found">Dokumente ei leidu</string>
     <string name="no_favorites_empty_hint">Mugavamaks kasutamiseks märgi dokumendid lemmikuks.</string>
     <string name="no_favorites_found">Lemmikuid ei leidu</string>
@@ -69,7 +69,7 @@
     <string name="new_text_file">Uus tekstifail</string>
     <string name="recent">Hiljutised</string>
     <string name="read_only">Ainult loetav</string>
-    <string name="remember_pdf_page">Jäta PDF-faildi kuvatud asukoht meelde</string>
+    <string name="remember_pdf_page">Jäta PDF-faili kuvatud asukoht meelde</string>
     <string name="remove_from_documents">Eemalda Dokumentide loendist</string>
     <string name="retry">Proovi uuesti</string>
     <string name="share_documents">Jaga dokumente</string>
