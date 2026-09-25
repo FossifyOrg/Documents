@@ -11,7 +11,7 @@ Fossify Documents ist ein privater Offline-Dokumentenleser und -Organizer, der g
 • Drucke PDFs aus oder öffne Dokumente in einer anderen kompatiblen App.<br><br>
 
 <b>✍️ ERSTELLEN UND BEARBEITEN</b><br>
-• Erstelle neue Text- und Markdown-Dateien überall dort, wo Android unterstützt wird.<br>
+• Erstelle neue Text- und Markdown-Dateien an jedem von Android unterstützten Speicherort.<br>
 • Bearbeite vorhandene Text- und Markdown-Dokumente.<br>
 • Bearbeite CSV- und TSV-Dateien als Klartext, während du die Tabellenansicht zum Lesen nutzt.<br>
 • Nutze praktische Markdown-Formatierungsfunktionen für Überschriften, fettgedruckten Text, Kursivschrift, Zitate, Listen und Code.<br>
