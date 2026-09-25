@@ -66,7 +66,7 @@
     <string name="new_text_file">新增文字檔案</string>
     <string name="recent">最近</string>
     <string name="read_only">唯讀</string>
-    <string name="remember_pdf_page">記憶 PDF 頁數</string>
+    <string name="remember_pdf_page">記憶 PDF 頁碼</string>
     <string name="remove_from_documents">從文件移除</string>
     <string name="retry">重試</string>
     <string name="share_documents">分享文件</string>
