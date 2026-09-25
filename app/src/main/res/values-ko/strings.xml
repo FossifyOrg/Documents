@@ -58,7 +58,7 @@
     <string name="open_document_empty_hint">시작하려면 문서 또는 폴더를 여십시오.</string>
     <string name="next_page">다음 페이지</string>
     <string name="page_count_value">%1$d / %2$d</string>
-    <string name="pdf_print_whole_document_only">PDF는 전체 페이지만 인쇄할 수 있습니다.</string>
+    <string name="pdf_print_whole_document_only">PDF는 전체 문서만 인쇄할 수 있습니다.</string>
     <string name="previous_page">이전 페이지</string>
     <string name="previous_match">이전 검색 결과</string>
     <string name="preview">미리보기</string>
