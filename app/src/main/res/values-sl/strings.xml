@@ -5,7 +5,7 @@
     <string name="adjust_search_or_filters">Poskusite z drugim iskanjem ali filtrom.</string>
     <string name="all_documents">Vsi dokumenti</string>
     <string name="clear_recent_documents">Počisti nedavno</string>
-    <string name="clear_search">Počisti iskanja</string>
+    <string name="clear_search">Počisti iskanje</string>
     <string name="clear_selection">Počisti izbrano</string>
     <string name="could_not_open_document">Ni mogoče odpreti dokumenta.</string>
     <string name="could_not_open_folder">Preverite, ali je ta mapa na voljo, in poskusite znova.</string>
@@ -71,7 +71,7 @@
     <string name="previous_page">Prejšnja stran</string>
     <string name="previous_match">Prejšnji zadetek</string>
     <string name="preview">Predogled</string>
-    <string name="new_markdown_file">Nova markdown datoteka</string>
+    <string name="new_markdown_file">Nova Markdown datoteka</string>
     <string name="new_text_file">Nova besedilna datoteka</string>
     <string name="recent">Nedavno</string>
     <string name="read_only">Samo za branje</string>
