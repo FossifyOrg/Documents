@@ -69,7 +69,7 @@
     <string name="document_no_longer_available">Este documento não está mais disponível. Abra novamente para restaurar o acesso.</string>
     <string name="document_text_stats">%1$s, %2$s</string>
     <plurals name="document_text_chars">
-        <item quantity="one">%1$d caracter</item>
+        <item quantity="one">%1$d caractere</item>
         <item quantity="many">%1$d caracteres</item>
         <item quantity="other">%1$d caracteres</item>
     </plurals>
