@@ -1,0 +1,38 @@
+Dokumenty Fossify je soukromá, offline čtečka a správce dokumentů vytvořený pro jednoduchost. Otevírejte soubory PDF, DOCX, text, Markdown, CSV, TSV a HTML a mějte důležité dokumenty snadno po ruce bez reklam, sledování nebo přístupu k internetu.<br><br>
+
+<b>📄 SNADNÉ ČTENÍ DOKUMENTŮ</b><br>
+• Otevírejte dokumenty ve formátech PDF, DOCX, prostý text, Markdown, CSV, TSV a HTML.<br>
+• Procházejte stránky PDF, přibližujte nebo oddalujte a využívejte prohlížeč na celou obrazovku bez rušivých elementů.<br>
+• Otevírejte soubory PDF chráněné heslem.<br>
+• Čtěte soubory DOCX v čistém rozvržení přizpůsobeném pro mobilní zařízení.<br>
+• Prohlížejte soubory CSV a TSV ve vyhrazeném tabulkovém prohlížeči.<br>
+• Zobrazujte HTML dokumenty bezpečně a zcela offline.<br>
+• Prohlížejte si naformátovaný Markdown s nadpisy, seznamy, tabulkami, odkazy, kódem a dalším obsahem.<br>
+• Tiskněte soubory PDF nebo otevírejte dokumenty v jiné kompatibilní aplikaci.<br><br>
+
+<b>✍️ VYTVÁŘENÍ A ÚPRAVY</b><br>
+• Vytvářejte nové textové soubory a soubory Markdown kdekoli, kde to systém Android podporuje.<br>
+• Upravujte existující textové dokumenty a dokumenty Markdown.<br>
+• Upravujte soubory CSV a TSV jako prostý text a zároveň si ponechte tabulkový prohlížeč pro čtení.<br>
+• Používejte pohodlné ovládací prvky pro formátování Markdownu pro nadpisy, tučný text, kurzívu, citace, seznamy a kód.<br>
+• Mějte při úpravách přehled o počtu slov a znaků.<br><br>
+
+<b>📁 MĚJTE VE VŠEM POŘÁDEK</b><br>
+• Přidávejte složky a procházejte jejich podporované dokumenty přímo v aplikaci.<br>
+• Rychle se vracejte k nedávno otevřeným dokumentům.<br>
+• Označujte důležité dokumenty jako oblíbené.<br>
+• Vyhledávejte, filtrujte a řaďte podle názvu, data nebo velikosti souboru.<br>
+• Přepínejte mezi pohodlným zobrazením seznamu a mřížky.<br><br>
+
+<b>🔒 SOUKROMÍ ZÁKLADEM</b><br>
+Aplikace Fossify Documents funguje zcela offline a nemá oprávnění k přístupu na internet. Vaše dokumenty zůstávají ve vašem zařízení a v úložištích, která si vyberete. Neobsahuje žádné reklamy, analytické nástroje ani sledování.<br><br>
+
+<b>🎨 VYTVOŘENO PRO VÁS</b><br>
+Přizpůsobte si aplikaci pomocí motivů, barev, ikon a písem Fossify. Světlý i tmavý motiv je plně podporován, což vám poskytne zážitek z práce s dokumenty, který do vašeho zařízení přirozeně zapadne.<br><br>
+
+<b>Jednoduché. Soukromé. Vaše.</b><br><br>
+
+Prozkoumejte další aplikace Fossify: https://www.fossify.org<br>
+Otevřený zdrojový kód: https://www.github.com/FossifyOrg<br>
+Připojte se ke komunitě na Redditu: https://www.reddit.com/r/Fossify<br>
+Připojte se k Telegramu: https://t.me/Fossify

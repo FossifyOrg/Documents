@@ -1,0 +1,38 @@
+Fossify Documents to prywatny czytnik i organizer dokumentów offline stworzony z myślą o prostocie. Otwieraj pliki PDF, DOCX, tekstowe, Markdown, CSV, TSV i HTML i miej ważne dokumenty pod ręką bez reklam, śledzenia i dostępu do Internetu.<br><br>
+
+<b>📄 Z ŁATWOŚCIĄ CZYTAJ DOKUMENTY</b><br>
+• Otwieraj dokumenty PDF, DOCX, tekstowe, Markdown, CSV, TSV i HTML.<br>
+• Nawiguj po stronach plików PDF, powiększaj lub pomniejszaj je i korzystaj z pełnoekranowego czytnika bez rozpraszaczy.<br>
+• Otwieraj pliki PDF chronione hasłem.<br>
+• Czytaj pliki DOCX w czystym, przyjaznym dla urządzeń mobilnych układzie.<br>
+• Przeglądaj pliki CSV i TSV w dedykowanym czytniku tabelarycznym.<br>
+• Wyświetlaj dokumenty HTML bezpiecznie i całkowicie offline.<br>
+• Przeglądaj sformatowane pliki Markdown z nagłówkami, listami, tabelami, linkami, kodem i innymi.<br>
+• Drukuj pliki PDF lub otwieraj dokumenty w innej kompatybilnej aplikacji.<br><br>
+
+<b>✍️ TWÓRZ I EDYTUJ</b><br>
+• Twórz nowe pliki tekstowe i Markdown w dowolnym miejscu obsługiwanym przez Androida.<br>
+• Edytuj istniejące dokumenty tekstowe i Markdown.<br>
+• Edytuj pliki CSV i TSV jako zwykły tekst, jednocześnie zachowując czytnik tabelaryczny do czytania.<br>
+• Korzystaj z wygodnych opcji formatowania Markdown do nagłówków, pogrubienia, kursywy, cytatów, list i kodu.<br>
+• Śledź liczbę słów i znaków podczas edycji.<br><br>
+
+<b>📁 UTRZYMUJ WSZYSTKO W PORZĄDKU</b><br>
+• Dodawaj foldery i przeglądaj w nich obsługiwane dokumenty bezpośrednio w aplikacji.<br>
+• Szybko powracaj do ostatnio otwartych dokumentów.<br>
+• Oznaczaj ważne dokumenty jako ulubione.<br>
+• Szukaj, filtruj i sortuj według nazwy, daty lub rozmiaru pliku.<br>
+• Przełączaj się między wygodnymi układami listy i siatki.<br><br>
+
+<b>🔒 PRYWATNOŚĆ Z ZAŁOŻENIA</b><br>
+Fossify Documents działa całkowicie offline i nie wymaga dostępu do Internetu. Twoje dokumenty pozostają na Twoim urządzeniu i w wybranych przez Ciebie miejscach przechowywania. Nie ma reklam, analityki ani śledzenia.<br><br>
+
+<b>🎨 STWORZONY DLA CIEBIE</b><br>
+Dostosuj aplikację z motywami, kolorami, ikonami i czcionkami Fossify. Jasne i ciemne motywy są w pełni obsługiwane, zapewniając Ci doświadczenie z dokumentami, które idealnie pasuje do Twojego urządzenia.<br><br>
+
+<b>Prosty. Prywatny. Twój.</b><br><br>
+
+Odkryj więcej aplikacji od Fossify: https://www.fossify.org<br>
+Kod źródłowy: https://www.github.com/FossifyOrg<br>
+Dołącz do społeczności na Reddicie: https://www.reddit.com/r/Fossify<br>
+Połącz się na Telegramie: https://t.me/Fossify<br>

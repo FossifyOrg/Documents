@@ -1,0 +1,1 @@
+PDF-, DOCX-, Text-, Markdown-, CSV- und HTML-Dateien privat und offline lesen.
