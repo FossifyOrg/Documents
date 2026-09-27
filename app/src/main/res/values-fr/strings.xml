@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">Documents</string>
-    <string name="adjust_search_or_filters">Essayez une autre recherche ou filtre.</string>
+    <string name="adjust_search_or_filters">Essayez une autre recherche ou un autre filtre.</string>
     <string name="all_documents">Tous les documents</string>
     <string name="clear_recent_documents">Enlever ceux récents</string>
     <string name="clear_search">Enlever la recherche</string>
@@ -31,7 +31,7 @@
     <string name="format_bold">Gras</string>
     <string name="format_bullet_list">Liste à puces</string>
     <string name="format_code">Code</string>
-    <string name="format_heading">En-tête</string>
+    <string name="format_heading">Titre</string>
     <string name="format_italic">Italique</string>
     <string name="format_numbered_list">Liste numérotée</string>
     <string name="format_quote">Citation</string>
@@ -42,7 +42,7 @@
     </plurals>
     <string name="find_in_document">Rechercher dans le document</string>
     <string name="import_document">Importer</string>
-    <string name="last_opened_value">%1$s ouvert</string>
+    <string name="last_opened_value">Ouvert %1$s</string>
     <string name="no_documents_found">Aucun document trouvé</string>
     <string name="no_favorites_empty_hint">Marquez comme favoris des documents pour les garder à proximité.</string>
     <string name="no_favorites_found">Pas de favoris trouvés</string>
