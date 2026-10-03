@@ -3,7 +3,7 @@
     <string name="app_launcher_name">Documents</string>
     <string name="adjust_search_or_filters">Essayez une autre recherche ou un autre filtre.</string>
     <string name="all_documents">Tous les documents</string>
-    <string name="clear_recent_documents">Enlever ceux récents</string>
+    <string name="clear_recent_documents">Enlever les récents</string>
     <string name="clear_search">Enlever la recherche</string>
     <string name="clear_selection">Enlever la sélection</string>
     <string name="could_not_open_document">Vous ne pouvez pas ouvrir ce document.</string>
