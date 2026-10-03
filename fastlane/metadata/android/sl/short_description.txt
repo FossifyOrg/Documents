@@ -1,0 +1,1 @@
+Berite PDF, DOCX, besedilo, Markdown, CSV in HTML zasebno in brez povezave.
