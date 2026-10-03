@@ -8,10 +8,10 @@
     <string name="clear_selection">தேர்வை அழி</string>
     <string name="could_not_open_document">இந்த ஆவணத்தைத் திறக்க முடியவில்லை.</string>
     <string name="could_not_open_folder">இந்தக் கோப்புறை உள்ளதா எனச் சரிபார்த்து, மீண்டும் முயலவும்.</string>
-    <string name="could_not_save_document">இந்த ஆவணத்தை சேமிக்க முடியவில்லை.</string>
+    <string name="could_not_save_document">இந்த ஆவணத்தைச் சேமிக்க முடியவில்லை.</string>
     <string name="document">ஆவணம்</string>
-    <string name="document_too_large">இந்த ஆவணம் உரையாக திறக்க முடியாத அளவுக்கு பெரிதாக உள்ளது.</string>
-    <string name="document_too_large_to_view">இந்த ஆவணம் காட்ட முடியாத அளவுக்கு பெரிதாக உள்ளது.</string>
+    <string name="document_too_large">இந்த ஆவணம் உரையாகத் திறக்க முடியாத அளவுக்குப் பெரிதாக உள்ளது.</string>
+    <string name="document_too_large_to_view">இந்த ஆவணம் காட்ட முடியாத அளவுக்குப் பெரிதாக உள்ளது.</string>
     <string name="document_no_longer_available">இந்த ஆவணம் இனி கிடைக்காது. அணுகலை மீட்டெடுக்க அதை மீண்டும் திறக்கவும்.</string>
     <string name="document_text_stats">%1$s, %2$s</string>
     <plurals name="document_text_chars">
@@ -24,7 +24,7 @@
     </plurals>
     <string name="documents">ஆவணங்கள்</string>
     <string name="downloads">பதிவிறக்கங்கள்</string>
-    <string name="edit_as_text">உரையாக திருத்து</string>
+    <string name="edit_as_text">உரையாகத் திருத்து</string>
     <string name="empty_document">வெறுமை ஆவணம்</string>
     <string name="filter_markdown">Markdown</string>
     <string name="filter_pdf">PDF</string>
@@ -33,7 +33,7 @@
     <string name="filter_html">உஉகுமொ</string>
     <string name="folders">கோப்புறைகள்</string>
     <string name="folder_unavailable">கோப்புறை கிடைக்கவில்லை</string>
-    <string name="format_bold">தடிமான</string>
+    <string name="format_bold">தடிமனான</string>
     <string name="format_bullet_list">Bullet பட்டியல்</string>
     <string name="format_code">குறியீடு</string>
     <string name="format_heading">தலைப்பு</string>
@@ -66,7 +66,7 @@
     <string name="previous_match">முந்தைய பொருத்தம்</string>
     <string name="preview">முன்னோட்டம்</string>
     <string name="new_markdown_file">புதிய Markdown கோப்பு</string>
-    <string name="new_text_file">புதிய உரை கோப்பு</string>
+    <string name="new_text_file">புதிய உரைக் கோப்பு</string>
     <string name="recent">அண்மைக் கால</string>
     <string name="read_only">படிக்க மட்டும்</string>
     <string name="remember_pdf_page">PDF பக்கத்தை நினைவில் கொள்க</string>
@@ -89,7 +89,7 @@
     <string name="sort_size_ascending">அளவு (சிறியது முதல் பெரியது)</string>
     <string name="sort_size_descending">அளவு (பெரியது முதல் சிறியது)</string>
     <string name="unsupported_document_type">இந்த ஆவண வகை இன்னும் ஆதரிக்கப்படவில்லை.</string>
-    <string name="unsupported_text_encoding">இந்த உரை குறியாக்கம் ஆதரிக்கப்படாததால் படிக்க மட்டும்.</string>
+    <string name="unsupported_text_encoding">இந்த உரைக் குறியாக்கம் ஆதரிக்கப்படாததால் படிக்க மட்டும்.</string>
     <string name="untitled_markdown_file">Untitled.md</string>
     <string name="untitled_text_file">Untitled.txt</string>
     <string name="view_all">அனைத்தையும் பார்க்கவும்</string>
