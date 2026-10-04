@@ -1,3 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_launcher_name">Документи</string>
+    <string name="adjust_search_or_filters">Спробуйте інший пошук або фільтр.</string>
+    <string name="all_documents">Всі документи</string>
+    <string name="clear_recent_documents">Очистити останні</string>
+    <string name="clear_search">Очистити пошук</string>
+    <string name="clear_selection">Очистити вибір</string>
+    <string name="could_not_open_document">Не вдалося відкрити цей документ.</string>
+    <string name="could_not_open_folder">Перевірте, що ця папка доступна, потім спробуйте знову.</string>
+    <string name="could_not_save_document">Не вдалося зберегти цей документ.</string>
+    <string name="document">Документ</string>
+    <string name="document_too_large">Цей документ занадто великий, щоб відкрити як текст.</string>
+    <string name="document_too_large_to_view">Цей документ занадто великий, щоб відобразити.</string>
+    <string name="document_no_longer_available">Цей документ більше не доступний. Відкрийте його знову, щоб відновити доступу.</string>
+    <string name="document_text_stats">%1$s, %2$s</string>
+    <plurals name="document_text_chars">
+        <item quantity="one">%1$d символ</item>
+        <item quantity="few">%1$d символи</item>
+        <item quantity="many">%1$d символів</item>
+        <item quantity="other">%1$d символів</item>
+    </plurals>
+    <plurals name="document_text_words">
+        <item quantity="one">%1$d слово</item>
+        <item quantity="few">%1$d слова</item>
+        <item quantity="many">%1$d слів</item>
+        <item quantity="other">%1$d слів</item>
+    </plurals>
+    <string name="documents">Документи</string>
 </resources>
