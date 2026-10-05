@@ -106,4 +106,19 @@
     <string name="reset_zoom">Zresetuj powiększenie</string>
     <string name="zoom_in">Powiększ</string>
     <string name="zoom_out">Pomniejsz</string>
+    <string name="save_a_copy">Zapisz kopię</string>
+    <string name="edit_a_copy">Edytuj kopię</string>
+    <string name="reopen_to_edit">Otwórz ponownie, aby edytować</string>
+    <string name="reopen_to_edit_hint">Wybierz ponownie ten plik, aby poprosić o uprawnienie do zapisywania w nim zmian.</string>
+    <string name="copy_opened">Kopia została zapisana i otwarta</string>
+    <string name="pdf_page_navigation">Strona %1$d z %2$d. Przejdź do strony.</string>
+    <string name="go_to_page">Przejdź do strony</string>
+    <string name="pdf_page_range">Strona (1–%1$d)</string>
+    <string name="pdf_dark_pages">Ciemne strony</string>
+    <string name="pdf_page_indicator">Pływający wskaźnik strony</string>
+    <string name="pdf_contents">Zawartość</string>
+    <string name="pdf_no_text">Ten plik PDF nie zawiera przeszukiwalnego tekstu.</string>
+    <string name="pdf_search_failed">Nie udało się zakończyć wyszukiwania.</string>
+    <string name="pdf_reading">Czytanie plików PDF</string>
+    <string name="pdf_horizontal_paging">Przewijaj pliki PDF w poziomie</string>
 </resources>
