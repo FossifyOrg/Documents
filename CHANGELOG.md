@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - PDF text selection and copying
 - Option for dark PDF pages
 - Option for horizontal PDF scrolling
-- PDF text search ([#87])
+- PDF, DOCX, and HTML text search ([#87])
 - PDF table of contents ([#77])
 - Option to hide floating PDF page numbers ([#79])
 - Reopen to edit button for read-only files ([#71])

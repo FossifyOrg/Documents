@@ -11,6 +11,7 @@ import android.webkit.WebResourceResponse
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -23,6 +24,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
@@ -32,6 +34,9 @@ import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.rounded.OpenInNew
+import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.filled.KeyboardArrowUp
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.outlined.Edit
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -44,8 +49,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
@@ -80,6 +88,14 @@ internal fun StructuredDocumentScreen(
     onOpenWith: () -> Unit,
     onOpenLink: (Uri) -> Unit,
 ) {
+    var searchActive by rememberSaveable { mutableStateOf(false) }
+    val search = rememberSaveable(saver = WebDocumentSearchState.saver) { WebDocumentSearchState() }
+    val closeSearch = {
+        searchActive = false
+        search.updateQuery("")
+    }
+    BackHandler(enabled = searchActive, onBack = closeSearch)
+
     SimpleScaffold(
         customTopBar = { scrolledColor: Color,
                          _,
@@ -89,7 +105,14 @@ internal fun StructuredDocumentScreen(
                          contrastColor: Color ->
             StructuredDocumentTopBar(
                 title = uiState.title,
-                onBack = onBack,
+                onBack = if (searchActive) closeSearch else onBack,
+                searchActive = searchActive,
+                search = search,
+                onSearch = if (uiState.content is StructuredDocumentContent.Web && !uiState.isLoading) {
+                    { searchActive = true }
+                } else {
+                    null
+                },
                 onEdit = onEdit,
                 onOpenWith = onOpenWith,
                 scrolledColor = scrolledColor,
@@ -103,13 +126,15 @@ internal fun StructuredDocumentScreen(
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(SimpleTheme.colorScheme.surface),
+                .background(SimpleTheme.colorScheme.surface)
+                .imePadding(),
         ) {
             when {
                 uiState.isLoading -> LoadingDocument()
                 uiState.error != null -> StatusDocument(uiState.error, isError = true)
                 uiState.content is StructuredDocumentContent.Web -> WebDocument(
                     content = uiState.content,
+                    search = search,
                     onOpenLink = onOpenLink,
                 )
 
@@ -127,6 +152,9 @@ internal fun StructuredDocumentScreen(
 private fun StructuredDocumentTopBar(
     title: String,
     onBack: () -> Unit,
+    searchActive: Boolean,
+    search: WebDocumentSearchState,
+    onSearch: (() -> Unit)?,
     onEdit: (() -> Unit)?,
     onOpenWith: () -> Unit,
     scrolledColor: Color,
@@ -137,13 +165,23 @@ private fun StructuredDocumentTopBar(
 ) {
     TopAppBar(
         title = {
-            Text(
-                text = title.ifBlank { stringResource(id = R.string.document) },
-                color = scrolledColor,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-                style = SimpleTheme.typography.titleLarge,
-            )
+            if (searchActive) {
+                TextDocumentSearchField(
+                    query = search.query,
+                    currentMatchNumber = search.currentMatchNumber,
+                    matchCount = search.matchCount,
+                    onQueryChange = search::updateQuery,
+                    onNextMatch = { search.moveMatch(forward = true) },
+                )
+            } else {
+                Text(
+                    text = title.ifBlank { stringResource(id = R.string.document) },
+                    color = scrolledColor,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    style = SimpleTheme.typography.titleLarge,
+                )
+            }
         },
         navigationIcon = {
             IconButton(onClick = onBack) {
@@ -155,21 +193,39 @@ private fun StructuredDocumentTopBar(
             }
         },
         actions = {
-            if (onEdit != null) {
-                IconButton(onClick = onEdit) {
+            if (searchActive) {
+                IconButton(onClick = { search.moveMatch(forward = false) }, enabled = search.matchCount > 0) {
+                    Icon(Icons.Filled.KeyboardArrowUp, stringResource(R.string.previous_match))
+                }
+                IconButton(onClick = { search.moveMatch(forward = true) }, enabled = search.matchCount > 0) {
+                    Icon(Icons.Filled.KeyboardArrowDown, stringResource(R.string.next_match))
+                }
+            } else {
+                if (onSearch != null) {
+                    IconButton(onClick = onSearch) {
+                        Icon(
+                            imageVector = Icons.Filled.Search,
+                            contentDescription = stringResource(R.string.search_text_in_document),
+                            tint = scrolledColor,
+                        )
+                    }
+                }
+                if (onEdit != null) {
+                    IconButton(onClick = onEdit) {
+                        Icon(
+                            imageVector = Icons.Outlined.Edit,
+                            contentDescription = stringResource(id = R.string.edit_as_text),
+                            tint = scrolledColor,
+                        )
+                    }
+                }
+                IconButton(onClick = onOpenWith) {
                     Icon(
-                        imageVector = Icons.Outlined.Edit,
-                        contentDescription = stringResource(id = R.string.edit_as_text),
+                        imageVector = Icons.AutoMirrored.Rounded.OpenInNew,
+                        contentDescription = stringResource(id = org.fossify.commons.R.string.open_with),
                         tint = scrolledColor,
                     )
                 }
-            }
-            IconButton(onClick = onOpenWith) {
-                Icon(
-                    imageVector = Icons.AutoMirrored.Rounded.OpenInNew,
-                    contentDescription = stringResource(id = org.fossify.commons.R.string.open_with),
-                    tint = scrolledColor,
-                )
             }
         },
         scrollBehavior = scrollBehavior,
@@ -183,6 +239,7 @@ private fun StructuredDocumentTopBar(
 @Composable
 private fun WebDocument(
     content: StructuredDocumentContent.Web,
+    search: WebDocumentSearchState,
     onOpenLink: (Uri) -> Unit,
 ) {
     val context = LocalContext.current
@@ -232,6 +289,10 @@ private fun WebDocument(
             settings.builtInZoomControls = true
             settings.displayZoomControls = false
             webViewClient = object : WebViewClient() {
+                override fun onPageFinished(view: WebView, url: String?) {
+                    search.pageFinished()
+                }
+
                 override fun shouldInterceptRequest(
                     view: WebView,
                     request: WebResourceRequest,
@@ -261,14 +322,17 @@ private fun WebDocument(
         }
     }
 
-    LaunchedEffect(webView, page) {
-        webView.loadDataWithBaseURL(WEB_BASE_URL, page, "text/html", "UTF-8", null)
-    }
     DisposableEffect(webView) {
+        search.attach(webView)
         onDispose {
+            search.detach()
             webView.stopLoading()
             webView.destroy()
         }
+    }
+    LaunchedEffect(webView, page) {
+        search.pageStarted()
+        webView.loadDataWithBaseURL(WEB_BASE_URL, page, "text/html", "UTF-8", null)
     }
     AndroidView(
         factory = { webView },
