@@ -98,4 +98,19 @@
     <string name="reset_zoom">Reset zoom</string>
     <string name="zoom_in">Zoom in</string>
     <string name="zoom_out">Zoom out</string>
+    <string name="save_a_copy">Save a copy</string>
+    <string name="edit_a_copy">Edit a copy</string>
+    <string name="reopen_to_edit">Reopen to edit</string>
+    <string name="reopen_to_edit_hint">Select this file again to request permission to save changes to it.</string>
+    <string name="copy_opened">Copy saved and opened</string>
+    <string name="pdf_page_navigation">Page %1$d of %2$d. Go to page.</string>
+    <string name="go_to_page">Go to page</string>
+    <string name="pdf_page_range">Page (1–%1$d)</string>
+    <string name="pdf_dark_pages">Dark pages</string>
+    <string name="pdf_page_indicator">Floating page indicator</string>
+    <string name="pdf_contents">Contents</string>
+    <string name="pdf_no_text">This PDF has no searchable text.</string>
+    <string name="pdf_search_failed">Could not complete the search.</string>
+    <string name="pdf_reading">PDF reading</string>
+    <string name="pdf_horizontal_paging">Scroll PDFs horizontally</string>
 </resources>

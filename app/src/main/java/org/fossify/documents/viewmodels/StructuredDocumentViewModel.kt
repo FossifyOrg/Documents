@@ -12,7 +12,6 @@ import kotlinx.coroutines.launch
 import org.fossify.commons.extensions.getFilenameFromUri
 import org.fossify.documents.R
 import org.fossify.documents.data.DocumentTooLargeException
-import org.fossify.documents.data.DocumentsRepository
 import org.fossify.documents.data.StructuredDocumentContent
 import org.fossify.documents.data.StructuredDocumentLoader
 import org.fossify.documents.models.DocumentKind
@@ -22,7 +21,6 @@ internal class StructuredDocumentViewModel(
     application: Application,
 ) : AndroidViewModel(application) {
     private val loader = StructuredDocumentLoader(application.contentResolver)
-    private val repository = DocumentsRepository(application)
     private val _uiState = MutableStateFlow(StructuredDocumentUiState())
     val uiState: StateFlow<StructuredDocumentUiState> = _uiState
 
@@ -48,9 +46,7 @@ internal class StructuredDocumentViewModel(
                 _uiState.update {
                     it.copy(
                         content = result.content,
-                        canEdit = kind == DocumentKind.CSV &&
-                                result.canEditText &&
-                                repository.isDocumentWritable(uri),
+                        canEdit = kind == DocumentKind.CSV && result.canEditText,
                         isLoading = false,
                         error = null,
                     )

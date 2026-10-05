@@ -4,19 +4,22 @@ package org.fossify.documents.ui.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import org.fossify.commons.compose.theme.SimpleTheme
+import org.fossify.documents.R
 import org.fossify.documents.viewmodels.TextDocumentUiState
 
 @Composable
@@ -30,22 +33,21 @@ internal fun EditorStatusBar(
         contentColor = SimpleTheme.colorScheme.onSurface,
         tonalElevation = 2.dp,
     ) {
-        Row(
+        FlowRow(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp, vertical = 10.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically,
+            verticalArrangement = Arrangement.spacedBy(4.dp),
         ) {
             Text(
                 text = uiState.text.documentStats(),
+                modifier = Modifier.padding(end = 12.dp),
                 style = SimpleTheme.typography.bodyMedium,
-                maxLines = 1,
             )
             Text(
                 text = uiState.statusLabel(),
                 style = SimpleTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold),
-                maxLines = 1,
             )
         }
     }
@@ -78,7 +80,11 @@ internal fun StatusDocument(text: String, isError: Boolean) {
 }
 
 @Composable
-internal fun StatusStrip(text: String, isError: Boolean) {
+internal fun StatusStrip(
+    text: String,
+    isError: Boolean,
+    action: (@Composable () -> Unit)? = null,
+) {
     Surface(
         color = if (isError) SimpleTheme.colorScheme.errorContainer else SimpleTheme.colorScheme.secondaryContainer,
         contentColor = if (isError) {
@@ -87,12 +93,38 @@ internal fun StatusStrip(text: String, isError: Boolean) {
             SimpleTheme.colorScheme.onSecondaryContainer
         },
     ) {
-        Text(
-            text = text,
+        FlowRow(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 8.dp),
-            style = SimpleTheme.typography.bodyMedium,
+                .padding(start = 16.dp, end = 8.dp),
+            horizontalArrangement = Arrangement.SpaceBetween,
+        ) {
+            Text(
+                text = text,
+                modifier = Modifier
+                    .align(Alignment.CenterVertically)
+                    .padding(end = 8.dp, top = 8.dp, bottom = 8.dp),
+                style = SimpleTheme.typography.bodyMedium,
+            )
+            if (action != null) {
+                Box(modifier = Modifier.align(Alignment.CenterVertically)) { action() }
+            }
+        }
+    }
+}
+
+@Composable
+internal fun TextDocumentNotices(uiState: TextDocumentUiState, onOpenForEditing: () -> Unit) {
+    if (uiState.isReadOnly) {
+        StatusStrip(
+            text = uiState.readOnlyReason ?: stringResource(R.string.read_only),
+            isError = false,
+            action = if (uiState.canSaveCopy && !uiState.isSaving) {
+                { TextButton(onClick = onOpenForEditing) { Text(stringResource(R.string.reopen_to_edit)) } }
+            } else {
+                null
+            },
         )
     }
+    uiState.error?.let { StatusStrip(text = it, isError = true) }
 }

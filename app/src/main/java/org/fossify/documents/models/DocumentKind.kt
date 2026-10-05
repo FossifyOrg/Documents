@@ -43,6 +43,12 @@ enum class DocumentKind {
             "ics",
             "vcf",
             "srt",
+            "org",
+            "typ",
+            "tex",
+            "adoc",
+            "asciidoc",
+            "rst",
         )
         private val extensionKinds = mapOf(
             "pdf" to PDF,
@@ -70,6 +76,7 @@ enum class DocumentKind {
             "application/xhtml+xml" to HTML,
         )
         private val textApplicationMimeTypes = setOf(
+            "application/x-tex",
             "application/json",
             "application/xml",
             "application/yaml",

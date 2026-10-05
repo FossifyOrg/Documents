@@ -3,7 +3,9 @@ package org.fossify.documents.data
 import android.content.Context
 import android.net.Uri
 import android.os.Environment
+import android.os.storage.StorageManager
 import android.provider.DocumentsContract
+import android.provider.MediaStore
 import org.fossify.commons.extensions.getRealPathFromURI
 import org.fossify.documents.R
 import java.io.File
@@ -23,6 +25,32 @@ internal class DocumentLocationResolver(
                 else -> providerLabel(uri)
             }
         }
+    }
+
+    fun resolvePickerLocation(uri: Uri): Uri? {
+        if (DocumentsContract.isDocumentUri(appContext, uri) || DocumentsContract.isTreeUri(uri)) {
+            return uri
+        }
+        if (uri.authority == MediaStore.AUTHORITY) {
+            runCatching { MediaStore.getDocumentUri(appContext, uri) }.getOrNull()?.let { return it }
+        }
+        val realPath = appContext.getRealPathFromURI(uri)?.takeIf { it.isNotBlank() } ?: return null
+        return runCatching {
+            val folder = File(realPath).canonicalFile.parentFile ?: return null
+            val volume = appContext.getSystemService(StorageManager::class.java)
+                ?.getStorageVolume(folder) ?: return null
+            val volumeId = if (volume.isPrimary) "primary" else volume.uuid ?: return null
+            val root = if (volume.isPrimary) {
+                Environment.getExternalStorageDirectory().canonicalFile
+            } else {
+                File("/storage", volumeId).canonicalFile
+            }
+            if (!folder.startsWith(root)) return null
+            DocumentsContract.buildDocumentUri(
+                EXTERNAL_STORAGE_AUTHORITY,
+                "$volumeId:${folder.relativeTo(root).invariantSeparatorsPath}",
+            )
+        }.getOrNull()
     }
 
     fun resolveFolder(

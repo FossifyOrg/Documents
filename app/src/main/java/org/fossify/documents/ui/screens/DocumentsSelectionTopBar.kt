@@ -7,11 +7,9 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.rounded.OpenInNew
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.StarBorder
-import androidx.compose.material.icons.outlined.RemoveCircleOutline
 import androidx.compose.material.icons.outlined.SelectAll
 import androidx.compose.material.icons.outlined.Share
 import androidx.compose.material.icons.rounded.Close
@@ -144,12 +142,6 @@ private fun DocumentsSelectionOverflowMenu(
                         expanded = false
                         actions.onOpenWith(selectedDocument)
                     },
-                    leadingIcon = {
-                        Icon(
-                            imageVector = Icons.AutoMirrored.Rounded.OpenInNew,
-                            contentDescription = null,
-                        )
-                    },
                 )
             }
             if (canRemove) {
@@ -158,12 +150,6 @@ private fun DocumentsSelectionOverflowMenu(
                     onClick = {
                         expanded = false
                         actions.onRemoveSelection()
-                    },
-                    leadingIcon = {
-                        Icon(
-                            imageVector = Icons.Outlined.RemoveCircleOutline,
-                            contentDescription = null,
-                        )
                     },
                 )
             }

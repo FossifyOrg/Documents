@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.NoteAdd
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Description
 import androidx.compose.material.icons.filled.Folder
@@ -175,33 +174,29 @@ internal fun ImportAction(
             modifier = Modifier.widthIn(min = DocumentsMenuMinWidth),
             offset = DocumentsEndMenuOffset,
         ) {
-            ImportMenuItem(
-                icon = Icons.AutoMirrored.Filled.NoteAdd,
-                text = stringResource(id = R.string.new_text_file),
+            DropdownMenuItem(
+                text = { Text(stringResource(id = R.string.new_text_file)) },
                 onClick = {
                     expanded = false
                     actions.newTextFile()
                 },
             )
-            ImportMenuItem(
-                icon = Icons.AutoMirrored.Filled.NoteAdd,
-                text = stringResource(id = R.string.new_markdown_file),
+            DropdownMenuItem(
+                text = { Text(stringResource(id = R.string.new_markdown_file)) },
                 onClick = {
                     expanded = false
                     actions.newMarkdownFile()
                 },
             )
-            ImportMenuItem(
-                icon = Icons.Filled.Description,
-                text = stringResource(id = R.string.open_file),
+            DropdownMenuItem(
+                text = { Text(stringResource(id = R.string.open_file)) },
                 onClick = {
                     expanded = false
                     actions.openDocument()
                 },
             )
-            ImportMenuItem(
-                icon = Icons.Filled.Folder,
-                text = stringResource(id = R.string.open_folder),
+            DropdownMenuItem(
+                text = { Text(stringResource(id = R.string.open_folder)) },
                 onClick = {
                     expanded = false
                     actions.openFolder()
@@ -221,25 +216,6 @@ internal fun ImportAction(
             )
         }
     }
-}
-
-@Composable
-private fun ImportMenuItem(
-    icon: ImageVector,
-    text: String,
-    onClick: () -> Unit,
-) {
-    DropdownMenuItem(
-        text = { Text(text = text) },
-        onClick = onClick,
-        leadingIcon = {
-            Icon(
-                imageVector = icon,
-                contentDescription = null,
-                tint = SimpleTheme.colorScheme.primary,
-            )
-        },
-    )
 }
 
 @Composable

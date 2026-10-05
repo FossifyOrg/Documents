@@ -17,7 +17,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.input.OutputTransformation
 import androidx.compose.foundation.text.input.TextFieldState
-import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.KeyboardArrowDown
@@ -43,6 +42,8 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.layout.onSizeChanged
@@ -68,33 +69,18 @@ import kotlin.math.roundToInt
 @Composable
 internal fun TextDocumentScreen(
     uiState: TextDocumentUiState,
+    editorState: TextFieldState,
     onBack: () -> Unit,
     onTextChange: (String) -> Unit,
     onSave: () -> Unit,
+    onSaveCopy: () -> Unit,
+    onOpenForEditing: () -> Unit,
     onOpenWith: () -> Unit,
     onPreviewChange: (Boolean) -> Unit,
     textZoom: Float,
     onTextZoomChange: (Float) -> Unit,
     onResetTextZoom: () -> Unit,
 ) {
-    val editorState = rememberTextFieldState(
-        initialText = uiState.text,
-        initialSelection = TextRange.Zero,
-    )
-
-    LaunchedEffect(uiState.isLoaded, uiState.text) {
-        if (uiState.isLoaded && uiState.text != editorState.text.toString()) {
-            val currentSelection = editorState.selection
-            editorState.edit {
-                replace(0, length, uiState.text)
-                selection = TextRange(
-                    start = currentSelection.start.coerceIn(0, uiState.text.length),
-                    end = currentSelection.end.coerceIn(0, uiState.text.length),
-                )
-            }
-        }
-    }
-
     LaunchedEffect(editorState) {
         snapshotFlow { editorState.text.toString() }
             .drop(1)
@@ -160,6 +146,8 @@ internal fun TextDocumentScreen(
                 uiState = uiState,
                 onBack = if (searchActive) closeSearch else onBack,
                 onSave = onSave,
+                onSaveCopy = onSaveCopy,
+                onOpenForEditing = onOpenForEditing,
                 onOpenWith = onOpenWith,
                 searchActive = searchActive,
                 searchQuery = searchQuery,
@@ -186,6 +174,7 @@ internal fun TextDocumentScreen(
         TextDocumentContent(
             uiState = uiState,
             editorState = editorState,
+            onOpenForEditing = onOpenForEditing,
             onPreviewChange = onPreviewChange,
             searchMatches = searchMatches,
             currentSearchIndex = normalizedSearchIndex,
@@ -200,6 +189,8 @@ private fun TextDocumentTopBar(
     uiState: TextDocumentUiState,
     onBack: () -> Unit,
     onSave: () -> Unit,
+    onSaveCopy: () -> Unit,
+    onOpenForEditing: () -> Unit,
     onOpenWith: () -> Unit,
     searchActive: Boolean,
     searchQuery: String,
@@ -294,6 +285,10 @@ private fun TextDocumentTopBar(
                     onTextZoomChange = onTextZoomChange,
                     onResetTextZoom = onResetTextZoom,
                     onOpenWith = onOpenWith,
+                    onSaveCopy = onSaveCopy,
+                    canSaveCopy = uiState.canSaveCopy && !uiState.isSaving,
+                    isReadOnly = uiState.isReadOnly,
+                    onOpenForEditing = onOpenForEditing,
                 )
             }
         },
@@ -308,6 +303,7 @@ private fun TextDocumentTopBar(
 private fun TextDocumentContent(
     uiState: TextDocumentUiState,
     editorState: TextFieldState,
+    onOpenForEditing: () -> Unit,
     onPreviewChange: (Boolean) -> Unit,
     searchMatches: List<TextRange>,
     currentSearchIndex: Int,
@@ -327,6 +323,7 @@ private fun TextDocumentContent(
             else -> LoadedTextDocumentContent(
                 uiState = uiState,
                 editorState = editorState,
+                onOpenForEditing = onOpenForEditing,
                 onPreviewChange = onPreviewChange,
                 searchMatches = searchMatches,
                 currentSearchIndex = currentSearchIndex,
@@ -341,6 +338,7 @@ private fun TextDocumentContent(
 private fun ColumnScope.LoadedTextDocumentContent(
     uiState: TextDocumentUiState,
     editorState: TextFieldState,
+    onOpenForEditing: () -> Unit,
     onPreviewChange: (Boolean) -> Unit,
     searchMatches: List<TextRange>,
     currentSearchIndex: Int,
@@ -354,15 +352,7 @@ private fun ColumnScope.LoadedTextDocumentContent(
         )
     }
 
-    if (uiState.isReadOnly) {
-        StatusStrip(
-            text = uiState.readOnlyReason ?: stringResource(id = R.string.read_only),
-            isError = false,
-        )
-    }
-    uiState.error?.let {
-        StatusStrip(text = it, isError = true)
-    }
+    TextDocumentNotices(uiState, onOpenForEditing)
 
     Box(
         modifier = Modifier
@@ -447,41 +437,16 @@ private fun TextEditor(
     textZoom: Float,
     onTextZoomChange: (Float) -> Unit,
 ) {
+    val focusRequester = remember { FocusRequester() }
+    LaunchedEffect(state, readOnly) {
+        if (!readOnly && state.text.isEmpty()) focusRequester.requestFocus()
+    }
     val scrollState = rememberScrollState()
     var textLayoutResult by remember { mutableStateOf<TextLayoutResult?>(null) }
     var viewportHeight by remember { mutableIntStateOf(0) }
     var zoomGestureActive by remember { mutableStateOf(false) }
     val cursorMargin = with(LocalDensity.current) { CURSOR_VISIBILITY_MARGIN.toPx() }
-    val matchColor = SimpleTheme.colorScheme.secondaryContainer.copy(alpha = 0.72f)
-    val currentMatchColor = SimpleTheme.colorScheme.primaryContainer
-    val searchTransformation = if (shouldHighlightTextMatches(searchMatches.size)) {
-        remember(
-            searchMatches,
-            currentSearchIndex,
-            matchColor,
-            currentMatchColor,
-        ) {
-            OutputTransformation {
-                searchMatches.forEachIndexed { index, match ->
-                    if (match.min >= 0 && match.max <= length) {
-                        addStyle(
-                            spanStyle = SpanStyle(
-                                background = if (index == currentSearchIndex) {
-                                    currentMatchColor
-                                } else {
-                                    matchColor
-                                },
-                            ),
-                            start = match.min,
-                            end = match.max,
-                        )
-                    }
-                }
-            }
-        }
-    } else {
-        null
-    }
+    val searchTransformation = rememberSearchHighlighting(searchMatches, currentSearchIndex)
     val maxScroll = scrollState.maxValue
 
     LaunchedEffect(state.selection, viewportHeight, textLayoutResult, maxScroll, cursorMargin, zoomGestureActive) {
@@ -512,12 +477,13 @@ private fun TextEditor(
         readOnly = readOnly,
         modifier = Modifier
             .fillMaxSize()
+            .focusRequester(focusRequester)
             .documentTextZoomGesture(
                 textZoom = textZoom,
                 onTextZoomChange = onTextZoomChange,
                 onZoomGestureChange = { zoomGestureActive = it },
             )
-            .padding(16.dp)
+            .padding(horizontal = 16.dp)
             .onSizeChanged { viewportHeight = it.height },
         textStyle = SimpleTheme.typography.bodyLarge.copy(
             color = SimpleTheme.colorScheme.onSurface,
@@ -541,6 +507,43 @@ private fun TextEditor(
             innerTextField()
         }
     )
+}
+
+@Composable
+private fun rememberSearchHighlighting(
+    searchMatches: List<TextRange>,
+    currentSearchIndex: Int,
+): OutputTransformation? {
+    val matchColor = SimpleTheme.colorScheme.secondaryContainer.copy(alpha = 0.72f)
+    val currentMatchColor = SimpleTheme.colorScheme.primaryContainer
+    return if (shouldHighlightTextMatches(searchMatches.size)) {
+        remember(
+            searchMatches,
+            currentSearchIndex,
+            matchColor,
+            currentMatchColor,
+        ) {
+            OutputTransformation {
+                searchMatches.forEachIndexed { index, match ->
+                    if (match.min >= 0 && match.max <= length) {
+                        addStyle(
+                            spanStyle = SpanStyle(
+                                background = if (index == currentSearchIndex) {
+                                    currentMatchColor
+                                } else {
+                                    matchColor
+                                },
+                            ),
+                            start = match.min,
+                            end = match.max,
+                        )
+                    }
+                }
+            }
+        }
+    } else {
+        null
+    }
 }
 
 private const val MARKDOWN_MODE_COUNT = 2

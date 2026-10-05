@@ -15,11 +15,7 @@ import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.rounded.OpenInNew
 import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material.icons.filled.RestartAlt
-import androidx.compose.material.icons.filled.ZoomIn
-import androidx.compose.material.icons.filled.ZoomOut
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
@@ -38,7 +34,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.SolidColor
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
@@ -118,6 +113,10 @@ internal fun TextDocumentOverflowMenu(
     onTextZoomChange: (Float) -> Unit,
     onResetTextZoom: () -> Unit,
     onOpenWith: () -> Unit,
+    onSaveCopy: () -> Unit,
+    canSaveCopy: Boolean,
+    isReadOnly: Boolean,
+    onOpenForEditing: () -> Unit,
 ) {
     var expanded by remember { mutableStateOf(false) }
 
@@ -134,63 +133,58 @@ internal fun TextDocumentOverflowMenu(
             modifier = Modifier.widthIn(min = DocumentsMenuMinWidth),
             offset = DocumentsEndMenuOffset,
         ) {
-            TextDocumentMenuItem(
-                text = stringResource(id = R.string.zoom_in),
-                icon = Icons.Filled.ZoomIn,
+            DropdownMenuItem(
+                text = {
+                    Text(stringResource(if (isReadOnly) R.string.edit_a_copy else org.fossify.commons.R.string.save_as))
+                },
+                enabled = canSaveCopy,
+                onClick = {
+                    expanded = false
+                    onSaveCopy()
+                },
+            )
+            if (isReadOnly && canSaveCopy) {
+                DropdownMenuItem(
+                    text = { Text(stringResource(id = R.string.reopen_to_edit)) },
+                    onClick = {
+                        expanded = false
+                        onOpenForEditing()
+                    },
+                )
+            }
+            DropdownMenuItem(
+                text = { Text(stringResource(id = org.fossify.commons.R.string.open_with)) },
+                onClick = {
+                    expanded = false
+                    onOpenWith()
+                },
+            )
+            DropdownMenuItem(
+                text = { Text(stringResource(id = R.string.zoom_in)) },
                 enabled = textZoom < MAX_DOCUMENT_TEXT_ZOOM,
                 onClick = {
                     expanded = false
                     onTextZoomChange(textZoom + DOCUMENT_TEXT_ZOOM_STEP)
                 },
             )
-            TextDocumentMenuItem(
-                text = stringResource(id = R.string.zoom_out),
-                icon = Icons.Filled.ZoomOut,
+            DropdownMenuItem(
+                text = { Text(stringResource(id = R.string.zoom_out)) },
                 enabled = textZoom > MIN_DOCUMENT_TEXT_ZOOM,
                 onClick = {
                     expanded = false
                     onTextZoomChange(textZoom - DOCUMENT_TEXT_ZOOM_STEP)
                 },
             )
-            TextDocumentMenuItem(
-                text = stringResource(id = R.string.reset_zoom),
-                icon = Icons.Filled.RestartAlt,
+            DropdownMenuItem(
+                text = { Text(stringResource(id = R.string.reset_zoom)) },
                 enabled = textZoom != DEFAULT_DOCUMENT_TEXT_ZOOM,
                 onClick = {
                     expanded = false
                     onResetTextZoom()
                 },
             )
-            TextDocumentMenuItem(
-                text = stringResource(id = org.fossify.commons.R.string.open_with),
-                icon = Icons.AutoMirrored.Rounded.OpenInNew,
-                onClick = {
-                    expanded = false
-                    onOpenWith()
-                },
-            )
         }
     }
-}
-
-@Composable
-private fun TextDocumentMenuItem(
-    text: String,
-    icon: ImageVector,
-    enabled: Boolean = true,
-    onClick: () -> Unit,
-) {
-    DropdownMenuItem(
-        text = { Text(text = text) },
-        onClick = onClick,
-        enabled = enabled,
-        leadingIcon = {
-            Icon(
-                imageVector = icon,
-                contentDescription = null,
-            )
-        },
-    )
 }
 
 @Composable

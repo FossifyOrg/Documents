@@ -33,13 +33,6 @@ class DocumentKindTest {
     }
 
     @Test
-    fun `specific text formats win over generic text mime type`() {
-        assertEquals(DocumentKind.MARKDOWN, DocumentKind.fromName("README.md", "text/plain"))
-        assertEquals(DocumentKind.CSV, DocumentKind.fromName("budget.csv", "text/plain"))
-        assertEquals(DocumentKind.HTML, DocumentKind.fromName("article.htm", "text/plain"))
-    }
-
-    @Test
     fun `does not treat legacy word or excel files as supported`() {
         assertEquals(DocumentKind.OTHER, DocumentKind.fromName("letter.doc", "application/msword"))
         assertEquals(

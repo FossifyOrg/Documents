@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import org.fossify.commons.extensions.getFilenameFromUri
-import org.fossify.commons.extensions.getMimeTypeFromUri
 import org.fossify.commons.extensions.toast
 import org.fossify.documents.R
 import org.fossify.documents.models.DocumentKind
@@ -18,7 +17,16 @@ class DocumentOpenActivity : Activity() {
             return
         }
 
-        val destination = when (val kind = DocumentKind.fromName(getFilenameFromUri(uri), getMimeTypeFromUri(uri))) {
+        val suppliedType = intent.type.orEmpty().substringBefore(';').trim().lowercase()
+        val mimeType = if (suppliedType.isBlank() || suppliedType == "application/octet-stream" ||
+            suppliedType.endsWith("/*")
+        ) {
+            val providerType = contentResolver.getType(uri).orEmpty().substringBefore(';').trim().lowercase()
+            providerType.takeUnless { it.isBlank() || it == "application/octet-stream" } ?: suppliedType
+        } else {
+            suppliedType
+        }
+        val destination = when (val kind = DocumentKind.fromName(getFilenameFromUri(uri), mimeType)) {
             DocumentKind.PDF -> Intent(this, PDFViewerActivity::class.java).apply { data = uri }
             DocumentKind.TEXT,
             DocumentKind.MARKDOWN -> TextDocumentActivity.newIntent(
