@@ -1,5 +1,3 @@
-@file:Suppress("LongMethod")
-
 package org.fossify.documents.activities
 
 import android.content.ActivityNotFoundException

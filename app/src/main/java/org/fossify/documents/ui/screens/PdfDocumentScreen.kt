@@ -1,4 +1,4 @@
-@file:Suppress("FunctionNaming", "CyclomaticComplexMethod", "LongMethod", "LongParameterList", "MagicNumber")
+@file:Suppress("CyclomaticComplexMethod")
 
 package org.fossify.documents.ui.screens
 

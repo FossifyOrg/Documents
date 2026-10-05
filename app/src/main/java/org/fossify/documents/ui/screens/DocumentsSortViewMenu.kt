@@ -1,6 +1,3 @@
-@file:OptIn(ExperimentalMaterial3Api::class)
-@file:Suppress("FunctionNaming", "MagicNumber")
-
 package org.fossify.documents.ui.screens
 
 import androidx.compose.foundation.layout.Arrangement
@@ -19,7 +16,6 @@ import androidx.compose.material.icons.filled.GridView
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text

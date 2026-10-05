@@ -1,5 +1,3 @@
-@file:Suppress("FunctionNaming")
-
 package org.fossify.documents.ui.screens
 
 import androidx.compose.foundation.layout.Box

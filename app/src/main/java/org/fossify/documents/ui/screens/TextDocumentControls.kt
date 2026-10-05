@@ -1,6 +1,3 @@
-@file:OptIn(ExperimentalComposeUiApi::class)
-@file:Suppress("FunctionNaming", "LongParameterList", "MagicNumber")
-
 package org.fossify.documents.ui.screens
 
 import androidx.compose.foundation.gestures.awaitEachGesture
@@ -29,7 +26,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester

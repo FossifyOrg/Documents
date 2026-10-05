@@ -1,12 +1,8 @@
-@file:OptIn(ExperimentalFoundationApi::class)
-@file:Suppress("FunctionNaming")
-
 package org.fossify.documents.ui.screens
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box

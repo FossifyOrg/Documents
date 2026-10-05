@@ -1,4 +1,4 @@
-@file:Suppress("FunctionNaming", "LongParameterList", "UnusedPrivateMember")
+@file:Suppress("UnusedPrivateMember")
 
 package org.fossify.documents.ui.screens
 

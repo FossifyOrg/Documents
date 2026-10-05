@@ -27,7 +27,6 @@ internal class StructuredDocumentViewModel(
     private var loadedUri: Uri? = null
     private val app: Application get() = getApplication()
 
-    @Suppress("TooGenericExceptionCaught")
     fun load(uri: Uri, kind: DocumentKind, force: Boolean = false) {
         if (!force && uri == loadedUri) {
             return

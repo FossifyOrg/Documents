@@ -1,5 +1,3 @@
-@file:Suppress("LongParameterList")
-
 package org.fossify.documents.extensions
 
 import android.app.Activity

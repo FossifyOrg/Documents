@@ -1,5 +1,3 @@
-@file:Suppress("MagicNumber")
-
 package org.fossify.documents.ui.screens
 
 import androidx.compose.foundation.text.input.TextFieldState

@@ -1,5 +1,5 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
-@file:Suppress("FunctionNaming", "LongMethod", "MagicNumber")
+@file:Suppress("MagicNumber")
 
 package org.fossify.documents.ui.screens
 

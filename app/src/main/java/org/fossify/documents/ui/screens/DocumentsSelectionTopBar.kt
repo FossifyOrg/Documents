@@ -1,5 +1,4 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
-@file:Suppress("FunctionNaming")
 
 package org.fossify.documents.ui.screens
 

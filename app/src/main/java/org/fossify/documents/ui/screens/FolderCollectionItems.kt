@@ -1,9 +1,5 @@
-@file:OptIn(ExperimentalFoundationApi::class)
-@file:Suppress("FunctionNaming")
-
 package org.fossify.documents.ui.screens
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
