@@ -31,10 +31,17 @@ internal class DocumentLocationResolver(
         if (DocumentsContract.isDocumentUri(appContext, uri) || DocumentsContract.isTreeUri(uri)) {
             return uri
         }
-        if (uri.authority == MediaStore.AUTHORITY) {
-            runCatching { MediaStore.getDocumentUri(appContext, uri) }.getOrNull()?.let { return it }
+        val documentUri = if (uri.authority == MediaStore.AUTHORITY) {
+            runCatching { MediaStore.getDocumentUri(appContext, uri) }.getOrNull()
+        } else {
+            null
         }
-        val realPath = appContext.getRealPathFromURI(uri)?.takeIf { it.isNotBlank() } ?: return null
+        return documentUri ?: appContext.getRealPathFromURI(uri)
+            ?.takeIf { it.isNotBlank() }
+            ?.let(::resolveFilePickerLocation)
+    }
+
+    private fun resolveFilePickerLocation(realPath: String): Uri? {
         return runCatching {
             val folder = File(realPath).canonicalFile.parentFile ?: return null
             val volume = appContext.getSystemService(StorageManager::class.java)
@@ -45,11 +52,14 @@ internal class DocumentLocationResolver(
             } else {
                 File("/storage", volumeId).canonicalFile
             }
-            if (!folder.startsWith(root)) return null
-            DocumentsContract.buildDocumentUri(
-                EXTERNAL_STORAGE_AUTHORITY,
-                "$volumeId:${folder.relativeTo(root).invariantSeparatorsPath}",
-            )
+            if (folder.startsWith(root)) {
+                DocumentsContract.buildDocumentUri(
+                    EXTERNAL_STORAGE_AUTHORITY,
+                    "$volumeId:${folder.relativeTo(root).invariantSeparatorsPath}",
+                )
+            } else {
+                null
+            }
         }.getOrNull()
     }
 
