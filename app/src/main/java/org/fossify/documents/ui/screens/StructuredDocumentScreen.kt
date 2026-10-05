@@ -249,6 +249,7 @@ private fun WebDocument(
     val accentColor = SimpleTheme.colorScheme.primary
     val outlineColor = SimpleTheme.colorScheme.outlineVariant
     val codeColor = SimpleTheme.colorScheme.surfaceVariant
+    val searchColors = documentSearchColors()
     val configuredFontType = context.baseConfig.fontType
     val configuredFontName = context.baseConfig.fontName
     val webFont = remember(context, configuredFontType, configuredFontName) {
@@ -261,6 +262,7 @@ private fun WebDocument(
         accentColor,
         outlineColor,
         codeColor,
+        searchColors,
         webFont,
     ) {
         buildWebPage(
@@ -270,6 +272,7 @@ private fun WebDocument(
             accentColor = accentColor,
             outlineColor = outlineColor,
             codeColor = codeColor,
+            searchColors = searchColors,
             webFont = webFont,
         )
     }
@@ -441,6 +444,7 @@ private fun buildWebPage(
     accentColor: Color,
     outlineColor: Color,
     codeColor: Color,
+    searchColors: DocumentSearchColors,
     webFont: WebDocumentFont,
 ): String {
     val customFontFace = webFont.file?.let {
@@ -472,6 +476,14 @@ private fun buildWebPage(
                 font-size: 16px;
                 line-height: 1.55;
                 overflow-wrap: anywhere;
+            }
+            ::search-text {
+                background-color: ${searchColors.match.cssColor()};
+                color: ${textColor.cssColor()};
+            }
+            ::search-text:current {
+                background-color: ${searchColors.currentMatch.cssColor()};
+                color: ${textColor.cssColor()};
             }
             a { color: ${accentColor.cssColor()}; }
             img { max-width: 100%; height: auto; }
@@ -513,7 +525,11 @@ private fun resolveWebDocumentFont(
 }
 
 private fun Color.cssColor(): String {
-    return String.format(Locale.ROOT, "#%06X", toArgb() and 0xFFFFFF)
+    val argb = toArgb()
+    return String.format(
+        Locale.ROOT, "rgba(%d, %d, %d, %.3f)",
+        AndroidColor.red(argb), AndroidColor.green(argb), AndroidColor.blue(argb), alpha,
+    )
 }
 
 private data class WebDocumentFont(

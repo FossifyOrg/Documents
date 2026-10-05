@@ -513,8 +513,9 @@ private fun rememberSearchHighlighting(
     searchMatches: List<TextRange>,
     currentSearchIndex: Int,
 ): OutputTransformation? {
-    val matchColor = SimpleTheme.colorScheme.secondaryContainer.copy(alpha = 0.72f)
-    val currentMatchColor = SimpleTheme.colorScheme.primaryContainer
+    val searchColors = documentSearchColors()
+    val matchColor = searchColors.match
+    val currentMatchColor = searchColors.currentMatch
     return if (shouldHighlightTextMatches(searchMatches.size)) {
         remember(
             searchMatches,

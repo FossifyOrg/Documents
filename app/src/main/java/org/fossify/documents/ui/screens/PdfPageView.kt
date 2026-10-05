@@ -26,7 +26,6 @@ import com.infomaniak.lib.pdfview.model.LinkTapEvent
 import com.infomaniak.lib.pdfview.scroll.DefaultScrollHandle
 import com.infomaniak.lib.pdfview.util.FitPolicy
 import org.fossify.commons.compose.theme.SimpleTheme
-import org.fossify.commons.compose.theme.isSurfaceNotLitWell
 import org.fossify.documents.data.PdfTextMatch
 
 @Composable
@@ -49,20 +48,25 @@ internal fun PdfPageView(
 ) {
     var view by remember { mutableStateOf<PDFView?>(null) }
     var viewSize by remember { mutableStateOf(IntSize.Zero) }
-    var pageIndicator by remember { mutableStateOf<DefaultScrollHandle?>(null) }
+    var pageIndicator by remember { mutableStateOf<PdfPageIndicator?>(null) }
     val currentShowPageIndicator by rememberUpdatedState(showPageIndicator)
     val currentSelectedMatch by rememberUpdatedState(search.selectedMatch)
     val matchesByPage by rememberUpdatedState(remember(search.result) { search.result.matches.groupBy { it.page } })
     val backgroundColor = SimpleTheme.colorScheme.surfaceVariant.toArgb()
-    val scrollHandleTextColor = SimpleTheme.colorScheme.onSurfaceVariant.toArgb()
     val colors = SimpleTheme.colorScheme
-    val highlightColor = pdfHighlightColor(nightMode)
+    val searchColors = documentSearchColors(darkBackground = nightMode)
+    val highlightColor = searchColors.accent
     val selectionColor = highlightColor.toArgb()
     val selectionHighlight = highlightColor.copy(alpha = 0.3f).toArgb()
-    val matchColor by rememberUpdatedState(highlightColor.copy(alpha = MATCH_HIGHLIGHT_ALPHA).toArgb())
-    val currentMatchColor by rememberUpdatedState(highlightColor.copy(alpha = CURRENT_MATCH_HIGHLIGHT_ALPHA).toArgb())
+    val matchColor by rememberUpdatedState(searchColors.match.toArgb())
+    val currentMatchColor by rememberUpdatedState(searchColors.currentMatch.toArgb())
     LaunchedEffect(nightMode, colors, view) {
         view?.apply {
+            setBackgroundColor(backgroundColor)
+            pageIndicator?.updateColors(
+                context.scrollHandleBackground(horizontalPaging, colors.primary.toArgb()),
+                colors.onPrimary.toArgb(),
+            )
             setNightMode(nightMode)
             setSelectionHandleColor(selectionColor)
             setSelectionHighlightColor(selectionHighlight)
@@ -108,7 +112,7 @@ internal fun PdfPageView(
                     .onSelectionChange(onSelectionChange)
                     .onSelectionAction { text ->
                         val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-                        clipboard.setPrimaryClip(ClipData.newPlainText(title, text))
+                        clipboard.primaryClip = ClipData.newPlainText(title, text)
                         clearTextSelection()
                     }
                     .onDrawAll { canvas, width, height, page ->
@@ -129,13 +133,11 @@ internal fun PdfPageView(
                     .enableAntialiasing(true)
                     .readingMode(horizontalPaging)
                     .scrollHandle(
-                        object : DefaultScrollHandle(context) {
-                            override fun show() {
-                                if (currentShowPageIndicator) super.show()
-                            }
-                        }.apply {
-                            setPageHandleBackground(context.scrollHandleBackground(horizontalPaging, backgroundColor))
-                            setTextColor(scrollHandleTextColor)
+                        PdfPageIndicator(context) { currentShowPageIndicator }.apply {
+                            updateColors(
+                                context.scrollHandleBackground(horizontalPaging, colors.primary.toArgb()),
+                                colors.onPrimary.toArgb(),
+                            )
                             pageIndicator = this
                         }
                     )
@@ -179,11 +181,20 @@ private class ResizablePdfView(context: Context) : PDFView(context, null) {
     }
 }
 
-@Composable
-private fun pdfHighlightColor(nightMode: Boolean) = if (nightMode == isSurfaceNotLitWell()) {
-    SimpleTheme.colorScheme.primary
-} else {
-    SimpleTheme.colorScheme.inversePrimary
+private class PdfPageIndicator(
+    context: Context,
+    private val shouldShow: () -> Boolean,
+) : DefaultScrollHandle(context) {
+    override fun show() {
+        if (shouldShow()) super.show()
+    }
+
+    fun updateColors(background: Drawable?, textColor: Int) {
+        setPageHandleBackground(background)
+        setTextColor(textColor)
+        pageIndicator?.background = background
+        pageIndicator?.setTextColor(textColor)
+    }
 }
 
 private fun Context.scrollHandleBackground(horizontalPaging: Boolean, color: Int): Drawable? {
@@ -202,15 +213,13 @@ private fun PDFView.Configurator.readingMode(horizontalPaging: Boolean): PDFView
         .autoSpacing(horizontalPaging)
         .pageSnap(horizontalPaging)
         .pageFling(horizontalPaging)
-        .pageSeparatorSpacing(if (horizontalPaging) 0 else PDF_PAGE_SPACING_DP)
+        .pageSeparatorSpacing(PDF_PAGE_SPACING_DP)
         .apply { if (horizontalPaging) zoom(1f, PDF_MID_ZOOM, PDF_MAX_ZOOM) }
 }
 
 private const val PDF_MID_ZOOM = 1.75f
 private const val PDF_MAX_ZOOM = 5f
 private const val PDF_PAGE_SPACING_DP = 8
-private const val MATCH_HIGHLIGHT_ALPHA = 0.18f
-private const val CURRENT_MATCH_HIGHLIGHT_ALPHA = 0.4f
 
 private fun PDFView.showSearchMatch(match: PdfTextMatch) {
     if (width == 0 || height == 0) return
