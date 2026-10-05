@@ -112,7 +112,7 @@ internal fun PdfPageView(
                     .onSelectionChange(onSelectionChange)
                     .onSelectionAction { text ->
                         val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-                        clipboard.primaryClip = ClipData.newPlainText(title, text)
+                        clipboard.setPrimaryClip(ClipData.newPlainText(title, text))
                         clearTextSelection()
                     }
                     .onDrawAll { canvas, width, height, page ->
