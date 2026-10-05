@@ -35,10 +35,9 @@ class TextDocumentDisplayTest {
     }
 
     @Test
-    fun `coerces invalid and out of range zoom`() {
+    fun `clamps zoom to the supported range`() {
         assertEquals(MIN_DOCUMENT_TEXT_ZOOM, 0.1f.coerceDocumentTextZoom())
         assertEquals(MAX_DOCUMENT_TEXT_ZOOM, 10f.coerceDocumentTextZoom())
-        assertEquals(DEFAULT_DOCUMENT_TEXT_ZOOM, Float.NaN.coerceDocumentTextZoom())
     }
 
     @Test

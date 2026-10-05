@@ -6,10 +6,15 @@ import android.net.Uri
 import android.os.Bundle
 import android.print.PrintAttributes
 import android.print.PrintManager
+import android.provider.DocumentsContract
 import androidx.activity.compose.setContent
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.runtime.getValue
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
@@ -25,8 +30,18 @@ import org.fossify.documents.extensions.config
 import org.fossify.documents.helpers.PdfDocumentAdapter
 import org.fossify.documents.ui.screens.PdfDocumentScreen
 import org.fossify.documents.ui.theme.DocumentsAppThemeSurface
+import org.fossify.documents.viewmodels.PdfDocumentViewModel
 
 class PDFViewerActivity : BaseComposeActivity() {
+    private val preferences by lazy { config }
+    private val viewModel by lazy { ViewModelProvider(this)[PdfDocumentViewModel::class.java] }
+    private val createCopy = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        val destination = result.data?.data
+        val source = intent.data
+        if (result.resultCode == RESULT_OK && destination != null && source != null) {
+            viewModel.saveCopy(source, destination, result.data?.flags ?: 0)
+        }
+    }
     private val pageUpdates = Channel<Int>(Channel.CONFLATED)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,9 +64,19 @@ class PDFViewerActivity : BaseComposeActivity() {
             }
         }
 
+        lifecycleScope.launch {
+            viewModel.copyMessages.collect { toast(it) }
+        }
+
         enableEdgeToEdgeSimple()
         setContent {
             DocumentsAppThemeSurface {
+                val nightMode by preferences.pdfDarkPagesFlow
+                    .collectAsStateWithLifecycle(preferences.pdfDarkPages)
+                val showPageIndicator by preferences.pdfPageIndicatorFlow
+                    .collectAsStateWithLifecycle(preferences.pdfPageIndicator)
+                val horizontalPaging by preferences.pdfHorizontalPagingFlow
+                    .collectAsStateWithLifecycle(preferences.pdfHorizontalPaging)
                 PdfDocumentScreen(
                     uri = uri,
                     title = title,
@@ -65,11 +90,36 @@ class PDFViewerActivity : BaseComposeActivity() {
                             repository.rememberDocument(uri, intent.flags)
                         }
                     },
+                    onSaveCopy = { requestSaveCopy(uri, title) },
+                    isCopying = viewModel.isCopying,
                     onPrint = { printPdf(uri, title) },
                     onOpenWith = { openWith(uri) },
                     onFullscreenChange = ::setFullscreen,
+                    nightMode = nightMode,
+                    showPageIndicator = showPageIndicator,
+                    horizontalPaging = horizontalPaging,
+                    onNightModeChange = { preferences.pdfDarkPages = it },
+                    onSettings = { startActivity(Intent(this, SettingsActivity::class.java)) },
                 )
             }
+        }
+    }
+
+    private fun requestSaveCopy(uri: Uri, title: String) {
+        val request = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
+            addCategory(Intent.CATEGORY_OPENABLE)
+            type = "application/pdf"
+            putExtra(Intent.EXTRA_TITLE, title)
+            putExtra(DocumentsContract.EXTRA_INITIAL_URI, uri)
+            addFlags(
+                Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION or
+                        Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION
+            )
+        }
+        try {
+            createCopy.launch(request)
+        } catch (_: ActivityNotFoundException) {
+            toast(org.fossify.commons.R.string.no_app_found)
         }
     }
 

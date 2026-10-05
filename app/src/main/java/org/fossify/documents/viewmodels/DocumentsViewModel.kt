@@ -444,12 +444,15 @@ class DocumentsViewModel(
                 putExtra(
                     Intent.EXTRA_MIME_TYPES,
                     arrayOf(
+                        "application/octet-stream",
+                        "application/x-tex",
                         "application/pdf",
                         "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
                         "text/*",
                         "text/markdown",
                         "text/x-markdown",
                         "text/csv",
+                        "application/csv",
                         "text/tab-separated-values",
                         "text/html",
                         "application/xhtml+xml",

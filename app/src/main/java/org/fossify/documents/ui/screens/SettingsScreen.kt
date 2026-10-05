@@ -1,4 +1,4 @@
-@file:Suppress("FunctionNaming", "LongParameterList", "UnusedPrivateMember")
+@file:Suppress("UnusedPrivateMember")
 
 package org.fossify.documents.ui.screens
 
@@ -23,10 +23,14 @@ internal fun SettingsScreen(
     isUseEnglishChecked: Boolean,
     isShowingCheckmarksOnSwitches: Boolean,
     rememberPdfPage: Boolean,
+    horizontalPdfPaging: Boolean,
+    showPdfPageIndicator: Boolean,
     showFileLocations: Boolean,
     onUseEnglishPress: (Boolean) -> Unit,
     onSetupLanguagePress: () -> Unit,
     onRememberPdfPageChange: (Boolean) -> Unit,
+    onHorizontalPdfPagingChange: (Boolean) -> Unit,
+    onPdfPageIndicatorChange: (Boolean) -> Unit,
     onShowFileLocationsChange: (Boolean) -> Unit,
     customizeColors: () -> Unit,
     goBack: () -> Unit,
@@ -75,10 +79,28 @@ internal fun SettingsScreen(
                 onChange = onShowFileLocationsChange,
                 showCheckmark = isShowingCheckmarksOnSwitches,
             )
+        }
+
+        SettingsHorizontalDivider()
+        SettingsGroup(title = {
+            SettingsTitleTextComponent(text = stringResource(id = R.string.pdf_reading))
+        }) {
+            SettingsSwitchComponent(
+                label = stringResource(id = R.string.pdf_horizontal_paging),
+                initialValue = horizontalPdfPaging,
+                onChange = onHorizontalPdfPagingChange,
+                showCheckmark = isShowingCheckmarksOnSwitches,
+            )
             SettingsSwitchComponent(
                 label = stringResource(id = R.string.remember_pdf_page),
                 initialValue = rememberPdfPage,
                 onChange = onRememberPdfPageChange,
+                showCheckmark = isShowingCheckmarksOnSwitches,
+            )
+            SettingsSwitchComponent(
+                label = stringResource(id = R.string.pdf_page_indicator),
+                initialValue = showPdfPageIndicator,
+                onChange = onPdfPageIndicatorChange,
                 showCheckmark = isShowingCheckmarksOnSwitches,
             )
         }
@@ -95,10 +117,14 @@ private fun SettingsScreenPreview() {
             isUseEnglishChecked = false,
             isShowingCheckmarksOnSwitches = false,
             rememberPdfPage = true,
+            horizontalPdfPaging = false,
+            showPdfPageIndicator = true,
             showFileLocations = false,
             onUseEnglishPress = {},
             onSetupLanguagePress = {},
             onRememberPdfPageChange = {},
+            onHorizontalPdfPagingChange = {},
+            onPdfPageIndicatorChange = {},
             onShowFileLocationsChange = {},
             customizeColors = {},
             goBack = {},

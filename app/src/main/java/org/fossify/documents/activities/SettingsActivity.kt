@@ -36,6 +36,10 @@ class SettingsActivity : BaseComposeActivity() {
                     .collectAsStateWithLifecycle(preferences.showCheckmarksOnSwitches)
                 val rememberPdfPage by preferences.rememberPdfPageFlow
                     .collectAsStateWithLifecycle(preferences.rememberPdfPage)
+                val horizontalPdfPaging by preferences.pdfHorizontalPagingFlow
+                    .collectAsStateWithLifecycle(preferences.pdfHorizontalPaging)
+                val showPdfPageIndicator by preferences.pdfPageIndicatorFlow
+                    .collectAsStateWithLifecycle(preferences.pdfPageIndicator)
                 val showFileLocations by preferences.showFileLocationsFlow
                     .collectAsStateWithLifecycle(preferences.showFileLocations)
                 val displayLanguage = remember { Locale.getDefault().displayLanguage }
@@ -51,6 +55,8 @@ class SettingsActivity : BaseComposeActivity() {
                     isUseEnglishChecked = useEnglishFlow,
                     isShowingCheckmarksOnSwitches = showCheckmarksOnSwitches,
                     rememberPdfPage = rememberPdfPage,
+                    horizontalPdfPaging = horizontalPdfPaging,
+                    showPdfPageIndicator = showPdfPageIndicator,
                     showFileLocations = showFileLocations,
                     onUseEnglishPress = { isChecked ->
                         preferences.useEnglish = isChecked
@@ -59,6 +65,12 @@ class SettingsActivity : BaseComposeActivity() {
                     onSetupLanguagePress = ::launchChangeAppLanguageIntent,
                     onRememberPdfPageChange = { checked ->
                         preferences.rememberPdfPage = checked
+                    },
+                    onHorizontalPdfPagingChange = { checked ->
+                        preferences.pdfHorizontalPaging = checked
+                    },
+                    onPdfPageIndicatorChange = { checked ->
+                        preferences.pdfPageIndicator = checked
                     },
                     onShowFileLocationsChange = { checked ->
                         preferences.showFileLocations = checked
