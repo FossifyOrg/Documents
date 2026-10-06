@@ -100,12 +100,17 @@
     <string name="zoom_out">Verkleinern</string>
     <string name="save_a_copy">Kopie erstellen</string>
     <string name="edit_a_copy">Kopie bearbeiten</string>
-    <string name="pdf_page_range">Seite (1-%1$d)</string>
-    <string name="pdf_page_navigation">Seite %1$d von %2$d. Zur Seite.</string>
-    <string name="go_to_page">Zur Seite</string>
-    <string name="pdf_reading">PDF Lesen</string>
+    <string name="pdf_page_range">Seite (1–%1$d)</string>
+    <string name="pdf_page_navigation">Seite %1$d von %2$d. Zur Seite gehen.</string>
+    <string name="go_to_page">Zur Seite gehen</string>
+    <string name="pdf_reading">PDF lesen</string>
     <string name="pdf_search_failed">Die Suche konnte nicht abgeschlossen werden.</string>
-    <string name="pdf_no_text">Diese PDF-Datei enthält keinen Text der durchsucht werden kann.</string>
+    <string name="pdf_no_text">Dieses PDF enthält keinen durchsuchbaren Text.</string>
     <string name="pdf_contents">Inhalte</string>
-    <string name="pdf_page_indicator">Fließende Seitenanzeige</string>
+    <string name="pdf_page_indicator">Schwebende Seitenanzeige</string>
+    <string name="pdf_horizontal_paging">PDFs horizontal scrollen</string>
+    <string name="copy_opened">Kopie gespeichert und geöffnet</string>
+    <string name="pdf_dark_pages">Dunkle Seiten</string>
+    <string name="reopen_to_edit">Zum Bearbeiten erneut öffnen</string>
+    <string name="reopen_to_edit_hint">Diese Datei erneut auswählen, um die Berechtigung zum Speichern der Änderungen anzufordern.</string>
 </resources>
