@@ -98,4 +98,19 @@
     <string name="reset_zoom">Lähtesta suum</string>
     <string name="zoom_in">Suumi sisse/suurenda</string>
     <string name="zoom_out">Suumi välja/vähenda</string>
+    <string name="save_a_copy">Salvesta koopiana</string>
+    <string name="edit_a_copy">Muuda koopiat</string>
+    <string name="reopen_to_edit">Muutmiseks ava uuesti</string>
+    <string name="reopen_to_edit_hint">Küsimaks õigusi muudatuste salvestamiseks ava fail uuesti.</string>
+    <string name="copy_opened">Koopia on salvestatud ja avatud</string>
+    <string name="pdf_page_navigation">Leht %1$d / %2$d. Ava leht.</string>
+    <string name="go_to_page">Ava leht</string>
+    <string name="pdf_page_range">Leht (1-%1$d)</string>
+    <string name="pdf_dark_pages">Tumedad lehed</string>
+    <string name="pdf_page_indicator">Ujuv lehetunnus</string>
+    <string name="pdf_contents">Sisu</string>
+    <string name="pdf_no_text">Selles PDF-failis pole otsitavat teksti.</string>
+    <string name="pdf_search_failed">Otsingu lõpetamine ei õnnestunud.</string>
+    <string name="pdf_reading">PDF-fail on lugemisel</string>
+    <string name="pdf_horizontal_paging">Keri PDF-faili sisu rõhtselt</string>
 </resources>
