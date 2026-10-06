@@ -106,4 +106,19 @@
     <string name="reset_zoom">Скинути масштаб</string>
     <string name="zoom_in">Наблизити</string>
     <string name="zoom_out">Віддалити</string>
+    <string name="save_a_copy">Зберегти копію</string>
+    <string name="edit_a_copy">Редагувати копію</string>
+    <string name="reopen_to_edit">Відкрийте знову, щоб відредагувати</string>
+    <string name="reopen_to_edit_hint">Виберіть цей файл ще раз, щоби запросити дозвіл на збереження змін у ньому.</string>
+    <string name="copy_opened">Копію збережено й відкрито</string>
+    <string name="pdf_page_navigation">Сторінка %1$d з %2$d. Перейти на сторінку.</string>
+    <string name="go_to_page">Перейти на сторінку</string>
+    <string name="pdf_page_range">Сторінка (1 – %1$d)</string>
+    <string name="pdf_dark_pages">Темні сторінки</string>
+    <string name="pdf_page_indicator">Плавучий індикатор сторінки</string>
+    <string name="pdf_contents">Зміст</string>
+    <string name="pdf_no_text">У цьому PDF-файлі немає тексту, доступного для пошуку.</string>
+    <string name="pdf_search_failed">Не вдалося завершити пошук.</string>
+    <string name="pdf_reading">Читання PDF</string>
+    <string name="pdf_horizontal_paging">Гортайте PDF-файли горизонтально</string>
 </resources>
