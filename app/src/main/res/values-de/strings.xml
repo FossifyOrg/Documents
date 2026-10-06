@@ -106,4 +106,6 @@
     <string name="pdf_reading">PDF Lesen</string>
     <string name="pdf_search_failed">Die Suche konnte nicht abgeschlossen werden.</string>
     <string name="pdf_no_text">Diese PDF-Datei enthält keinen Text der durchsucht werden kann.</string>
+    <string name="pdf_contents">Inhalte</string>
+    <string name="pdf_page_indicator">Fließende Seitenanzeige</string>
 </resources>
