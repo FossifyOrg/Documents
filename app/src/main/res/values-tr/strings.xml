@@ -98,4 +98,19 @@
     <string name="zoom_in">Yakınlaştır</string>
     <string name="zoom_out">Uzaklaştır</string>
     <string name="filter_markdown">Markdown</string>
+    <string name="save_a_copy">Kopyasını kaydet</string>
+    <string name="edit_a_copy">Kopyasını düzenle</string>
+    <string name="reopen_to_edit">Düzenlemek için yeniden aç</string>
+    <string name="reopen_to_edit_hint">Değişiklikleri bu dosyaya kaydetmek için izin istemek üzere dosyayı tekrar seçin.</string>
+    <string name="copy_opened">Kopyası kaydedildi ve açıldı</string>
+    <string name="pdf_page_navigation">Sayfa %1$d / %2$d. Sayfaya git.</string>
+    <string name="go_to_page">Sayfaya git</string>
+    <string name="pdf_page_range">Sayfa (1–%1$d)</string>
+    <string name="pdf_dark_pages">Koyu sayfalar</string>
+    <string name="pdf_page_indicator">Yüzen sayfa göstergesi</string>
+    <string name="pdf_contents">İçerikler</string>
+    <string name="pdf_no_text">Bu PDF dosyasında aranabilir metin yok.</string>
+    <string name="pdf_search_failed">Arama tamamlanamadı.</string>
+    <string name="pdf_reading">PDF okuma</string>
+    <string name="pdf_horizontal_paging">PDF dosyalarını yatay olarak kaydır</string>
 </resources>
