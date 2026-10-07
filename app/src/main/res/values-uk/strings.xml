@@ -12,7 +12,7 @@
     <string name="document">Документ</string>
     <string name="document_too_large">Цей документ занадто великий, щоб відкрити як текст.</string>
     <string name="document_too_large_to_view">Цей документ занадто великий, щоб відобразити.</string>
-    <string name="document_no_longer_available">Цей документ більше не доступний. Відкрийте його знову, щоб відновити доступу.</string>
+    <string name="document_no_longer_available">Цей документ більше не доступний. Відкрийте його знову, щоб відновити доступ.</string>
     <string name="document_text_stats">%1$s, %2$s</string>
     <plurals name="document_text_chars">
         <item quantity="one">%1$d символ</item>
