@@ -94,4 +94,19 @@
     <string name="reset_zoom">확대·축소 초기화</string>
     <string name="zoom_in">확대</string>
     <string name="zoom_out">축소</string>
+    <string name="save_a_copy">사본 저장</string>
+    <string name="edit_a_copy">사본 편집</string>
+    <string name="reopen_to_edit">다시 열어 편집</string>
+    <string name="reopen_to_edit_hint">변경사항 저장 권한을 요청하려면 이 파일을 다시 선택하십시오.</string>
+    <string name="copy_opened">사본을 저장하고 열었습니다</string>
+    <string name="pdf_page_navigation">%2$d 페이지 중 %1$d 페이지. 페이지로 이동.</string>
+    <string name="go_to_page">페이지로 이동</string>
+    <string name="pdf_page_range">페이지(1–%1$d)</string>
+    <string name="pdf_dark_pages">페이지 색 반전</string>
+    <string name="pdf_page_indicator">스크롤 중 페이지 번호 표시</string>
+    <string name="pdf_contents">컨텐츠</string>
+    <string name="pdf_no_text">이 PDF에 검색 가능한 텍스트가 없습니다.</string>
+    <string name="pdf_search_failed">검색을 완료하지 못했습니다.</string>
+    <string name="pdf_reading">PDF 읽기</string>
+    <string name="pdf_horizontal_paging">PDF 가로로 넘기기</string>
 </resources>
