@@ -114,4 +114,19 @@
     <string name="reset_zoom">صفّر التقريب</string>
     <string name="zoom_in">قرِّب</string>
     <string name="zoom_out">بعِّد</string>
+    <string name="save_a_copy">احفظ نُسخة</string>
+    <string name="edit_a_copy">حرِّر نُسخة</string>
+    <string name="reopen_to_edit">أعد الفتح للتحرير</string>
+    <string name="reopen_to_edit_hint">حدِّد هذا الملف مرة أخرى لطلب الإذن بحفظ التغييرات عليه.</string>
+    <string name="copy_opened">حُفظت النُسخة وفُتحت</string>
+    <string name="pdf_page_navigation">الصفحة %1$d من %2$d. انتقل إلى الصفحة.</string>
+    <string name="go_to_page">انتقل للصفحة</string>
+    <string name="pdf_page_range">الصفحة (1–%1$d)</string>
+    <string name="pdf_dark_pages">صفحات داكنة</string>
+    <string name="pdf_page_indicator">مؤشر الصفحة العائمة</string>
+    <string name="pdf_contents">المحتويات</string>
+    <string name="pdf_no_text">لا يحتوي ملف PDF هذا على نص قابل للبحث.</string>
+    <string name="pdf_search_failed">تعذّر إتمام عملية البحث.</string>
+    <string name="pdf_reading">قراءة PDF</string>
+    <string name="pdf_horizontal_paging">التمرير الأفقي في ملفات PDF</string>
 </resources>
