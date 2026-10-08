@@ -23,5 +23,5 @@ shared themes, custom fonts, and appearance settings.
 <div align="center">
 <img alt="Documents home screen" src="fastlane/metadata/android/en-US/images/phoneScreenshots/1_en-US.png" width="30%">
 <img alt="Folder browser" src="fastlane/metadata/android/en-US/images/phoneScreenshots/3_en-US.png" width="30%">
-<img alt="Markdown document" src="fastlane/metadata/android/en-US/images/phoneScreenshots/4_en-US.png" width="30%">
+<img alt="Markdown document" src="fastlane/metadata/android/en-US/images/phoneScreenshots/5_en-US.png" width="30%">
 </div>
