@@ -58,7 +58,6 @@
 
         <activity
             android:name=".activities.DocumentOpenActivity"
-            android:excludeFromRecents="true"
             android:exported="true"
             android:theme="@style/TranslucentTheme">
             <intent-filter>
@@ -75,6 +74,8 @@
                 <data android:mimeType="application/yaml" />
                 <data android:mimeType="application/x-yaml" />
                 <data android:mimeType="application/toml" />
+                <data android:mimeType="application/x-tex" />
+                <data android:mimeType="application/octet-stream" />
             </intent-filter>
         </activity>
 

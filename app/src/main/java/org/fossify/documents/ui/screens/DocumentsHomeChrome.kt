@@ -1,5 +1,4 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
-@file:Suppress("FunctionNaming", "MagicNumber")
 
 package org.fossify.documents.ui.screens
 
@@ -48,7 +47,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import org.fossify.commons.compose.components.SimpleDropDownMenuItem
 import org.fossify.commons.compose.theme.SimpleTheme
 import org.fossify.documents.R
 import org.fossify.documents.models.DocumentFilter
@@ -201,23 +199,23 @@ internal fun DocumentsOverflowMenu(
             modifier = Modifier.widthIn(min = DocumentsMenuMinWidth),
             offset = DocumentsEndMenuOffset,
         ) {
-            SimpleDropDownMenuItem(
-                text = org.fossify.commons.R.string.settings,
+            DropdownMenuItem(
+                text = { Text(stringResource(org.fossify.commons.R.string.settings)) },
                 onClick = {
                     visible = false
                     actions.openSettings()
                 },
             )
-            SimpleDropDownMenuItem(
-                text = org.fossify.commons.R.string.about,
+            DropdownMenuItem(
+                text = { Text(stringResource(org.fossify.commons.R.string.about)) },
                 onClick = {
                     visible = false
                     actions.openAbout()
                 },
             )
             if (hasDocuments) {
-                SimpleDropDownMenuItem(
-                    text = R.string.clear_recent_documents,
+                DropdownMenuItem(
+                    text = { Text(stringResource(R.string.clear_recent_documents)) },
                     onClick = {
                         visible = false
                         actions.clearRecentDocuments()

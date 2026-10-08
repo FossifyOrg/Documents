@@ -5,7 +5,7 @@ detekt = "1.23.8"
 detektCompose = "0.4.28"
 #Fossify
 commons = "6.2.0"
-androidPdfViewer = "3.2.16"
+androidPdfViewer = "a41e24cc90"
 javaMammoth = "1.12.1"
 commonmark = "0.30.0"
 jsoup = "1.23.2"
@@ -20,7 +20,7 @@ androidx-lifecycle = "2.10.0"
 junit = "4.13.2"
 #Gradle
 gradlePlugins-agp = "9.4.1"
-app-build-compileSDKVersion = "36"
+app-build-compileSDKVersion = "37"
 app-build-targetSDK = "36"
 app-build-minimumSDK = "26"
 app-build-javaVersion = "VERSION_17"
@@ -30,7 +30,7 @@ app-build-kotlinJVMTarget = "17"
 compose-detekt = { module = "io.nlopez.compose.rules:detekt", version.ref = "detektCompose" }
 #Fossify
 fossify-commons = { module = "org.fossify:commons", version.ref = "commons" }
-android-pdf-viewer = { module = "com.github.Infomaniak:android-pdfview", version.ref = "androidPdfViewer" }
+android-pdf-viewer = { module = "com.github.naveensingh:android-pdfview", version.ref = "androidPdfViewer" }
 java-mammoth = { module = "org.fossify:java-mammoth", version.ref = "javaMammoth" }
 commonmark = { module = "org.commonmark:commonmark", version.ref = "commonmark" }
 commonmark-autolink = { module = "org.commonmark:commonmark-ext-autolink", version.ref = "commonmark" }

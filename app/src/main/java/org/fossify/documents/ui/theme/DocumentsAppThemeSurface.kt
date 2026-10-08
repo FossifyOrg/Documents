@@ -1,5 +1,3 @@
-@file:Suppress("FunctionNaming")
-
 package org.fossify.documents.ui.theme
 
 import androidx.compose.material3.MaterialTheme
