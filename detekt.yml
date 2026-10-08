@@ -53,11 +53,11 @@ naming:
     functionPattern: "[a-z][A-Za-z0-9]*"
 
 Compose: # io.nlopez.compose.rules
-  ComposableParametersOrdering:
+  ComposableParamOrder:
     active: true
-  ModifierDefaultValue:
+  ModifierMissing:
     active: true
-  MissingModifierDefaultValue:
+  ModifierWithoutDefault:
     active: true
-  PublicComposablePreview:
+  PreviewPublic:
     active: true
