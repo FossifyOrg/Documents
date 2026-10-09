@@ -94,4 +94,11 @@
     <string name="reset_zoom">重設縮放</string>
     <string name="zoom_in">放大</string>
     <string name="zoom_out">縮小</string>
+    <string name="save_a_copy">另存副本</string>
+    <string name="edit_a_copy">編輯副本</string>
+    <string name="reopen_to_edit">重新開啟以進行編輯</string>
+    <string name="reopen_to_edit_hint">再次選擇此文件以請求儲存變更的權限。</string>
+    <string name="copy_opened">副本已儲存並開啟。</string>
+    <string name="pdf_page_navigation">第 %1$d 頁，共 %2$d 頁。前往此頁。</string>
+    <string name="go_to_page">前往此頁</string>
 </resources>
