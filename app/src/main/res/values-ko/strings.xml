@@ -104,7 +104,7 @@
     <string name="pdf_page_range">페이지(1–%1$d)</string>
     <string name="pdf_dark_pages">페이지 색 반전</string>
     <string name="pdf_page_indicator">스크롤 중 페이지 번호 표시</string>
-    <string name="pdf_contents">컨텐츠</string>
+    <string name="pdf_contents">콘텐츠</string>
     <string name="pdf_no_text">이 PDF에 검색 가능한 텍스트가 없습니다.</string>
     <string name="pdf_search_failed">검색을 완료하지 못했습니다.</string>
     <string name="pdf_reading">PDF 읽기</string>
