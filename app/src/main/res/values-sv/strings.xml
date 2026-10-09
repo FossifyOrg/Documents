@@ -98,4 +98,6 @@
     <string name="reset_zoom">Återställ zoomning</string>
     <string name="zoom_in">Zooma in</string>
     <string name="zoom_out">Zooma ut</string>
+    <string name="save_a_copy">Spara en kopia</string>
+    <string name="edit_a_copy">Redigera en kopia</string>
 </resources>
