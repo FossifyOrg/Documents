@@ -101,4 +101,11 @@
     <string name="copy_opened">副本已儲存並開啟。</string>
     <string name="pdf_page_navigation">第 %1$d 頁，共 %2$d 頁。前往此頁。</string>
     <string name="go_to_page">前往此頁</string>
+    <string name="pdf_page_range">頁面 (1–%1$d)</string>
+    <string name="pdf_dark_pages">黑暗的頁面</string>
+    <string name="pdf_page_indicator">副本已儲存並開啟。</string>
+    <string name="pdf_contents">內容</string>
+    <string name="pdf_no_text">此 PDF 文件不包含可搜尋的文字。</string>
+    <string name="pdf_search_failed">搜尋失敗。</string>
+    <string name="pdf_reading">PDF 閲讀</string>
 </resources>
