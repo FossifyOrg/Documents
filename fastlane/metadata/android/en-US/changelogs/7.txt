@@ -1,0 +1,20 @@
+Added:
+
+• PDF text selection and copying
+• Option for dark PDF pages
+• Option for horizontal PDF scrolling
+• PDF, DOCX, and HTML text search 
+• PDF table of contents 
+• Option to hide floating PDF page numbers 
+• Reopen to edit button for read-only files 
+• Support for editing more text formats 
+
+Changed:
+
+• Updated translations
+
+Fixed:
+
+• Fixed files opened from other apps missing from Recent apps 
+• Fixed CSV editing for files opened from other apps 
+
