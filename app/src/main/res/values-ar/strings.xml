@@ -123,7 +123,7 @@
     <string name="go_to_page">انتقل للصفحة</string>
     <string name="pdf_page_range">الصفحة (1–%1$d)</string>
     <string name="pdf_dark_pages">صفحات داكنة</string>
-    <string name="pdf_page_indicator">مؤشر الصفحة العائمة</string>
+    <string name="pdf_page_indicator">مؤشر الصفحة العائم</string>
     <string name="pdf_contents">المحتويات</string>
     <string name="pdf_no_text">لا يحتوي ملف PDF هذا على نص قابل للبحث.</string>
     <string name="pdf_search_failed">تعذّر إتمام عملية البحث.</string>
