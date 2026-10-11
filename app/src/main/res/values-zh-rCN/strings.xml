@@ -94,4 +94,19 @@
     <string name="unsupported_document_type">此文档类型尚不支持。</string>
     <string name="adjust_search_or_filters">尝试不同的搜索或筛选。</string>
     <string name="no_recent_documents_hint">您打开的文档将显示在此处。</string>
+    <string name="save_a_copy">保存副本</string>
+    <string name="edit_a_copy">编辑副本</string>
+    <string name="reopen_to_edit">重新打开进行编辑</string>
+    <string name="reopen_to_edit_hint">再次选中该文件请求将更改保存到这个文件的权限。</string>
+    <string name="copy_opened">复制已保存的和已打开的</string>
+    <string name="pdf_page_navigation">%2$d 页中的第 %1$d 页。转到页面。</string>
+    <string name="go_to_page">转到页面</string>
+    <string name="pdf_page_range">页面 (1–%1$d)</string>
+    <string name="pdf_dark_pages">深色页面</string>
+    <string name="pdf_page_indicator">浮动的页面指示器</string>
+    <string name="pdf_contents">内容</string>
+    <string name="pdf_no_text">这个 PDF 没有可搜索的文本。</string>
+    <string name="pdf_search_failed">无法完成搜索。</string>
+    <string name="pdf_reading">PDF 阅读</string>
+    <string name="pdf_horizontal_paging">水平滚动 PDF</string>
 </resources>
