@@ -8,7 +8,7 @@
     <string name="clear_selection">Vymazat výběr</string>
     <string name="could_not_open_document">Nepodařilo se otevřít tento dokument.</string>
     <string name="could_not_open_folder">Zkontrolujte, zda je tato složka dostupná, poté to zkuste znovu.</string>
-    <string name="could_not_save_document">Nepodařil o se uložit tento dokument.</string>
+    <string name="could_not_save_document">Nepodařilo se uložit tento dokument.</string>
     <string name="document">Dokument</string>
     <string name="document_too_large">Tento dokument je příliš velký k otevření jako text.</string>
     <string name="document_too_large_to_view">Tento dokument je příliš velký na zobrazení.</string>
@@ -55,7 +55,7 @@
     <string name="last_opened_value">Otevřeno %1$s</string>
     <string name="no_documents_found">Nenalezeny žádné dokumenty</string>
     <string name="no_favorites_empty_hint">Přidejte si dokumenty do oblíbených pro jednoduchý přístup k nim.</string>
-    <string name="no_favorites_found">Nenalezenu žádné oblíbené</string>
+    <string name="no_favorites_found">Nenalezeny žádné oblíbené</string>
     <string name="no_folders_found">Nenalezeny žádné složky</string>
     <string name="no_results_found">Nenalezeny žádné výsledky</string>
     <string name="no_recent_documents">Nenalezeny žádné nedávné dokumenty</string>
