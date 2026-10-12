@@ -98,7 +98,7 @@
     <string name="edit_a_copy">编辑副本</string>
     <string name="reopen_to_edit">重新打开进行编辑</string>
     <string name="reopen_to_edit_hint">再次选中该文件请求将更改保存到这个文件的权限。</string>
-    <string name="copy_opened">复制已保存的和已打开的</string>
+    <string name="copy_opened">副本已保存并打开</string>
     <string name="pdf_page_navigation">%2$d 页中的第 %1$d 页。转到页面。</string>
     <string name="go_to_page">转到页面</string>
     <string name="pdf_page_range">页面 (1–%1$d)</string>
