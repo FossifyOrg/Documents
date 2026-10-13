@@ -1,3 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="could_not_save_document">Não foi possível guardar o documento</string>
+    <string name="saved">Guardado</string>
+    <string name="unsaved_changes">Alterações não guardadas</string>
+    <string name="save_a_copy">Guardar uma cópia</string>
 </resources>
