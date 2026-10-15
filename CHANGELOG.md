@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.1] - 2026-10-15
+### Changed
+- Updated translations
+
 ## [1.1.0] - 2026-10-10
 ### Added
 - PDF text selection and copying
@@ -43,7 +47,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#79]: https://github.com/FossifyOrg/Documents/issues/79
 [#87]: https://github.com/FossifyOrg/Documents/issues/87
 
-[Unreleased]: https://github.com/FossifyOrg/Documents/compare/1.1.0...HEAD
+[Unreleased]: https://github.com/FossifyOrg/Documents/compare/1.1.1...HEAD
+[1.1.1]: https://github.com/FossifyOrg/Documents/compare/1.1.0...1.1.1
 [1.1.0]: https://github.com/FossifyOrg/Documents/compare/1.0.1...1.1.0
 [1.0.1]: https://github.com/FossifyOrg/Documents/compare/1.0.0...1.0.1
 [1.0.0]: https://github.com/FossifyOrg/Documents/releases/tag/1.0.0
