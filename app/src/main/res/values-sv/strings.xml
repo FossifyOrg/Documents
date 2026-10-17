@@ -101,4 +101,16 @@
     <string name="save_a_copy">Spara en kopia</string>
     <string name="edit_a_copy">Redigera en kopia</string>
     <string name="reopen_to_edit">Öppna igen för redigering</string>
+    <string name="reopen_to_edit_hint">Välj den här filen igen för att begära behörighet att spara ändringar i den.</string>
+    <string name="copy_opened">Kopian har sparats och öppnats</string>
+    <string name="pdf_page_navigation">Sida %1$d av %2$d. Gå till sidan.</string>
+    <string name="go_to_page">Gå till sidan</string>
+    <string name="pdf_page_range">Sida (1–%1$d)</string>
+    <string name="pdf_dark_pages">Mörka sidor</string>
+    <string name="pdf_page_indicator">Flytande sidindikator</string>
+    <string name="pdf_contents">Innehåll</string>
+    <string name="pdf_no_text">Den här PDF-filen innehåller ingen sökbar text.</string>
+    <string name="pdf_search_failed">Det gick inte att slutföra sökningen.</string>
+    <string name="pdf_reading">PDF-läsning</string>
+    <string name="pdf_horizontal_paging">Bläddra vågrätt i PDF-filer</string>
 </resources>
