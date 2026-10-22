@@ -14,7 +14,7 @@ internal enum class MarkdownEditAction {
     Code,
 }
 
-internal fun TextFieldValue.applyMarkdownAction(action: MarkdownEditAction): TextFieldValue {
+private fun TextFieldValue.applyMarkdownAction(action: MarkdownEditAction): TextFieldValue {
     return when (action) {
         MarkdownEditAction.Heading -> toggleHeading()
         MarkdownEditAction.Bold -> wrapSelection("**", "**", "bold")
@@ -43,8 +43,9 @@ private fun TextFieldValue.wrapSelection(
     suffix: String,
     placeholder: String,
 ): TextFieldValue {
-    val range = selection.normalizedBounds()
-    val selectedText = text.substring(range.start, range.end)
+    val start = selection.min
+    val end = selection.max
+    val selectedText = text.substring(start, end)
     val selectionCanContainMarkers = selectedText.length >= prefix.length + suffix.length
     val selectionStartsWithPrefix = selectedText.startsWith(prefix)
     val selectionEndsWithSuffix = selectedText.endsWith(suffix)
@@ -53,15 +54,15 @@ private fun TextFieldValue.wrapSelection(
             .removePrefix(prefix)
             .removeSuffix(suffix)
         return TextFieldValue(
-            text = text.replaceRange(range.start, range.end, replacement),
-            selection = TextRange(range.start, range.start + replacement.length),
+            text = text.replaceRange(start, end, replacement),
+            selection = TextRange(start, start + replacement.length),
         )
     }
 
-    val outerStart = range.start - prefix.length
-    val outerEnd = range.end + suffix.length
+    val outerStart = start - prefix.length
+    val outerEnd = end + suffix.length
     val hasOuterPrefix = outerStart >= 0 && text.regionMatches(outerStart, prefix, 0, prefix.length)
-    val hasOuterSuffix = outerEnd <= text.length && text.regionMatches(range.end, suffix, 0, suffix.length)
+    val hasOuterSuffix = outerEnd <= text.length && text.regionMatches(end, suffix, 0, suffix.length)
     if (hasOuterPrefix && hasOuterSuffix) {
         return TextFieldValue(
             text = text.replaceRange(outerStart, outerEnd, selectedText),
@@ -71,27 +72,23 @@ private fun TextFieldValue.wrapSelection(
 
     val content = selectedText.ifEmpty { placeholder }
     val replacement = prefix + content + suffix
-    val newText = text.replaceRange(range.start, range.end, replacement)
+    val newText = text.replaceRange(start, end, replacement)
     val newSelection = if (selectedText.isEmpty()) {
-        TextRange(range.start + prefix.length, range.start + prefix.length + placeholder.length)
+        TextRange(start + prefix.length, start + prefix.length + placeholder.length)
     } else {
-        TextRange(range.start, range.start + replacement.length)
+        TextRange(start, start + replacement.length)
     }
 
     return TextFieldValue(newText, selection = newSelection)
 }
 
-private fun TextFieldValue.prefixSelectedLines(
-    prefix: String,
-    transformLine: (String) -> String = { it },
-): TextFieldValue {
+private fun TextFieldValue.prefixSelectedLines(prefix: String): TextFieldValue {
     return transformSelectedLines { lines ->
         lines.map { line ->
-            val transformed = transformLine(line)
-            if (transformed.startsWith(prefix)) {
-                transformed.removePrefix(prefix)
+            if (line.startsWith(prefix)) {
+                line.removePrefix(prefix)
             } else {
-                prefix + transformed
+                prefix + line
             }
         }
     }
@@ -122,15 +119,16 @@ private fun TextFieldValue.toggleNumberedList(): TextFieldValue {
 private fun TextFieldValue.transformSelectedLines(
     transform: (List<String>) -> List<String>,
 ): TextFieldValue {
-    val range = selection.normalizedBounds()
-    val lineStart = if (range.start == 0) {
+    val start = selection.min
+    val end = selection.max
+    val lineStart = if (start == 0) {
         0
     } else {
-        text.lastIndexOf('\n', range.start - 1).let { index ->
+        text.lastIndexOf('\n', start - 1).let { index ->
             if (index == -1) 0 else index + 1
         }
     }
-    val lineEnd = text.indexOf('\n', range.end).let { index ->
+    val lineEnd = text.indexOf('\n', end).let { index ->
         if (index == -1) text.length else index
     }
     val selectedLines = text.substring(lineStart, lineEnd)
@@ -140,31 +138,18 @@ private fun TextFieldValue.transformSelectedLines(
 
     return TextFieldValue(
         text = newText,
-        selection = TextRange((range.end + delta).coerceIn(0, newText.length)),
+        selection = TextRange((end + delta).coerceIn(0, newText.length)),
     )
 }
 
 private fun TextFieldValue.codeSelection(): TextFieldValue {
-    val range = selection.normalizedBounds()
-    val selectedText = text.substring(range.start, range.end)
+    val selectedText = text.substring(selection.min, selection.max)
     return if ('\n' in selectedText) {
         wrapSelection("```\n", "\n```", selectedText)
     } else {
         wrapSelection("`", "`", "code")
     }
 }
-
-private fun TextRange.normalizedBounds(): SelectionBounds {
-    return SelectionBounds(
-        start = minOf(start, end),
-        end = maxOf(start, end),
-    )
-}
-
-private data class SelectionBounds(
-    val start: Int,
-    val end: Int,
-)
 
 private val headingPrefixRegex = Regex("^#{1,6}\\s*")
 private val numberedListPrefixRegex = Regex("^\\d+[.)]\\s+")

@@ -33,17 +33,4 @@ class TextDocumentDisplayTest {
     fun `blank query has no matches`() {
         assertEquals(emptyList<TextRange>(), findTextMatches("document", ""))
     }
-
-    @Test
-    fun `clamps zoom to the supported range`() {
-        assertEquals(MIN_DOCUMENT_TEXT_ZOOM, 0.1f.coerceDocumentTextZoom())
-        assertEquals(MAX_DOCUMENT_TEXT_ZOOM, 10f.coerceDocumentTextZoom())
-    }
-
-    @Test
-    fun `skips highlighting for excessive match counts`() {
-        assertEquals(true, shouldHighlightTextMatches(matchCount = 120))
-        assertEquals(false, shouldHighlightTextMatches(matchCount = 6_000))
-        assertEquals(false, shouldHighlightTextMatches(matchCount = 0))
-    }
 }

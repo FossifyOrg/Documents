@@ -3,11 +3,13 @@ package org.fossify.documents.helpers
 import android.content.Context
 import androidx.core.content.edit
 import org.fossify.commons.helpers.BaseConfig
+import org.fossify.documents.models.DocumentViewMode
 
 class Config(context: Context) : BaseConfig(context) {
     companion object {
         fun newInstance(context: Context) = Config(context)
 
+        private const val DOCUMENT_VIEW_MODE = "document_view_mode"
         private const val DOCUMENTS = "documents"
         private const val DOCUMENT_FOLDERS = "document_folders"
         private const val EDITOR_TEXT_ZOOM = "editor_text_zoom"
@@ -17,6 +19,12 @@ class Config(context: Context) : BaseConfig(context) {
         private const val REMEMBER_PDF_PAGE = "remember_pdf_page"
         private const val SHOW_FILE_LOCATIONS = "show_file_locations"
     }
+
+    var documentViewMode: DocumentViewMode
+        get() = DocumentViewMode.entries.firstOrNull {
+            it.name == prefs.getString(DOCUMENT_VIEW_MODE, null)
+        } ?: DocumentViewMode.LIST
+        set(value) = prefs.edit { putString(DOCUMENT_VIEW_MODE, value.name) }
 
     var documentsJson: String
         get() = prefs.getString(DOCUMENTS, "[]")!!
