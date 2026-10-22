@@ -26,6 +26,7 @@ import kotlinx.coroutines.withContext
 import org.fossify.documents.R
 import org.fossify.documents.data.DocumentFolderContent
 import org.fossify.documents.data.DocumentsRepository
+import org.fossify.documents.helpers.Config
 import org.fossify.documents.models.DocumentEntry
 import org.fossify.documents.models.DocumentFilter
 import org.fossify.documents.models.DocumentFolder
@@ -40,10 +41,11 @@ class DocumentsViewModel(
     application: Application,
 ) : AndroidViewModel(application) {
     private val repository = DocumentsRepository(application)
+    private val config = Config.newInstance(application)
     private val query = MutableStateFlow("")
     private val selectedFilters = MutableStateFlow<Set<DocumentFilter>>(emptySet())
     private val selectedSort = MutableStateFlow(DocumentSort.RECENT)
-    private val selectedViewMode = MutableStateFlow(DocumentViewMode.LIST)
+    private val selectedViewMode = MutableStateFlow(config.documentViewMode)
     private val homeSection = MutableStateFlow(DocumentsHomeSection.HOME)
     private val folderPath = MutableStateFlow<List<DocumentFolder>>(emptyList())
     private val folderRefresh = MutableStateFlow(0L)
@@ -229,7 +231,7 @@ class DocumentsViewModel(
     }.stateIn(
         scope = viewModelScope,
         started = SharingStarted.WhileSubscribed(UI_STATE_STOP_TIMEOUT_MS),
-        initialValue = DocumentsUiState()
+        initialValue = DocumentsUiState(selectedViewMode = config.documentViewMode)
     )
 
     fun onFilterSelected(filter: DocumentFilter) {
@@ -245,7 +247,10 @@ class DocumentsViewModel(
         viewMode: DocumentViewMode? = null,
     ) {
         sort?.let { selectedSort.value = it }
-        viewMode?.let { selectedViewMode.value = it }
+        viewMode?.let {
+            config.documentViewMode = it
+            selectedViewMode.value = it
+        }
     }
 
     fun showSection(section: DocumentsHomeSection, folder: DocumentFolder? = null) {
