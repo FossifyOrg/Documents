@@ -1,3 +1,4 @@
+import com.android.build.api.variant.FilterConfiguration
 import java.io.FileInputStream
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
@@ -22,9 +23,12 @@ fun hasSigningVars(): Boolean {
         providers.environmentVariable("SIGNING_STORE_PASSWORD").orNull != null
 }
 
+val baseVersionCode = project.property("VERSION_CODE").toString().toInt()
+val abiCodes = mapOf("armeabi-v7a" to 1, "arm64-v8a" to 2, "x86" to 3, "x86_64" to 4)
+val abiSplits = providers.gradleProperty("ABI_SPLITS").map(String::toBoolean).getOrElse(false)
+
 base {
-    val versionCode = project.property("VERSION_CODE").toString().toInt()
-    archivesName = "documents-$versionCode"
+    archivesName = "documents-$baseVersionCode"
 }
 
 android {
@@ -36,7 +40,7 @@ android {
         minSdk = project.libs.versions.app.build.minimumSDK.get().toInt()
         targetSdk = project.libs.versions.app.build.targetSDK.get().toInt()
         versionName = project.property("VERSION_NAME").toString()
-        versionCode = project.property("VERSION_CODE").toString().toInt()
+        versionCode = baseVersionCode
     }
 
     signingConfigs {
@@ -93,6 +97,15 @@ android {
         register("gplay")
     }
 
+    splits {
+        abi {
+            isEnable = abiSplits
+            reset()
+            include(*abiCodes.keys.toTypedArray())
+            isUniversalApk = true
+        }
+    }
+
     compileOptions {
         val currentJavaVersionFromLibs = JavaVersion.valueOf(libs.versions.app.build.javaVersion.get())
         sourceCompatibility = currentJavaVersionFromLibs
@@ -125,6 +138,24 @@ android {
     packaging {
         jniLibs.excludes += "**/x86_64/libc++_shared.so" // unused upstream residue
         resources.excludes += "META-INF/versions/9/OSGI-INF/MANIFEST.MF"
+    }
+}
+
+if (abiSplits) {
+    androidComponents {
+        onVariants(selector().withBuildType("release").withFlavor("variants" to "foss")) { variant ->
+            variant.outputs.forEach { output ->
+                val abi = output.filters.find {
+                    it.filterType == FilterConfiguration.FilterType.ABI
+                }?.identifier
+                val versionCode = baseVersionCode + (abiCodes[abi] ?: 0)
+                val abiSuffix = abi?.let { "-$it" }.orEmpty()
+                val unsignedSuffix =
+                    if (output.outputFileName.get().endsWith("-unsigned.apk")) "-unsigned" else ""
+                output.versionCode.set(versionCode)
+                output.outputFileName.set("documents-$versionCode-foss${abiSuffix}-release${unsignedSuffix}.apk")
+            }
+        }
     }
 }
 
