@@ -84,7 +84,6 @@
     <string name="remember_pdf_page">تذكّر صفحة PDF</string>
     <string name="remove_from_documents">أزِل من المستندات</string>
     <string name="retry">أعِد المحاولة</string>
-    <string name="share_documents">شارك المستندات</string>
     <string name="some_documents_no_longer_available">لم تعُد بعض المستندات المحدّدة متاحة.</string>
     <string name="saved">حُفظ</string>
     <string name="search_match_count">%1$d / %2$d</string>

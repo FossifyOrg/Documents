@@ -67,7 +67,6 @@
     <string name="remember_pdf_page">Se souvenir de la page PDF</string>
     <string name="remove_from_documents">Enlever des Documents</string>
     <string name="retry">Réessayer</string>
-    <string name="share_documents">Partager les documents</string>
     <string name="some_documents_no_longer_available">Certains des documents sélectionnés ne sont plus disponibles.</string>
     <string name="saved">Sauvegardé</string>
     <string name="search_match_count">%1$d / %2$d</string>

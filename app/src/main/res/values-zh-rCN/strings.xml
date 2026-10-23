@@ -8,7 +8,6 @@
     <string name="no_results_found">未找到结果</string>
     <string name="search_text_in_document">在文档中搜索文本</string>
     <string name="page_count_value">%1$d / %2$d</string>
-    <string name="share_documents">分享文档</string>
     <string name="could_not_save_document">无法保存此文档。</string>
     <string name="last_opened_value">已打开 %1$s</string>
     <string name="saved">已保存</string>

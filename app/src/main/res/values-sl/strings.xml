@@ -78,7 +78,6 @@
     <string name="remember_pdf_page">Zapomni si stran PDF-ja</string>
     <string name="remove_from_documents">Odstrani iz Dokumentov</string>
     <string name="retry">Poskusi znova</string>
-    <string name="share_documents">Deli dokumente</string>
     <string name="some_documents_no_longer_available">Nekateri izbrani dokumenti niso več na voljo.</string>
     <string name="saved">Shranjeno</string>
     <string name="search_match_count">%1$d / %2$d</string>
