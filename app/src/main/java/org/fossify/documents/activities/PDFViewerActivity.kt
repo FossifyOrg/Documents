@@ -27,6 +27,7 @@ import org.fossify.commons.extensions.toast
 import org.fossify.documents.R
 import org.fossify.documents.data.DocumentsRepository
 import org.fossify.documents.extensions.config
+import org.fossify.documents.extensions.shareDocuments
 import org.fossify.documents.helpers.PdfDocumentAdapter
 import org.fossify.documents.ui.screens.PdfDocumentScreen
 import org.fossify.documents.ui.theme.DocumentsAppThemeSurface
@@ -94,6 +95,7 @@ class PDFViewerActivity : BaseComposeActivity() {
                     isCopying = viewModel.isCopying,
                     onPrint = { printPdf(uri, title) },
                     onOpenWith = { openWith(uri) },
+                    onShare = { shareDocuments(listOf(uri), "application/pdf") },
                     onFullscreenChange = ::setFullscreen,
                     nightMode = nightMode,
                     showPageIndicator = showPageIndicator,
