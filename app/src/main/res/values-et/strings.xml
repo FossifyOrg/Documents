@@ -72,7 +72,6 @@
     <string name="remember_pdf_page">Jäta PDF-faili kuvatud asukoht meelde</string>
     <string name="remove_from_documents">Eemalda Dokumentide loendist</string>
     <string name="retry">Proovi uuesti</string>
-    <string name="share_documents">Jaga dokumente</string>
     <string name="some_documents_no_longer_available">Mõned valitud dokumendid pole enam saadaval.</string>
     <string name="saved">Salvestatud</string>
     <string name="search_match_count">%1$d / %2$d</string>

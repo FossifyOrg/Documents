@@ -69,7 +69,6 @@
     <string name="remember_pdf_page">記憶 PDF 頁碼</string>
     <string name="remove_from_documents">從文件移除</string>
     <string name="retry">重試</string>
-    <string name="share_documents">分享文件</string>
     <string name="some_documents_no_longer_available">無法使用選取的部分文件。</string>
     <string name="saved">已儲存</string>
     <string name="search_match_count">%1$d / %2$d</string>

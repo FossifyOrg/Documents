@@ -78,7 +78,6 @@
     <string name="remember_pdf_page">Zapamatovat si stránku PDF</string>
     <string name="remove_from_documents">Odstranit z Dokumentů</string>
     <string name="retry">Zkusit znovu</string>
-    <string name="share_documents">Sdílet dokumenty</string>
     <string name="some_documents_no_longer_available">Některé vybrané dokumenty již nejsou dostupné.</string>
     <string name="saved">Uloženo</string>
     <string name="search_match_count">%1$d / %2$d</string>

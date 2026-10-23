@@ -78,7 +78,6 @@
     <string name="remember_pdf_page">Запам’ятати сторінку PDF</string>
     <string name="remove_from_documents">Видалити з Документів</string>
     <string name="retry">Повторити</string>
-    <string name="share_documents">Поділитися документами</string>
     <string name="some_documents_no_longer_available">Деякі вибрані документи більше недоступні.</string>
     <string name="saved">Збережено</string>
     <string name="search_match_count">%1$d / %2$d</string>

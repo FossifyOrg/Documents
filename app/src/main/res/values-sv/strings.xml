@@ -72,7 +72,6 @@
     <string name="remember_pdf_page">Kom ihåg PDF-sida</string>
     <string name="remove_from_documents">Ta bort från Dokument</string>
     <string name="retry">Försök igen</string>
-    <string name="share_documents">Dela dokument</string>
     <string name="some_documents_no_longer_available">Vissa valda dokument är inte längre tillgängliga.</string>
     <string name="saved">Sparat</string>
     <string name="search_match_count">%1$d / %2$d</string>

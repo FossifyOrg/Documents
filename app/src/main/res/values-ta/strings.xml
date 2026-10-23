@@ -72,7 +72,6 @@
     <string name="remember_pdf_page">PDF பக்கத்தை நினைவில் கொள்க</string>
     <string name="remove_from_documents">ஆவணங்களிலிருந்து அகற்று</string>
     <string name="retry">மீண்டும் முயற்சிக்கவும்</string>
-    <string name="share_documents">ஆவணங்களைப் பகிரவும்</string>
     <string name="some_documents_no_longer_available">தேர்ந்தெடுக்கப்பட்ட சில ஆவணங்கள் இனி கிடைக்காது.</string>
     <string name="saved">சேமிக்கப்பட்டது</string>
     <string name="search_match_count">%1$d / %2$d</string>
