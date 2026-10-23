@@ -20,6 +20,7 @@ import androidx.compose.material.icons.filled.Print
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.ZoomIn
 import androidx.compose.material.icons.filled.ZoomOut
+import androidx.compose.material.icons.outlined.Share
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -60,6 +61,7 @@ internal fun PdfTopBar(
     onOutline: () -> Unit,
     hasOutline: Boolean,
     onPrint: () -> Unit,
+    onShare: () -> Unit,
     menu: @Composable () -> Unit,
     isLoaded: Boolean,
 ) {
@@ -98,6 +100,9 @@ internal fun PdfTopBar(
             } else {
                 IconButton(onClick = onSearch, enabled = isLoaded) {
                     Icon(Icons.Filled.Search, stringResource(R.string.search_text_in_document))
+                }
+                IconButton(onClick = onShare, enabled = isLoaded) {
+                    Icon(Icons.Outlined.Share, stringResource(org.fossify.commons.R.string.share))
                 }
                 if (hasOutline) {
                     IconButton(onClick = onOutline, enabled = isLoaded) {

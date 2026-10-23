@@ -2,15 +2,20 @@ package org.fossify.documents.extensions
 
 import android.app.Activity
 import android.content.ActivityNotFoundException
+import android.content.ClipData
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
+import android.os.TransactionTooLargeException
 import android.provider.Settings
 import androidx.annotation.RequiresApi
 import org.fossify.commons.activities.AboutActivity
 import org.fossify.commons.activities.CustomizationActivity
+import org.fossify.commons.extensions.getMimeTypeFromUri
 import org.fossify.commons.extensions.hideKeyboard
 import org.fossify.commons.extensions.openDeviceSettings
+import org.fossify.commons.extensions.showErrorToast
+import org.fossify.commons.extensions.toast
 import org.fossify.commons.helpers.APP_FAQ
 import org.fossify.commons.helpers.APP_ICON_IDS
 import org.fossify.commons.helpers.APP_LAUNCHER_NAME
@@ -22,6 +27,42 @@ import org.fossify.commons.helpers.APP_VERSION_NAME
 import org.fossify.commons.helpers.SHOW_FAQ_BEFORE_MAIL
 import org.fossify.commons.models.FAQItem
 import org.fossify.documents.R
+
+@Suppress("TooGenericExceptionCaught")
+internal fun Activity.shareDocuments(uris: List<Uri>, mimeType: String = "") {
+    if (uris.isEmpty()) return
+
+    try {
+        val contentType = mimeType.ifBlank { getMimeTypeFromUri(uris.first()) }
+            .ifBlank { "application/octet-stream" }
+        val clips = ClipData.newUri(
+            contentResolver,
+            getString(org.fossify.commons.R.string.share),
+            uris.first(),
+        ).apply {
+            uris.drop(1).forEach { addItem(ClipData.Item(it)) }
+        }
+        val intent = Intent(if (uris.size == 1) Intent.ACTION_SEND else Intent.ACTION_SEND_MULTIPLE).apply {
+            type = contentType
+            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            clipData = clips
+            if (uris.size == 1) {
+                putExtra(Intent.EXTRA_STREAM, uris.first())
+            } else {
+                putParcelableArrayListExtra(Intent.EXTRA_STREAM, ArrayList(uris))
+            }
+        }
+        startActivity(Intent.createChooser(intent, getString(org.fossify.commons.R.string.share_via)))
+    } catch (_: ActivityNotFoundException) {
+        toast(org.fossify.commons.R.string.no_app_found)
+    } catch (error: RuntimeException) {
+        if (error.cause is TransactionTooLargeException) {
+            toast(org.fossify.commons.R.string.maximum_share_reached)
+        } else {
+            showErrorToast(error)
+        }
+    }
+}
 
 internal fun Activity.startAboutActivity(
     appNameId: Int,

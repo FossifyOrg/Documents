@@ -22,6 +22,7 @@ import org.fossify.commons.extensions.showErrorToast
 import org.fossify.commons.extensions.toast
 import org.fossify.documents.data.DocumentsRepository
 import org.fossify.documents.data.isAllowedExternalDocumentLink
+import org.fossify.documents.extensions.shareDocuments
 import org.fossify.documents.models.DocumentKind
 import org.fossify.documents.ui.screens.StructuredDocumentScreen
 import org.fossify.documents.ui.theme.DocumentsAppThemeSurface
@@ -79,6 +80,7 @@ class StructuredDocumentActivity : BaseComposeActivity() {
                         null
                     },
                     onOpenWith = { openWith(uri) },
+                    onShare = { shareDocuments(listOf(uri)) },
                     onOpenLink = ::openLink,
                 )
             }

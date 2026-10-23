@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Added a share button to document readers ([#98])
+
 ### Fixed
 - Fixed list/grid view resetting when reopening the app
 
@@ -45,6 +48,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#77]: https://github.com/FossifyOrg/Documents/issues/77
 [#79]: https://github.com/FossifyOrg/Documents/issues/79
 [#87]: https://github.com/FossifyOrg/Documents/issues/87
+[#98]: https://github.com/FossifyOrg/Documents/issues/98
 
 [Unreleased]: https://github.com/FossifyOrg/Documents/compare/1.1.0...HEAD
 [1.1.0]: https://github.com/FossifyOrg/Documents/compare/1.0.1...1.1.0

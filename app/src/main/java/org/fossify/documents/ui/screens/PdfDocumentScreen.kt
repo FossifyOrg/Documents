@@ -57,6 +57,7 @@ internal fun PdfDocumentScreen(
     isCopying: Boolean,
     onPrint: () -> Unit,
     onOpenWith: () -> Unit,
+    onShare: () -> Unit,
     onFullscreenChange: (Boolean) -> Unit,
     nightMode: Boolean,
     showPageIndicator: Boolean,
@@ -196,6 +197,7 @@ internal fun PdfDocumentScreen(
                     onOutline = { showOutline = true },
                     hasOutline = bookmarks.isNotEmpty(),
                     onPrint = onPrint,
+                    onShare = onShare,
                     menu = {
                         PdfReadingMenu(
                             nightMode = nightMode,

@@ -89,7 +89,7 @@ private fun DocumentsSelectionActions(
             IconButton(onClick = { actions.onShareDocuments(uiState.selectedDocuments.distinctBy { it.uri }) }) {
                 Icon(
                     imageVector = Icons.Outlined.Share,
-                    contentDescription = stringResource(id = R.string.share_documents),
+                    contentDescription = stringResource(id = org.fossify.commons.R.string.share),
                     tint = SimpleTheme.colorScheme.primary,
                 )
             }

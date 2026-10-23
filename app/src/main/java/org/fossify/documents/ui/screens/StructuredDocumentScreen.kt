@@ -38,6 +38,7 @@ import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.outlined.Edit
+import androidx.compose.material.icons.outlined.Share
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -86,6 +87,7 @@ internal fun StructuredDocumentScreen(
     onBack: () -> Unit,
     onEdit: (() -> Unit)?,
     onOpenWith: () -> Unit,
+    onShare: () -> Unit,
     onOpenLink: (Uri) -> Unit,
 ) {
     var searchActive by rememberSaveable { mutableStateOf(false) }
@@ -115,6 +117,7 @@ internal fun StructuredDocumentScreen(
                 },
                 onEdit = onEdit,
                 onOpenWith = onOpenWith,
+                onShare = onShare,
                 scrolledColor = scrolledColor,
                 scrollBehavior = scrollBehavior,
                 statusBarColor = statusBarColor,
@@ -157,6 +160,7 @@ private fun StructuredDocumentTopBar(
     onSearch: (() -> Unit)?,
     onEdit: (() -> Unit)?,
     onOpenWith: () -> Unit,
+    onShare: () -> Unit,
     scrolledColor: Color,
     scrollBehavior: TopAppBarScrollBehavior,
     statusBarColor: Int,
@@ -209,6 +213,13 @@ private fun StructuredDocumentTopBar(
                             tint = scrolledColor,
                         )
                     }
+                }
+                IconButton(onClick = onShare) {
+                    Icon(
+                        imageVector = Icons.Outlined.Share,
+                        contentDescription = stringResource(org.fossify.commons.R.string.share),
+                        tint = scrolledColor,
+                    )
                 }
                 if (onEdit != null) {
                     IconButton(onClick = onEdit) {

@@ -1,7 +1,6 @@
 package org.fossify.documents.activities
 
 import android.content.ActivityNotFoundException
-import android.content.ClipData
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -27,6 +26,7 @@ import org.fossify.commons.helpers.LICENSE_PDF_VIEWER
 import org.fossify.commons.models.FAQItem
 import org.fossify.documents.BuildConfig
 import org.fossify.documents.R
+import org.fossify.documents.extensions.shareDocuments
 import org.fossify.documents.extensions.startAboutActivity
 import org.fossify.documents.models.DocumentEntry
 import org.fossify.documents.models.DocumentKind
@@ -241,25 +241,10 @@ class MainActivity : BaseComposeActivity() {
                 return@validateDocuments
             }
 
-            val uris = ArrayList(readable.map { it.uri.toUri() })
+            val uris = readable.map { it.uri.toUri() }
             val mimeType = readable.map { it.mimeType }.filter { it.isNotBlank() }.distinct()
                 .singleOrNull() ?: "*/*"
-            val intent = Intent(
-                if (uris.size == 1) Intent.ACTION_SEND else Intent.ACTION_SEND_MULTIPLE
-            ).apply {
-                type = mimeType
-                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-                clipData = ClipData.newUri(contentResolver, readable.first().name, uris.first()).apply {
-                    uris.drop(1).forEach { addItem(ClipData.Item(it)) }
-                }
-                if (uris.size == 1) {
-                    putExtra(Intent.EXTRA_STREAM, uris.first())
-                } else {
-                    putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris)
-                }
-            }
-
-            launchExternalIntent(Intent.createChooser(intent, getString(R.string.share_documents)))
+            shareDocuments(uris, mimeType)
         }
     }
 
