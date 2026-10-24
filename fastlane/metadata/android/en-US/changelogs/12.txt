@@ -1,0 +1,12 @@
+Added:
+
+• Added a share button to document readers 
+
+Changed:
+
+• Updated translations
+
+Fixed:
+
+• Fixed list/grid view resetting when reopening the app
+
