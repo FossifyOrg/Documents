@@ -62,10 +62,10 @@
     <string name="remember_pdf_page">จดจำหน้า PDF</string>
     <string name="remove_from_documents">นำออกจากเอกสาร</string>
     <string name="retry">ลองอีกครั้ง</string>
-    <string name="some_documents_no_longer_available">เอกสารบางรายการที่ไม่มีเลือกให้อยู่แล้ว</string>
+    <string name="some_documents_no_longer_available">เอกสารที่เลือกบางรายการไม่พร้อมใช้งานแล้ว</string>
     <string name="saved">บันทึกแล้ว</string>
     <string name="search_text_in_document">ค้นหาข้อความในเอกสาร</string>
-    <string name="search_documents">คนหาเอกสาร</string>
+    <string name="search_documents">ค้นหาเอกสาร</string>
     <plurals name="selected_count">
         <item quantity="other">เลือกแล้ว %1$d รายการ</item>
     </plurals>
