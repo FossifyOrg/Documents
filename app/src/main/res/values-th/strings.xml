@@ -16,7 +16,7 @@
     <string name="document">เอกสาร</string>
     <string name="document_too_large">เอกสารนี้ใหญ่เกินกว่าจะเปิดเป็นข้อความได้</string>
     <string name="document_too_large_to_view">เอกสารนี้ใหญ่เกินกว่าจะแสดงผลได้</string>
-    <string name="document_no_longer_available">เอกสารนี้ไม่มีให้อยู่แล้ว เปิดใหม่อีกครั้งเพื่อเรียกคืนสิทธิ์การเข้าถึง</string>
+    <string name="document_no_longer_available">เอกสารนี้ไม่พร้อมใช้งานแล้ว เปิดใหม่อีกครั้งเพื่อเรียกคืนสิทธิ์การเข้าถึง</string>
     <plurals name="document_text_chars">
         <item quantity="other">%1$d ตัวอักษร</item>
     </plurals>
