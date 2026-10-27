@@ -3,7 +3,7 @@
     <string name="app_launcher_name">Documents</string>
     <string name="adjust_search_or_filters">Essayez une autre recherche ou un autre filtre.</string>
     <string name="all_documents">Tous les documents</string>
-    <string name="clear_recent_documents">Enlever les récents</string>
+    <string name="clear_recent_documents">Oublier les fichiers récents</string>
     <string name="clear_search">Enlever la recherche</string>
     <string name="clear_selection">Enlever la sélection</string>
     <string name="could_not_open_document">Vous ne pouvez pas ouvrir ce document.</string>
@@ -71,13 +71,13 @@
     <string name="saved">Sauvegardé</string>
     <string name="search_match_count">%1$d / %2$d</string>
     <string name="search_text_in_document">Rechercher du texte dans le document</string>
-    <string name="search_documents">Rechercher dans les documents</string>
+    <string name="search_documents">Chercher un document</string>
     <plurals name="selected_count">
         <item quantity="one">%1$d sélectionné</item>
         <item quantity="many">%1$d sélectionnés</item>
         <item quantity="other">%1$d sélectionnés</item>
     </plurals>
-    <string name="show_file_locations">Montrer l\'emplacement des fichiers</string>
+    <string name="show_file_locations">Afficher l\'emplacement des fichiers</string>
     <string name="sort_name_ascending">Nom (A-Z)</string>
     <string name="sort_name_descending">Nom (Z-A)</string>
     <string name="sort_recent">Récent</string>
@@ -101,4 +101,16 @@
     <string name="filter_markdown">Markdown</string>
     <string name="previous_match">Correspondance précédente</string>
     <string name="next_match">Prochaine correspondance</string>
+    <string name="save_a_copy">Sauvegarder une copie</string>
+    <string name="edit_a_copy">Modifier une copie</string>
+    <string name="reopen_to_edit">Rouvrir pour modifier</string>
+    <string name="reopen_to_edit_hint">Sélectionnez à nouveau ce fichier pour demander la permission d\'enregistrer des changements dans celui-ci.</string>
+    <string name="copy_opened">Copie enregistrée et ouverte</string>
+    <string name="go_to_page">Aller à la page</string>
+    <string name="pdf_page_range">Page (1–%1$d)</string>
+    <string name="pdf_dark_pages">Pages sombres</string>
+    <string name="pdf_page_indicator">Indicateur de page flottant</string>
+    <string name="pdf_search_failed">Impossible d\'effectuer la recherche.</string>
+    <string name="pdf_horizontal_paging">Défilement horizontal des PDF</string>
+    <string name="pdf_reading">Lecture PDF</string>
 </resources>
