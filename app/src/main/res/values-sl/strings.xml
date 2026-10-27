@@ -105,4 +105,18 @@
     <string name="reset_zoom">Ponastavi povečavo</string>
     <string name="zoom_in">Povečaj</string>
     <string name="zoom_out">Pomanjšaj</string>
+    <string name="save_a_copy">Shrani kopijo</string>
+    <string name="edit_a_copy">Uredi kopijo</string>
+    <string name="reopen_to_edit">Za urejanje ponovno odprite</string>
+    <string name="reopen_to_edit_hint">Ponovno izberite to datoteko, da zahtevate dovoljenje za shranjevanje sprememb.</string>
+    <string name="copy_opened">Kopija shranjena in odprta</string>
+    <string name="pdf_page_navigation">Stran %1$d od %2$d. Pojdi na stran.</string>
+    <string name="go_to_page">Pojdi na stran</string>
+    <string name="pdf_page_range">Stran(1–%1$d)</string>
+    <string name="pdf_dark_pages">Temne strani</string>
+    <string name="pdf_page_indicator">Plavajoči indikator strani</string>
+    <string name="pdf_contents">Vsebina</string>
+    <string name="pdf_no_text">Ta PDF-datoteka nima besedila, ki bi ga bilo mogoče iskati.</string>
+    <string name="pdf_search_failed">Iskanja ni bilo mogoče zaključiti.</string>
+    <string name="pdf_reading">Branje PDF-datoteke</string>
 </resources>
