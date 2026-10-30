@@ -112,7 +112,7 @@
     <string name="copy_opened">Kopija shranjena in odprta</string>
     <string name="pdf_page_navigation">Stran %1$d od %2$d. Pojdi na stran.</string>
     <string name="go_to_page">Pojdi na stran</string>
-    <string name="pdf_page_range">Stran(1–%1$d)</string>
+    <string name="pdf_page_range">Stran (1–%1$d)</string>
     <string name="pdf_dark_pages">Temne strani</string>
     <string name="pdf_page_indicator">Plavajoči indikator strani</string>
     <string name="pdf_contents">Vsebina</string>
