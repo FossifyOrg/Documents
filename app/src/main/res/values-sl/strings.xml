@@ -116,8 +116,8 @@
     <string name="pdf_dark_pages">Temne strani</string>
     <string name="pdf_page_indicator">Plavajoči indikator strani</string>
     <string name="pdf_contents">Vsebina</string>
-    <string name="pdf_no_text">Ta PDF-datoteka nima besedila, ki bi ga bilo mogoče iskati.</string>
+    <string name="pdf_no_text">Ta PDF datoteka nima besedila, ki bi ga bilo mogoče iskati.</string>
     <string name="pdf_search_failed">Iskanja ni bilo mogoče zaključiti.</string>
-    <string name="pdf_reading">Branje PDF-datoteke</string>
+    <string name="pdf_reading">Branje PDF datoteke</string>
     <string name="pdf_horizontal_paging">Vodoravno pomikanje po PDF-datotekah</string>
 </resources>
