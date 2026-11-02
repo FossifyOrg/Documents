@@ -113,4 +113,7 @@
     <string name="pdf_search_failed">Impossible d\'effectuer la recherche.</string>
     <string name="pdf_horizontal_paging">Défilement horizontal des PDF</string>
     <string name="pdf_reading">Lecture PDF</string>
+    <string name="pdf_page_navigation">Page %1$d sur %2$d. Aller à la page.</string>
+    <string name="pdf_contents">Sommaire</string>
+    <string name="pdf_no_text">Ce fichier PDF ne contient pas de texte de recherche.</string>
 </resources>
