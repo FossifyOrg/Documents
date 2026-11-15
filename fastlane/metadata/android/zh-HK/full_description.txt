@@ -1,0 +1,38 @@
+Fossify Documents 是一款簡潔、注重私隱的離線文件閱讀及管理工具。輕鬆開啟 PDF、DOCX、純文字、Markdown、CSV、TSV 及 HTML 檔案，讓重要文件隨時觸手可及——絕無廣告、絕無追蹤，亦無需網絡連線。<br><br>
+
+<b>📄 輕鬆閱讀文件</b><br>
+• 開啟 PDF、DOCX、純文字、Markdown、CSV、TSV 及 HTML 文件。<br>
+• 翻閱 PDF 頁面、自由放大縮小，並使用無干擾的全螢幕檢視模式。<br>
+• 開啟受密碼保護的 PDF 檔案。<br>
+• 以簡潔、適合流動裝置的版面閱讀 DOCX 檔案。<br>
+• 在專屬表格檢視器中瀏覽 CSV 及 TSV 檔案。<br>
+• 在完全離線環境下安全檢視 HTML 文件。<br>
+• 預覽包含標題、清單、表格、連結、程式碼等格式的 Markdown 文件。<br>
+• 列印 PDF，或以其他相容的應用程式開啟文件。<br><br>
+
+<b>✍️ 建立與編輯</b><br>
+• 在 Android 支援的任何位置新增文字及 Markdown 檔案。<br>
+• 編輯現有的純文字及 Markdown 文件。<br>
+• 以純文字模式編輯 CSV 及 TSV 檔案，同時保留表格檢視器方便閱讀。<br>
+• 使用便捷的 Markdown 格式工具列，輕鬆加入標題、粗體、斜體、引用、清單及程式碼。<br>
+• 編輯時即時查看字詞及字元統計。<br><br>
+
+<b>📁 井井有條地管理文件</b><br>
+• 直接在應用程式內加入資料夾，瀏覽當中受支援的文件。<br>
+• 快速返回最近開啟的文件。<br>
+• 將重要文件加入「我的最愛」。<br>
+• 搜尋、篩選文件，並按名稱、日期或檔案大小排序。<br>
+• 在舒適的列表與格狀版面之間自由切換。<br><br>
+
+<b>🔒 注重私隱的設計</b><br>
+Fossify Documents 完全離線運作，不設任何互聯網權限。您的文件只會保留在您的裝置及您指定的儲存位置，絕無廣告、數據分析或追蹤。<br><br>
+
+<b>🎨 為您度身訂造</b><br>
+透過 Fossify 主題、顏色、圖示及字體自訂應用程式外觀。全面支援淺色與深色主題，為您的裝置帶來貼合個人風格的文書閱讀體驗。<br><br>
+
+<b>簡潔。私密。專屬於您。</b><br><br>
+
+探索更多 Fossify 應用程式：https://www.fossify.org<br>
+開放原始碼：https://www.github.com/FossifyOrg<br>
+加入 Reddit 社群：https://www.reddit.com/r/Fossify<br>
+透過 Telegram 交流：https://t.me/Fossify

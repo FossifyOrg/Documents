@@ -1,0 +1,1 @@
+離線私密閱讀 PDF、DOCX、純文字、Markdown、CSV 及 HTML 檔案。
