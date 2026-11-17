@@ -1,38 +1,38 @@
-Fossify Documents 是一款注重隱私、簡潔的離線文件檢視與管理工具，開啟 PDF、DOCX、文字文件、Markdown、CSV、TSV 和 HTML 檔案，並將它們置於隨手可及之處，沒有廣告、追蹤或網路連線權限。<br><br>
+Fossify Documents 是一款簡潔、注重隱私的離線文件閱讀與整理工具。輕鬆開啟 PDF、DOCX、純文字、Markdown、CSV、TSV 與 HTML 檔案，讓重要文件隨時觸手可及，絕無廣告、追蹤，也無需網路連線。<br><br>
 
-<b>📄 輕鬆讀取文件</b><br>
-• 開啟 PDF、DOCX、純文字、Markdown、CSV、TSV 和 HTML 文件<br>
-• PDF 頁面切換，放大或縮小，以完整全螢幕模式檢視<br>
-• 開啟受密碼保護的 PDF<br>
-• 以適合行動裝置的簡潔版面讀取 DOCX 檔案<br>
-• 以專屬表格檢視 CSV 和 TSV 檔案<br>
-• 安全地離線檢視 HTML 文件<br>
-• 預覽具有標題、清單、表格、連結、程式碼等內容的格式化 Markdown<br>
-• 列印 PDF 或以其他相容應用程式開啟文件<br><br>
+<b>📄 輕鬆閱讀各類文件</b><br>
+• 開啟 PDF、DOCX、純文字、Markdown、CSV、TSV 與 HTML 文件。<br>
+• 翻閱 PDF 頁面、自由放大縮小，並使用無干擾的全螢幕檢視模式。<br>
+• 開啟受密碼保護的 PDF 檔案。<br>
+• 以簡潔、適合行動裝置的版面閱讀 DOCX 檔案。<br>
+• 在專屬表格檢視器中瀏覽 CSV 與 TSV 檔案。<br>
+• 在完全離線環境下安全檢視 HTML 文件。<br>
+• 預覽包含標題、清單、表格、連結、程式碼等格式的 Markdown 文件。<br>
+• 列印 PDF，或以其他相容的應用程式開啟文件。<br><br>
 
 <b>✍️ 建立與編輯</b><br>
-• 在 Android 支援的任何位置建立純文字和 Markdown 文件<br>
-• 編輯現有純文字和 Markdown 文件<br>
-• 以純文字編輯 CSV 和 TSV 檔案，保留用於閱覽的表格檢視<br>
-• 使用便利的 Markdown 格式控制編修標題、粗體、斜體、引用資料、清單和程式碼<br>
-• 編輯時查看詞數和字元數<br><br>
+• 在 Android 支援的任何位置新增純文字與 Markdown 檔案。<br>
+• 編輯現有的純文字與 Markdown 文件。<br>
+• 以純文字模式編輯 CSV 與 TSV 檔案，同時保留表格檢視器方便閱讀。<br>
+• 使用便捷的 Markdown 格式控制列，輕鬆加入標題、粗體、斜體、引用、清單與程式碼。<br>
+• 編輯時即時查看字詞數與字元數統計。<br><br>
 
-<b>📁 保持井然有序</b><br>
-• 直接於應用程式內新增資料夾並瀏覽支援格式文件<br>
-• 快速返回最近開啟文件<br>
-• 將重要文件標記為最愛<br>
-• 搜尋、篩選，依據名稱、日期或檔案大小排序<br>
-• 切換合適的清單和格狀檢視模式<br><br>
+<b>📁 井然有序地整理文件</b><br>
+• 直接在應用程式內加入資料夾，瀏覽其中受支援的文件。<br>
+• 快速返回最近開啟的文件。<br>
+• 將重要文件標記為最愛。<br>
+• 搜尋、篩選文件，並依名稱、日期或檔案大小排序。<br>
+• 在舒適的清單與格狀版面之間自由切換。<br><br>
 
 <b>🔒 注重隱私的設計</b><br>
-Fossify Documents 完全離線運作，不需要任何網際網路權限，您的文件將存放於個人裝置或指定位置，沒有任何廣告、資料分析或追蹤。<br><br>
+Fossify Documents 完全離線運作，不要求任何網際網路權限。您的文件只會保留在您的裝置及您指定的儲存位置，絕無廣告、資料分析或追蹤。<br><br>
 
-<b>🎨 為您量身訂作</b><br>
-透過 Fossify 主題、色彩、圖示和字體自訂應用程式外觀，完整支援淺色與深色模式，創造融入您裝置特色的文書體驗。<br><br>
+<b>🎨 為您量身打造</b><br>
+透過 Fossify 主題、色彩、圖示與字體自訂應用程式外觀。完整支援淺色與深色主題，為您的裝置帶來貼合個人風格的文書閱讀體驗。<br><br>
 
-<b>簡單。隱私。您做主</b><br><br>
+<b>簡潔。私密。專屬於您。</b><br><br>
 
 探索更多 Fossify 應用程式：https://www.fossify.org<br>
 開放原始碼：https://www.github.com/FossifyOrg<br>
 加入 Reddit 社群：https://www.reddit.com/r/Fossify<br>
-和 Telegram 連線：https://t.me/Fossify
+透過 Telegram 交流：https://t.me/Fossify
