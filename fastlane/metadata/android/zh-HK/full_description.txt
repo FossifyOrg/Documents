@@ -1,4 +1,4 @@
-Fossify Documents 是一款簡潔、注重私隱的離線文件閱讀及管理工具。輕鬆開啟 PDF、DOCX、純文字、Markdown、CSV、TSV 及 HTML 檔案，讓重要文件隨時觸手可及——絕無廣告、絕無追蹤，亦無需網絡連線。<br><br>
+Fossify Documents 是一款簡潔、注重私隱的離線文件閱讀及管理工具。輕鬆開啟 PDF、DOCX、純文字、Markdown、CSV、TSV 及 HTML 檔案，讓重要文件隨時觸手可及，絕無廣告、追蹤，亦無需網絡連線。<br><br>
 
 <b>📄 輕鬆閱讀文件</b><br>
 • 開啟 PDF、DOCX、純文字、Markdown、CSV、TSV 及 HTML 文件。<br>
