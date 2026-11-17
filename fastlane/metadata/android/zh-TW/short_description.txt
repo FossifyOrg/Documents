@@ -1,1 +1,1 @@
-隱密地離線讀取 PDF、DOCX、文字文件、Markdown、CSV 和 HTML 檔案。
+離線私密閱讀 PDF、DOCX、純文字、Markdown、CSV 與 HTML 檔案。
